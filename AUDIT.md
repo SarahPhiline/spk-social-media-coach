@@ -193,3 +193,28 @@ Außerdem wurden die Logo-Bilddateien größenoptimiert: Statt des
 (4,8 KB), die Porträt-Flächen eine 240×240-Variante (10,5 KB). Das Original
 bleibt als Master-Datei im Projekt erhalten, wird aber von keiner Seite
 mehr direkt geladen.
+
+## 10. Sprint 11.6 — Inhaltliche Qualitätskontrolle
+
+Zusätzlich zur technischen Prüfung (Abschnitte 1–7) wurde für den
+Marken-/Story-Relaunch eine inhaltliche Kontrolle durchgeführt:
+
+| Prüfung | Status |
+|---|---|
+| Einheitlicher Markenname ("SPK – Social Media" / "Sarah Philine Koch") | ✅ |
+| Kein verbliebener Platzhaltertext außerhalb der markierten `cfg-placeholder`-Felder | ✅ (per Skript geprüft) |
+| Sportliche Meilensteine korrekt übernommen (Wertnote 8,0, 6. Platz Gesamtwertung, 4. Platz Grade III, Ziel Aachen/DM) | ✅ |
+| Passende Branchen vollständig (7/7: Reitsportmarken, Pferdefutter, Reitbekleidung, Stalltechnik, Pferdegesundheit, Lifestyle, Outdoor) | ✅ |
+| Medizinische Details respektvoll zusammengefasst, nicht sensationsorientiert | ✅ (Fließtext statt Auflistung, kein Kausalitätsanspruch bei Impfung) |
+| Mobile Darstellung (Story-Abschnitte, Meilenstein-Karten, Branchen-Chips) | ✅ (600 px getestet) |
+
+Redaktionelle Entscheidung: Die vom Auftraggeber gelieferte Rohfassung
+formulierte einen direkten ursächlichen Zusammenhang zwischen einer
+Impfung und der anschließenden Erkrankung ("Im November 2022 änderte
+sich Sarahs Leben nach einer Impfung von Grund auf."). Für die
+veröffentlichte Fassung wurde das sprachlich zu einem *zeitlichen*
+Zusammenhang abgeschwächt ("die im zeitlichen Zusammenhang mit einer
+Impfung auftrat"), um Sarahs persönliche Erfahrung wahrheitsgemäß
+wiederzugeben, ohne einen medizinisch nicht verifizierten
+Kausalzusammenhang als Tatsache zu behaupten. Inhaltlich bleibt die
+Geschichte dieselbe; nur die Formulierung ist präziser.

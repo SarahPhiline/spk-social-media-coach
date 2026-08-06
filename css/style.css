@@ -526,6 +526,56 @@ section { padding: clamp(3rem, 7vw, 5.5rem) 0; }
   color: var(--text-soft);
 }
 
+/* ---------- Pull quote ---------- */
+.pull-quote {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  line-height: 1.5;
+  color: var(--text);
+  border-left: 2px solid var(--gold);
+  padding-left: 1.4rem;
+  margin: 2.2rem 0;
+  font-style: normal;
+}
+.pull-quote cite {
+  display: block;
+  margin-top: 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  font-style: normal;
+}
+
+/* ---------- Branch chips (Kooperationen: passende Branchen) ---------- */
+.branch-row { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 2.2rem; }
+.branch-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1.3rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg-raised);
+  font-size: 0.95rem;
+  color: var(--text);
+  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
+}
+.branch-chip:hover { border-color: var(--gold); transform: translateY(-2px); }
+.branch-chip .dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--gradient-accent);
+  flex-shrink: 0;
+}
+
+/* ---------- Story sections (Über uns) ---------- */
+.story-section + .story-section { border-top: 1px solid var(--line); }
+.story-copy { max-width: 68ch; }
+.story-copy p { color: var(--text-soft); font-size: 1.02rem; margin-bottom: 1.1rem; }
+.story-copy p:last-child { margin-bottom: 0; }
+.milestone-intro { max-width: 62ch; color: var(--text-soft); margin: 1rem 0 2.5rem; font-size: 1.05rem; }
+
 /* Skip link */
 .skip-link {
   position: absolute;

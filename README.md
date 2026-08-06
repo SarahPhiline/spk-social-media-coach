@@ -157,7 +157,7 @@ Diese Website enthält für alles, was noch offen ist, weiterhin
 Lorem-Ipsum-Texte).
 
 ### Bereits ausgefüllt in `js/site-config.js`
-- [x] Firmenname (`legalName`): "Sarah Philine Koch (SPK Sozial Media)" —
+- [x] Firmenname (`legalName`): "Sarah Philine Koch (SPK – Social Media)" —
       **bitte einmal gegenprüfen**, ob diese Kombination aus bürgerlichem
       Namen und Markenbezeichnung so gewünscht ist (Begründung siehe
       Kommentar direkt in der Datei).
@@ -272,3 +272,26 @@ Der vollständige Audit von Sprint 11.1 steht in **`AUDIT.md`** (Ergebnis:
   bereits seit Sprint 11.0 im Code war, aber erst bei der Design-Abnahme
   auffiel). `.nav-cta.mobile` wird jetzt korrekt nur unterhalb von
   860px angezeigt.
+
+### Sprint 11.6 — Markenauftritt &amp; persönliche Story
+- `ueber-uns.html` komplett neu strukturiert mit sieben Abschnitten:
+  Wer ist Sarah Philine Koch, Sarah &amp; My Milou, Vom Springreiten zur
+  Para-Dressur, Sportliche Meilensteine, Die Entstehung von SPK – Social
+  Media, Warum Authentizität wichtiger ist als Reichweite, Vision und Ziele.
+- Persönliche/medizinische Details wurden redaktionell überarbeitet und
+  respektvoll zusammengefasst statt als Auflistung dargestellt; ein
+  möglicher Kausalzusammenhang zwischen Impfung und Erkrankung wird als
+  zeitlicher Zusammenhang beschrieben, nicht als medizinisch gesicherte
+  Tatsache behauptet.
+- `kooperationen.html`: neuer Abschnitt "Passende Branchen" mit den sieben
+  vom Sprint vorgegebenen Zielbranchen (Reitsportmarken, Pferdefutter,
+  Reitbekleidung, Stalltechnik, Pferdegesundheit, Lifestyle, Outdoor);
+  Intro-Text stärker auf Unternehmen/Sponsoren ausgerichtet.
+- Neue CSS-Komponenten: `.pull-quote` (Zitate), `.branch-row`/`.branch-chip`
+  (Branchen-Tags), `.story-section`/`.story-copy` (Fließtext-Abschnitte).
+- Markenname vereinheitlicht: "SPK – Social Media" wird an prominenten
+  Stellen (Startseite, Kooperationen, Impressum-Konfiguration) konsistent
+  ausgeschrieben verwendet; "Sarah Philine" wurde sitework durchgängig zu
+  "Sarah Philine Koch" ergänzt (Footer, Portrait-Tags, Fließtext).
+- `js/site-config.js`: `legalName` von "SPK Sozial Media" (Tippfehler aus
+  Sprint 11.1) auf "SPK – Social Media" korrigiert.

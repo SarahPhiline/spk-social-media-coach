@@ -28,11 +28,11 @@ window.SPK_CONFIG = {
 
   // Vollständiger Name / offizieller Firmenname für das Impressum.
   // Hinweis: Für Einzelunternehmer:innen ohne Handelsregistereintrag
-  // verlangt § 5 TMG den bürgerlichen Namen; der Markenname "SPK Sozial
+  // verlangt § 5 TMG den bürgerlichen Namen; der Markenname "SPK – Social
   // Media" wurde deshalb ergänzend in Klammern aufgeführt. Falls es einen
-  // eigenständigen Handelsregistereintrag unter "SPK Sozial Media" gibt,
-  // hier entsprechend anpassen.
-  legalName: "Sarah Philine Koch (SPK Sozial Media)",
+  // eigenständigen Handelsregistereintrag unter diesem Namen gibt, hier
+  // entsprechend anpassen.
+  legalName: "Sarah Philine Koch (SPK – Social Media)",
 
   // Vertretungsberechtigte Person (bei Einzelunternehmen meist identisch
   // mit legalName).
