@@ -168,17 +168,12 @@ Sprint-Vorgabe auf externe Informationen bzw. sind bewusst optional:
 
 - Echter Meta-Verifizierungscode (wird erst nach Start der Verifizierung
   durch Meta bereitgestellt).
-- Telefonnummer, optional (`js/site-config.js`).
+- Telefonnummer, TikTok- und YouTube-Link (alle optional, `js/site-config.js`).
 - Media-Kit-PDF für die Kooperationen-Seite.
-- Vertrauensbereich auf `kooperationen.html` (Partnerlogos, Presse,
-  Kennzahlen, Kundenstimmen) — bewusst als klar erkennbare Platzhalter
-  vorbereitet, siehe Abschnitt 11.
 
 Name, Anschrift, geschäftliche E-Mail, Instagram- und Facebook-Link sowie
 die Kleinunternehmerregelung im Impressum sind seit dem Marken-Update
-bereits mit echten Daten befüllt (siehe Abschnitt 9). TikTok- und
-YouTube-Kanal wurden mit Sprint 11.7 aus der finalen Version entfernt, da
-nie befüllt (siehe Abschnitt 11).
+bereits mit echten Daten befüllt (siehe Abschnitt 9).
 
 ## 9. Marken-Update — zusätzlich gefundener und behobener Bug
 
@@ -195,8 +190,9 @@ Selektors auf `.nav-cta:not(.mobile)`. Per Screenshot bei 1440 px und
 
 Außerdem wurden die Logo-Bilddateien größenoptimiert: Statt des
 1024×1024-Originals (135 KB) laden Nav und Footer jetzt eine 120×120-Variante
-(4,8 KB). Das Original bleibt als Master-Datei im Projekt erhalten, wird
-aber von keiner Seite mehr direkt geladen.
+(4,8 KB), die Porträt-Flächen eine 240×240-Variante (10,5 KB). Das Original
+bleibt als Master-Datei im Projekt erhalten, wird aber von keiner Seite
+mehr direkt geladen.
 
 ## 10. Sprint 11.6 — Inhaltliche Qualitätskontrolle
 
@@ -222,37 +218,3 @@ Impfung auftrat"), um Sarahs persönliche Erfahrung wahrheitsgemäß
 wiederzugeben, ohne einen medizinisch nicht verifizierten
 Kausalzusammenhang als Tatsache zu behaupten. Inhaltlich bleibt die
 Geschichte dieselbe; nur die Formulierung ist präziser.
-
-## 11. Sprint 11.7 — Finale Premium-Version
-
-| Prüfung | Status |
-|---|---|
-| Hero-Bereich mit echtem Foto, Bild/Text harmonieren | ✅ (Screenshot Desktop + Mobile geprüft) |
-| Markenname "SPK – Social Media" konsistent | ✅ |
-| Sarah Philine Koch &amp; My Milou als Gesicht der Marke sichtbar (Hero, Bio, Story-Paar) | ✅ |
-| Keine erfundenen Inhalte in den Vertrauens-Platzhaltern (Partner/Presse/Stimmen) | ✅ (bewusst leere, klar markierte Slots statt fiktiver Logos/Zitate) |
-| Entwickler-Hinweise von öffentlichen Seiten entfernt | ✅ (Impressum, Datenschutz) |
-| Leere/unbefüllte Felder entfernt (TikTok, YouTube) | ✅ |
-| Buttons einheitlich (nur `btn-primary`/`btn-secondary`, keine Ad-hoc-Styles) | ✅ (per Skript geprüft) |
-| Keine Inline-Styles mehr im HTML | ✅ (letzte verbliebene Stelle durch CSS-Klasse ersetzt) |
-| Mobile Darstellung der neuen Foto-Layouts (Hero, Bio, Story-Paar) | ✅ (600 px getestet) |
-| Fotogrößen für Web vertretbar optimiert | ✅ (106–192 KB je Bild, progressive JPEGs) |
-
-**Bewusste Entscheidung zu den "Vertrauen schaffen"-Bereichen:** Der
-Sprint verlangt vorbereitete Platzhalter für Partnerlogos, Presse,
-Kennzahlen und Kundenstimmen. Diese wurden absichtlich **nicht** mit
-plausibel wirkenden, aber erfundenen Logos, Presseartikeln oder Zitaten
-gefüllt — das wäre gegenüber echten Sponsoren und Kooperationspartnern
-irreführend gewesen. Stattdessen zeigen gestrichelt umrandete Slots mit
-Beschriftungen wie "Logo folgt" oder "Platz für ein Zitat" transparent,
-dass diese Bereiche vorbereitet, aber noch nicht befüllt sind.
-
-## 12. Verzeichnis der verwendeten Fotos
-
-| Datei | Verwendung | Ursprüngliches Bild (Upload) |
-|---|---|---|
-| `assets/photos/hero-sarah-milou.jpg` | Hero, Startseite | DSC_0876.JPG |
-| `assets/photos/bio-dressage-laugh.jpg` | "Warum SPK", Startseite | 802bb388-…JPG |
-| `assets/photos/bio-grooming.jpg` | "Sarah &amp; My Milou", Über uns | IMG_7752.jpeg |
-| `assets/photos/story-jumping.jpg` | Story-Paar "Früher", Über uns | IMG_4577.JPG |
-| `assets/photos/story-dressage.jpg` | Story-Paar "Heute", Über uns | IMG_2705.jpg |

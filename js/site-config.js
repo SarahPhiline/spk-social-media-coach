@@ -47,13 +47,11 @@ window.SPK_CONFIG = {
   email: "sarah.philine.koch@icloud.com",
   phone: "", // optional, z. B. "+49 30 123456"
 
-  // Social-Media-Profile (vollständige URLs). Weitere Kanäle (z. B. TikTok,
-  // YouTube) können bei Bedarf als weiteres Feld ergänzt werden — dazu in
-  // kontakt.html einen zusätzlichen .contact-item- und .social-pill-Block
-  // nach demselben Muster wie Instagram/Facebook hinzufügen und hier das
-  // passende Feld (z. B. tiktokUrl: "https://www.tiktok.com/@...") anlegen.
+  // Social-Media-Profile (vollständige URLs)
   instagramUrl: "https://instagram.com/_sarah.philine_",
   facebookUrl: "https://facebook.com/sarahphiline.koch.7",
+  tiktokUrl: "",    // z. B. "https://www.tiktok.com/@_sarah.philine_"
+  youtubeUrl: "",   // optional
 
   // Aktuelle Domain (rein informativ, wird in der README referenziert;
   // steuert keine Tags automatisch — siehe Hinweis oben).

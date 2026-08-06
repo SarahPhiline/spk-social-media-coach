@@ -28,9 +28,9 @@ Kein Build-Schritt, kein Backend, keine Abhängigkeiten außer Google Fonts
 ├── js/main.js             Mobile-Navigation, Kontaktformular (mailto), Config-Injection, Footer-Jahr
 ├── assets/spk-logo.jpg        Original-Logo (1024×1024, Master-Datei)
 ├── assets/spk-logo-nav.jpg    Logo, klein (120×120) — für Nav/Footer
+├── assets/spk-logo-portrait.jpg  Logo, mittel (240×240) — für Porträt-Flächen
 ├── assets/favicon-16.png, favicon-32.png, apple-touch-icon.png
 ├── assets/og-image.jpg    Open-Graph-/Social-Preview-Bild (1200×630, mit echtem Logo generiert)
-├── assets/photos/         Echte Fotos von Sarah Philine Koch & My Milou (siehe Abschnitt 2)
 ├── robots.txt
 ├── sitemap.xml
 ├── audit.py               Automatisiertes Prüfskript (siehe AUDIT.md)
@@ -55,13 +55,9 @@ Funktion erfüllen als das neue Impressum/Datenschutz der Unternehmensseite.
   Rosé→Gold-Verlauf (SVG), direkt aus den beiden Schwüngen im SPK-Logo
   abgeleitet — als Divider und Kartenakzent verwendet.
 - **Logo:** Das offizielle SPK-Logo wird an allen relevanten Stellen
-  eingesetzt — Nav, Footer, Favicon (16/32/180px), Open-Graph-Bild.
-- **Fotografie:** Seit dem finalen Feinschliff (Sprint 11.7) verwendet die
-  Website ausschließlich echte Fotos von Sarah Philine Koch und My Milou
-  statt Logo-Platzhaltern — im Hero-Bereich, in den Über-uns-/Warum-SPK-
-  Porträtflächen sowie als "Früher/Heute"-Bildpaar (Springreiten →
-  Para-Dressur). Alle Fotos liegen komprimiert in `assets/photos/` (je nach
-  Einsatzort 640–900 px breit, progressive JPEGs).
+  eingesetzt — Nav, Footer, Favicon (16/32/180px), Open-Graph-Bild sowie
+  als Bildmarke in den Porträt-Flächen auf Start- und Über-uns-Seite
+  (bewusst kein Fake-Foto-Platzhalter, sondern die echte Marke).
 
 ---
 
@@ -177,31 +173,23 @@ Lorem-Ipsum-Texte).
 ### Noch offen
 - [ ] Telefonnummer, optional (`phone`) — Zeile bleibt automatisch
       ausgeblendet, bis ein Wert eingetragen wird
+- [ ] TikTok-Link, optional (`tiktokUrl`)
+- [ ] YouTube-Link, optional (`youtubeUrl`)
 - [ ] Meta-Verifizierungscode (siehe Abschnitt 5 — wird erst nach Start
       der Verifizierung durch Meta bereitgestellt)
 - [ ] Media-Kit (PDF) für die Kooperationen-Seite:
       als `assets/media-kit.pdf` ablegen, danach Download-Button im
       "Noch zu ergänzen"-Kasten auf `kooperationen.html` ergänzen
-- [ ] Vertrauensbereich auf `kooperationen.html` ("Vertrauen &amp;
-      Nachweise"): Partnerlogos, Presseerwähnungen, Social-Media-Kennzahlen
-      und Kundenstimmen sind als klar erkennbare, gestrichelt umrandete
-      Platzhalter-Slots vorbereitet. Bewusst **nicht** mit erfundenen
-      Logos/Zitaten befüllt — bitte mit echten Inhalten ersetzen, sobald
-      verfügbar (siehe `kooperationen.html`, Abschnitt "Vertrauen &amp;
-      Nachweise").
-
-TikTok- und YouTube-Kontaktkanäle wurden mit Sprint 11.7 aus der finalen
-Version entfernt, da keine Links vorlagen (siehe Changelog). Ein Kanal
-lässt sich bei Bedarf jederzeit wieder ergänzen — Anleitung dazu als
-Kommentar direkt in `js/site-config.js`.
 
 ### Optional / spätere Optimierung
-- [ ] Fotos in `assets/photos/` bei Bedarf durch neuere/andere Motive
-      ersetzen (gleiche Dateinamen verwenden, dann ist kein HTML-Änderung
-      nötig) oder zusätzlich als WebP für nochmals kleinere Dateigrößen
-      bereitstellen.
 - [ ] Google Fonts self-hosten, um die in `datenschutz.html` beschriebene
       externe Verbindung zu vermeiden (aktuell dokumentiert, nicht blockierend).
+- [ ] Echtes Foto von Sarah Philine anstelle der Logo-Fläche in
+      `index.html` (`.bio-portrait`) und `ueber-uns.html` einsetzen; dazu
+      das `<img class="portrait-mark">`-Element durch ein Fotomotiv
+      ersetzen.
+- [ ] `assets/og-image.jpg` bei Bedarf durch eine Variante mit echtem Foto
+      ergänzen (aktuell nutzt es bereits das echte Logo, 1200×630 px).
 
 ---
 
@@ -307,31 +295,3 @@ Der vollständige Audit von Sprint 11.1 steht in **`AUDIT.md`** (Ergebnis:
   "Sarah Philine Koch" ergänzt (Footer, Portrait-Tags, Fließtext).
 - `js/site-config.js`: `legalName` von "SPK Sozial Media" (Tippfehler aus
   Sprint 11.1) auf "SPK – Social Media" korrigiert.
-
-### Sprint 11.7 — Finale Premium-Version
-- **Echte Fotos ersetzen alle Logo-Platzhalter:** Hero-Bereich der
-  Startseite zeigt jetzt ein Foto von Sarah Philine Koch &amp; My Milou;
-  die "Warum SPK"-Sektion (Startseite) und die "Sarah &amp; My Milou"-Sektion
-  (Über uns) verwenden ebenfalls echte Fotos statt der bisherigen
-  Logo-Textur-Fläche. Neu: ein "Früher/Heute"-Bildpaar (Springreiten →
-  Para-Dressur) in der Sprintreiten-Sektion auf `ueber-uns.html`.
-- Neue Sektion "Kurz vorgestellt" direkt auf der Startseite (Kurzfassung
-  der Geschichte, Link zur vollständigen Version auf `ueber-uns.html`).
-- Neue kompakte Sektion "Sportliche Erfolge" auf der Startseite (Kurzform
-  der bereits auf `ueber-uns.html` vorhandenen Meilensteine).
-- `kooperationen.html`: neue Sektion "Vertrauen &amp; Nachweise" mit
-  vorbereiteten (klar als Platzhalter erkennbaren) Slots für
-  Partnerlogos, Presseerwähnungen, Social-Media-Kennzahlen und
-  Kundenstimmen — bewusst ohne erfundene Inhalte befüllt.
-- **Bereinigung für die Veröffentlichung:** Entwickler-Hinweise
-  ("Datenquelle"-Kästen auf Impressum/Datenschutz, Google-Fonts-
-  Optimierungshinweis) entfernt, da nicht für Website-Besucher gedacht.
-  Leere Kontaktkanäle (TikTok, YouTube) aus `kontakt.html` und
-  `js/site-config.js` entfernt, da nie befüllt.
-- Totes CSS entfernt: `.bio-portrait`-Platzhalterstile und `.field-card`
-  (Steckbrief-Karte im Hero) — beide vollständig durch echte Fotos
-  ersetzt. Eine verbliebene Inline-Style-Anweisung durch eine
-  CSS-Klasse (`.section-head--tight`) ersetzt.
-- Fotos für Web optimiert: progressive JPEGs, 640–900 px Breite je nach
-  Einsatzort, 106–192 KB pro Bild (ursprüngliche Kameradateien:
-  0,9–5,5 MB).
