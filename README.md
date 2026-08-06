@@ -190,10 +190,10 @@ Lorem-Ipsum-Texte).
       verfügbar (siehe `kooperationen.html`, Abschnitt "Vertrauen &amp;
       Nachweise").
 
-TikTok- und YouTube-Kontaktkanäle wurden mit Sprint 11.7 aus der finalen
-Version entfernt, da keine Links vorlagen (siehe Changelog). Ein Kanal
-lässt sich bei Bedarf jederzeit wieder ergänzen — Anleitung dazu als
-Kommentar direkt in `js/site-config.js`.
+TikTok wurde inzwischen mit echtem Link ergänzt (siehe Changelog,
+Feinschliff-Runde). YouTube ist weiterhin nicht angebunden — lässt sich
+bei Bedarf jederzeit ergänzen, Anleitung dazu als Kommentar direkt in
+`js/site-config.js`.
 
 ### Optional / spätere Optimierung
 - [ ] Fotos in `assets/photos/` bei Bedarf durch neuere/andere Motive
@@ -335,3 +335,24 @@ Der vollständige Audit von Sprint 11.1 steht in **`AUDIT.md`** (Ergebnis:
 - Fotos für Web optimiert: progressive JPEGs, 640–900 px Breite je nach
   Einsatzort, 106–192 KB pro Bild (ursprüngliche Kameradateien:
   0,9–5,5 MB).
+
+### Feinschliff-Runde (Kundenfeedback nach Sprint 11.7)
+- Doppeltes "SPK" in Nav und Footer behoben: Logo-Bildmarke enthält die
+  Buchstaben "SPK" bereits selbst, das zusätzliche Textlabel daneben
+  wurde entfernt (betraf alle 8 Seiten, Header und Footer).
+- Kontaktseite überarbeitet: Statt Kontakt-Items mit sichtbaren
+  Rohlinks (E-Mail-Adresse, volle URLs) gibt es jetzt ausschließlich
+  große, eindeutige Buttons zu Instagram, Facebook und TikTok — die
+  Ziel-URL wird nicht mehr als Text angezeigt. Die geschäftliche
+  E-Mail-Adresse wird nicht mehr sichtbar dargestellt (weder auf der
+  Kontaktseite noch im Footer), da sie weiterhin unsichtbar als
+  Versandziel des Kontaktformulars dient.
+- TikTok-Link ergänzt (`https://www.tiktok.com/@_sarah.philine_`) und
+  als dritter Button auf der Kontaktseite eingebunden.
+- `kooperationen.html`: "Social-Media-Kennzahlen" nach Plattform
+  aufgeteilt — Instagram, Facebook und TikTok haben jetzt je eigene
+  Follower- und Engagement-Rate-Platzhalter statt einer generischen
+  Sammel-Kennzahl.
+- Totes CSS entfernt (`.contact-list`, `.contact-item`, `.social-row`,
+  `.social-pill`, `.footer-contact`), neue Komponenten `.social-btn` und
+  `.platform-stats` ergänzt.
