@@ -120,14 +120,19 @@ werden — Anleitung dazu in der README.
   konfigurierten Branch automatisch neu; laut GitHub üblicherweise
   innerhalb von ein bis zwei Minuten.
 - Es wird kein GitHub-Actions-Workflow benötigt, solange die
-  Repository-Einstellung unter **Settings → Pages** weiterhin auf
-  "Deploy from a branch" steht (wie bereits für das bisherige
-  App-Landingpage-Setup verwendet).
+  Repository-Einstellung unter **Settings → Pages** auf
+  "Deploy from a branch" steht. Dieses Projekt selbst liefert bewusst
+  **keine** `.github/workflows/*.yml`-Datei aus — es gibt nichts zu
+  bauen, ein Actions-Workflow wäre unnötige Komplexität und die
+  wahrscheinlichste Ursache für die in Sprint 11.13 gemeldeten
+  wiederkehrenden Timeout-Probleme. Konkrete Diagnose- und
+  Umstellungsschritte für das bestehende Repository: siehe README,
+  Abschnitt 3a.
 - Empfohlene manuelle Prüfung direkt nach dem ersten Push dieses
   Sprints: alle 8 Seiten einmal live aufrufen, Kontaktformular einmal
   testweise absenden (öffnet das lokale Mailprogramm), auf einem echten
   Smartphone die mobile Darstellung gegenprüfen (siehe Einschränkung
-  in Abschnitt 6).
+  in Abschnitt 7).
 
 ## 6. Performance
 
@@ -279,3 +284,34 @@ gepflegten Felder der Website. Getestet durch temporäres Befüllen mit
 Beispielwerten (Screenshot verifiziert: alle sechs Werte erscheinen
 korrekt in den passenden Karten) und anschließendes Zurücksetzen auf den
 leeren Auslieferungszustand.
+
+## 14. Sprint 11.13 — Deployment-Prozess vereinfacht
+
+**Wichtige Einschränkung:** Ich habe keinen direkten Zugriff auf das
+GitHub-Repository der Website und konnte daher keinen dort ggf.
+vorhandenen GitHub-Actions-Workflow selbst öffnen, ausführen oder
+löschen. Die folgende Analyse basiert auf dem Projektinhalt, den ich
+kontrolliere (dieses ZIP), und auf allgemeinem Wissen über typische
+Ursachen von GitHub-Pages-Timeouts. Eine konkrete Diagnose des
+tatsächlichen Repository-Zustands erfordert die manuelle 2-Minuten-
+Prüfung aus README, Abschnitt 3a.
+
+| Prüfung | Status |
+|---|---|
+| Eigener Workflow in diesem Projekt erforderlich? | ❌ Nein — reine statische Website, kein Build-Schritt |
+| `.github/workflows/*.yml` in diesem Projekt vorhanden? | ❌ Nein, war nie Teil der Auslieferung |
+| Diagnose-Checkliste für das bestehende Repository dokumentiert? | ✅ README, Abschnitt 3a |
+| Künftiger Veröffentlichungsablauf in ≤ 5 Schritten dokumentiert? | ✅ README, Abschnitt 3b (genau 5 Schritte) |
+| `.nojekyll` weiterhin vorhanden (unabhängig von der Deployment-Methode) | ✅ |
+
+**Begründung der Empfehlung ("Deploy from a branch" statt Actions):**
+Ein GitHub-Actions-Workflow lohnt sich, wenn vor der Veröffentlichung
+etwas gebaut, kompiliert oder getestet werden muss. Dieses Projekt hat
+keinen dieser Schritte — `index.html`, `css/style.css` und `js/*.js`
+werden unverändert ausgeliefert. Ein Actions-Workflow fügt in diesem
+Fall nur zusätzliche Fehlerquellen hinzu (Runner-Warteschlangen,
+Node-/Dependency-Installationen, die bei einer reinen HTML/CSS/JS-Seite
+gar nicht nötig sind, und damit die wahrscheinlichste Ursache für die im
+Sprint genannten wiederkehrenden Timeouts). "Deploy from a branch"
+umgeht diese Kette vollständig: GitHub Pages liest die Dateien direkt
+aus dem Branch und veröffentlicht sie, ohne Zwischenschritt.

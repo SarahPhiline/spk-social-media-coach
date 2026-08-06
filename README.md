@@ -65,20 +65,71 @@ Funktion erfüllen als das neue Impressum/Datenschutz der Unternehmensseite.
 
 ---
 
-## 3. Veröffentlichung auf GitHub Pages
+## 3. Veröffentlichung auf GitHub Pages (vereinfacht, Sprint 11.13)
 
-1. Inhalt dieses Ordners in das bestehende Repository
-   `spk-social-media-coach` einspielen (bestehende Dateien ersetzen).
-2. Unter **Settings → Pages** sicherstellen, dass als Quelle weiterhin der
-   Branch/Ordner verwendet wird, der bisher schon für GitHub Pages aktiv war.
-3. `.nojekyll` muss im Root bleiben, damit GitHub Pages die Dateien direkt
-   ausliefert.
-4. Nach dem Push ca. 1–2 Minuten warten, dann `https://sarahphiline.github.io/spk-social-media-coach/`
-   prüfen.
-5. Optional: eigene Domain unter **Settings → Pages → Custom domain**
-   eintragen. Die Website ist dafür vorbereitet (keine hartkodierten
-   GitHub-Pages-Pfade außer in `sitemap.xml`, `robots.txt` und den
-   `og:url`/`canonical`-Tags — diese bei Domain-Wechsel anpassen).
+### 3a. Analyse — Workflow prüfen und vereinfachen
+
+Dieses Projekt ist eine **reine statische Website** (HTML/CSS/JS,
+kein Build-Schritt, kein `npm install`, keine Kompilierung). Für ein
+Projekt dieser Art ist ein eigener GitHub-Actions-Workflow in der Regel
+**nicht notwendig** — er ist die häufigste Ursache für die genannten
+Timeout-Probleme (z. B. wartende Actions-Runner, unnötige Build-Schritte
+oder ein fehlerhaft konfigurierter Workflow, der bei jedem Push neu
+anläuft). Ich habe keinen direkten Zugriff auf das GitHub-Repository und
+kann einen dort eventuell vorhandenen Workflow daher nicht selbst öffnen
+oder löschen — bitte einmalig folgende 2-Minuten-Prüfung durchführen:
+
+1. Im Repository nachsehen, ob der Ordner `.github/workflows/` existiert
+   und eine `.yml`-Datei enthält (z. B. `pages.yml`, `deploy.yml`).
+2. Unter **Settings → Pages → Build and deployment → Source** prüfen,
+   welche Quelle aktuell eingestellt ist:
+   - **"Deploy from a branch"** → kein eigener Workflow aktiv, GitHub
+     Pages baut direkt aus dem gewählten Branch/Ordner. Das ist für
+     dieses Projekt die richtige, einfachste Einstellung.
+   - **"GitHub Actions"** → es läuft ein Workflow (entweder ein von
+     GitHub vorgeschlagener Standard-Workflow oder eine eigene
+     `.yml`-Datei aus Schritt 1). Das ist für ein reines Static-HTML-
+     Projekt unnötige Komplexität und die wahrscheinlichste Ursache für
+     wiederkehrende Timeouts.
+
+**Empfehlung, falls "GitHub Actions" aktiv ist:**
+1. Unter **Settings → Pages → Build and deployment → Source** auf
+   **"Deploy from a branch"** umstellen.
+2. Branch **`main`** und Ordner **`/ (root)`** auswählen (passend zur
+   Struktur dieses Projekts — `index.html` liegt im Root, kein
+   `/docs`-Unterordner nötig).
+3. Speichern. GitHub Pages baut ab sofort direkt aus dem Branch, ganz
+   ohne Actions-Runner — dadurch entfällt die Timeout-Quelle vollständig.
+4. Falls in Schritt 1 eine `.yml`-Datei in `.github/workflows/` gefunden
+   wurde: diese Datei kann jetzt gefahrlos gelöscht werden (per Commit
+   entfernen), da sie durch die direkte Branch-Bereitstellung ersetzt
+   wird. Dadurch verschwindet auch der "Deployments"-Reiter mit den
+   bisherigen (evtl. fehlgeschlagenen) Action-Läufen.
+5. `.nojekyll` bleibt unverändert im Root bestehen — es verhindert, dass
+   GitHub Pages die Dateien fälschlich durch den Jekyll-Prozessor jagt,
+   unabhängig davon, welche der beiden Deployment-Methoden aktiv ist.
+
+Diese Umstellung entfernt Komplexität, ohne Funktionen zu verlieren:
+Alle Seiten, Assets und die zentrale Konfiguration funktionieren mit
+"Deploy from a branch" identisch — GitHub Pages liefert einfach die
+vorhandenen Dateien aus, ohne Zwischenschritt.
+
+### 3b. Veröffentlichungsablauf (künftig, maximal 5 Schritte)
+
+1. **Dateien ersetzen** — neue/geänderte Dateien aus diesem Projekt ins
+   Repository kopieren (bestehende Dateien überschreiben).
+2. **Commit** — Änderungen committen.
+3. **Push** — auf `main` pushen.
+4. **GitHub Pages veröffentlicht automatisch** — kein manueller Trigger
+   nötig; bei "Deploy from a branch" i. d. R. innerhalb von 1–2 Minuten
+   live, ganz ohne Actions-Warteschlange.
+5. **Website prüfen** — `https://sarahphiline.github.io/spk-social-media-coach/`
+   aufrufen und die geänderten Seiten kurz gegenchecken.
+
+**Optional:** Eigene Domain unter **Settings → Pages → Custom domain**
+eintragen. Die Website ist dafür vorbereitet (keine hartkodierten
+GitHub-Pages-Pfade außer in `sitemap.xml`, `robots.txt` und den
+`og:url`/`canonical`-Tags — diese bei Domain-Wechsel manuell anpassen).
 
 ---
 
@@ -399,3 +450,19 @@ Der vollständige Audit von Sprint 11.1 steht in **`AUDIT.md`** (Ergebnis:
   manuell heute, automatisiert aus SPK Creator OS sobald verfügbar
   (siehe README, Abschnitt 4b). End-to-End mit Testwerten geprüft und
   wieder auf den leeren Auslieferungszustand zurückgesetzt.
+
+### Sprint 11.13 — Deployment-Prozess vereinfacht
+- Abschnitt 3 ("Veröffentlichung auf GitHub Pages") komplett überarbeitet:
+  neue Diagnose-Checkliste (Abschnitt 3a), um einen ggf. vorhandenen
+  GitHub-Actions-Workflow im Repository selbst zu finden und auf
+  "Deploy from a branch" umzustellen, sowie der künftige
+  Veröffentlichungsablauf in genau fünf Schritten (Abschnitt 3b).
+- Dieses Projekt liefert weiterhin bewusst **keine** eigene
+  `.github/workflows/*.yml`-Datei aus — für eine reine statische Website
+  ohne Build-Schritt ist "Deploy from a branch" die einfachste und
+  zuverlässigste Methode und vermeidet Actions-bedingte Timeouts von
+  vornherein.
+- Hinweis zur Grenze dieser Analyse: Ohne direkten Repository-Zugriff
+  konnte kein dort ggf. vorhandener Workflow eingesehen oder entfernt
+  werden — die Diagnose-Schritte in Abschnitt 3a sind dafür ausgelegt,
+  das in unter zwei Minuten selbst zu erledigen.
