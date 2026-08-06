@@ -1,41 +1,198 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="SPK Social Media Coach is a private analytics and content-planning dashboard for an authorized TikTok creator account.">
-<title>SPK Social Media Coach</title>
-<link rel="icon" href="spk-app-icon-1024.png">
-<style>
-:root{--bg:#0d0d0f;--panel:#17171b;--text:#f7f2f3;--muted:#b8b2b5;--pink:#ee9eaf;--gold:#d8a862;--light:#fff9fa;--border:rgba(255,255,255,.12)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:var(--bg);line-height:1.6}a{color:inherit}.container{width:min(1120px,90%);margin:0 auto}
-nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:700}.brand img{width:48px;height:48px;border-radius:14px}.links{display:flex;gap:24px;align-items:center}.links a{text-decoration:none;color:var(--muted)}
-.button{display:inline-block;padding:13px 20px;border-radius:10px;background:linear-gradient(135deg,var(--pink),#f4bcc7);color:#171217;text-decoration:none;font-weight:700}.button.secondary{background:transparent;color:var(--text);border:1px solid var(--border)}
-.hero{min-height:650px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:70px;padding:65px 0 90px}.eyebrow{color:var(--pink);text-transform:uppercase;letter-spacing:.18em;font-size:.8rem;font-weight:700}
-h1{font-family:Georgia,serif;font-size:clamp(3rem,7vw,5.7rem);line-height:1.02;margin:16px 0 24px}h1 span{color:var(--pink)}.lead{font-size:1.15rem;color:var(--muted);max-width:650px}.actions{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
-.hero-card{background:linear-gradient(145deg,#1d1d22,#0f0f12);border:1px solid var(--border);border-radius:30px;padding:26px;box-shadow:0 25px 80px rgba(0,0,0,.35)}.hero-card img{width:100%;border-radius:24px;display:block}
-section{padding:85px 0}.light{background:var(--light);color:#1b1719}.section-title{text-align:center;max-width:750px;margin:0 auto 46px}.section-title h2{font-family:Georgia,serif;font-size:clamp(2rem,5vw,3.2rem);margin:8px 0 12px}.section-title p{color:#6e666a}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{border:1px solid #eadfe2;border-radius:16px;padding:28px;background:white}.card h3{margin:12px 0 8px}.icon{font-size:1.8rem}.about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;text-align:center}.about-box{padding:24px}
-.privacy{background:#16161a;border:1px solid var(--border);border-radius:22px;padding:34px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}footer{padding:34px 0;color:var(--muted)}.footer-row{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}.footer-links{display:flex;gap:18px}
-@media(max-width:850px){.hero{grid-template-columns:1fr;min-height:auto;padding-top:30px}.grid{grid-template-columns:1fr 1fr}.about-grid{grid-template-columns:1fr}.privacy{grid-template-columns:1fr}.links a:not(.button){display:none}}
-@media(max-width:520px){.grid{grid-template-columns:1fr}h1{font-size:3.1rem}}
-</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SPK — Social Media Coaching &amp; Kooperationen</title>
+<meta name="description" content="SPK begleitet Reiter:innen, Ställe und Pferdesport-Creator beim professionellen Aufbau ihrer Social-Media-Präsenz und vermittelt passende Markenkooperationen.">
+<link rel="canonical" href="https://sarahphiline.github.io/spk-social-media-coach/">
+
+<!-- Open Graph / Social Preview -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SPK">
+<meta property="og:title" content="SPK — Social Media Coaching & Kooperationen im Pferdesport">
+<meta property="og:description" content="Social-Media-Coaching und Markenkooperationen für Reiter:innen, Ställe und Pferdesport-Creator.">
+<meta property="og:image" content="https://sarahphiline.github.io/spk-social-media-coach/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://sarahphiline.github.io/spk-social-media-coach/">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SPK — Social Media Coaching & Kooperationen im Pferdesport">
+<meta name="twitter:description" content="Social-Media-Coaching und Markenkooperationen für Reiter:innen, Ställe und Pferdesport-Creator.">
+<meta name="twitter:image" content="https://sarahphiline.github.io/spk-social-media-coach/assets/og-image.jpg">
+
+<!-- Meta Business Verification: Code von Laurenz ergänzen lassen (siehe README.md, Abschnitt "Meta Business Verification") -->
+<meta name="facebook-domain-verification" content="HIER_CODE_EINFÜGEN">
+
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<meta name="theme-color" content="#33473A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header class="container"><nav><a class="brand" href="#"><img src="spk-app-icon-1024.png" alt="SPK logo"><span>SPK Social Media Coach</span></a><div class="links"><a href="#features">Features</a><a href="#about">About</a><a href="privacy.html">Privacy</a><a class="button" href="#about">Learn more</a></div></nav></header>
-<main>
-<div class="container hero"><div><div class="eyebrow">Creator analytics</div><h1>Your TikTok.<br>Your <span>Growth.</span></h1><p class="lead">SPK Social Media Coach is a private dashboard for analyzing an authorized creator account, reviewing video performance and planning better content.</p><div class="actions"><a class="button" href="#features">Explore features</a><a class="button secondary" href="privacy.html">Privacy policy</a></div></div><div class="hero-card"><img src="spk-app-icon-1024.png" alt="SPK app icon"></div></div>
-<section id="features" class="light"><div class="container"><div class="section-title"><div class="eyebrow">Features</div><h2>Everything needed to understand content performance</h2><p>The application is designed for the account owner and uses only authorized data.</p></div><div class="grid">
-<div class="card"><div class="icon">📈</div><h3>Performance analytics</h3><p>Review views, likes, comments, shares and follower development.</p></div>
-<div class="card"><div class="icon">👥</div><h3>Audience insights</h3><p>Recognize which formats and posting times perform best.</p></div>
-<div class="card"><div class="icon">📅</div><h3>Content planning</h3><p>Organize ideas, hooks, scripts and planned publishing dates.</p></div>
-<div class="card"><div class="icon">🎯</div><h3>Growth goals</h3><p>Set measurable goals and track progress over time.</p></div>
-</div></div></section>
-<section id="about"><div class="container"><div class="section-title"><div class="eyebrow">About</div><h2>Built for an authorized creator account</h2><p>SPK Social Media Coach is not a follower, like or comment bot. It does not create artificial engagement. It analyzes account data with the account owner's permission.</p></div><div class="about-grid">
-<div class="about-box"><div class="icon">🔒</div><h3>Private</h3><p>Credentials and imported data remain under the user's control.</p></div>
-<div class="about-box"><div class="icon">⚡</div><h3>Focused</h3><p>Clear reports and practical content recommendations.</p></div>
-<div class="about-box"><div class="icon">🐴</div><h3>Creator-specific</h3><p>Prepared for equestrian, dressage and stable-life content.</p></div>
-</div></div></section>
-<section><div class="container privacy"><div><div class="eyebrow">Transparency</div><h2>Privacy and terms are publicly available</h2><p class="lead">TikTok users can review how the application handles authorized account data.</p></div><div class="actions"><a class="button" href="privacy.html">Privacy policy</a><a class="button secondary" href="terms.html">Terms of service</a></div></div></section>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Hauptnavigation">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">SPK</span>
+      SPK
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" aria-current="page">Start</a></li>
+      <li><a href="ueber-uns.html">Über uns</a></li>
+      <li><a href="kooperationen.html">Kooperationen</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+      <li class="nav-cta mobile"><a class="btn btn-primary" href="kontakt.html">Kooperation anfragen</a></li>
+    </ul>
+    <a class="btn btn-primary nav-cta" href="kontakt.html">Kooperation anfragen</a>
+    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links">Menü</button>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Social Media Coaching · Pferdesport</span>
+        <h1>Content, der <em>ankommt</em>.<br>Marken, die <em>passen</em>.</h1>
+        <p class="lead">SPK begleitet Reiter:innen, Ställe und Pferdesport-Creator dabei, ihre Social-Media-Präsenz professionell aufzubauen — und verbindet sie mit Marken, die wirklich zur Community passen.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="kontakt.html">Kooperation anfragen <span class="btn-arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-secondary" href="#leistungen">Leistungen ansehen</a>
+        </div>
+      </div>
+      <div class="field-card stitch-frame">
+        <div class="stitch stitch--brass" aria-hidden="true"></div>
+        <span class="eyebrow">Steckbrief</span>
+        <dl>
+          <div>
+            <dt>Schwerpunkt</dt>
+            <dd>Pferdesport &amp; Reitsport-Content</dd>
+          </div>
+          <div>
+            <dt>Leistungen</dt>
+            <dd>Coaching · Kooperationen</dd>
+          </div>
+          <div>
+            <dt>Sprachen</dt>
+            <dd>Deutsch · Englisch</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="leistungen">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Leistungen</span>
+        <h2>Alles, was eine starke Präsenz im Pferdesport braucht</h2>
+        <p>Von der ersten Content-Strategie bis zur laufenden Markenkooperation — SPK begleitet den gesamten Weg.</p>
+      </div>
+      <div class="grid">
+        <div class="card reveal">
+          <span class="num">01</span>
+          <h3>Social Media Coaching</h3>
+          <p>Individuelle Beratung zu Positionierung, Content-Strategie und Auftritt auf TikTok, Instagram &amp; Co.</p>
+        </div>
+        <div class="card reveal">
+          <span class="num">02</span>
+          <h3>Content-Planung</h3>
+          <p>Redaktionspläne, Formatentwicklung und Postingrhythmen, abgestimmt auf die eigene Zielgruppe.</p>
+        </div>
+        <div class="card reveal">
+          <span class="num">03</span>
+          <h3>Kooperationsvermittlung</h3>
+          <p>Zusammenarbeit mit Marken aus dem Pferdesport, die inhaltlich und wertemäßig wirklich passen.</p>
+        </div>
+        <div class="card reveal">
+          <span class="num">04</span>
+          <h3>Analyse &amp; Wachstum</h3>
+          <p>Kennzahlen verständlich einordnen und daraus konkrete, umsetzbare Wachstumsschritte ableiten.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="container">
+      <div class="bio-block">
+        <div class="reveal">
+          <div class="bio-portrait" role="img" aria-label="Porträtplatzhalter für Sarah Philine, Gründerin von SPK">
+            <span class="tag">Sarah Philine · Gründerin</span>
+          </div>
+        </div>
+        <div class="bio-copy reveal">
+          <span class="eyebrow">Warum SPK</span>
+          <h2>Fachwissen aus dem Sattel, Erfahrung aus dem Feed</h2>
+          <p>SPK wurde von Sarah Philine gegründet, um Reiter:innen und Ställen zu zeigen, wie glaubwürdiger Content im Pferdesport entsteht — und wie daraus tragfähige Partnerschaften mit Marken werden.</p>
+          <p>Der Fokus liegt auf Authentizität statt Kunstgriffen: echte Einblicke in Ausbildung, Turniersport und Stallalltag, professionell aufbereitet und strategisch geplant.</p>
+          <a class="btn btn-secondary" href="ueber-uns.html">Mehr über SPK <span class="btn-arrow" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="cta-band reveal">
+        <div>
+          <span class="eyebrow">Für Unternehmen</span>
+          <h2>Sie suchen eine glaubwürdige Stimme im Pferdesport?</h2>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="kontakt.html">Kontakt aufnehmen</a>
+          <a class="btn btn-secondary" href="kooperationen.html">Kooperationen ansehen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
-<footer class="container"><div class="footer-row"><span>© 2026 SPK Social Media Coach</span><div class="footer-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div></div></footer>
-</body></html>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <span class="brand-mark" aria-hidden="true">SPK</span>
+          SPK
+        </a>
+        <p>Social Media Coaching und Markenkooperationen für Reiter:innen, Ställe und Pferdesport-Creator.</p>
+        <p class="footer-contact"><a href="#" class="cfg-placeholder" data-cfg="email" data-cfg-href="email">[E-Mail-Adresse bitte ergänzen]</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Start</a></li>
+          <li><a href="ueber-uns.html">Über uns</a></li>
+          <li><a href="kooperationen.html">Kooperationen</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutzerklärung</a></li>
+          <li><a href="privacy.html">Privacy Policy (App)</a></li>
+          <li><a href="terms.html">Terms of Service (App)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> SPK — Sarah Philine</span>
+      <span>Pferdesport · Social Media · Kooperationen</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/site-config.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
