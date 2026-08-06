@@ -7,7 +7,7 @@
   // Elements opt in via data-cfg (text) / data-cfg-href (link target).
   // Falls back to whatever static placeholder text already sits in the
   // HTML if a value is missing, empty, or JavaScript doesn't run at all.
-  var LINK_KEYS = ["instagramUrl", "facebookUrl", "tiktokUrl", "youtubeUrl"];
+  var LINK_KEYS = ["instagramUrl", "facebookUrl"];
 
   function applySiteConfig() {
     var cfg = window.SPK_CONFIG;
