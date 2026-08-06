@@ -59,6 +59,21 @@ window.SPK_CONFIG = {
   // Aktuelle Domain (rein informativ, wird in der README referenziert;
   // steuert keine Tags automatisch — siehe Hinweis oben).
   domain: "https://sarahphiline.github.io/spk-social-media-coach/",
+
+  // Social-Media-Kennzahlen für die Kooperationen-Seite ("Vertrauen &
+  // Nachweise" → Social-Media-Kennzahlen). Leer lassen = die Seite zeigt
+  // automatisch "—" statt einer erfundenen Zahl.
+  // Vorbereitet für SPK Creator OS: Sobald SPK Creator OS Kennzahlen
+  // liefern kann, reicht es, diese sechs Werte hier einzutragen (manuell
+  // oder später automatisiert per Skript/API) — die Kooperationen-Seite
+  // übernimmt sie automatisch, ohne dass am HTML etwas geändert werden
+  // muss. Format: einfache Strings wie "12.400" oder "3,8 %".
+  instagramFollowers: "",
+  instagramEngagement: "",
+  facebookFollowers: "",
+  facebookEngagement: "",
+  tiktokFollowers: "",
+  tiktokEngagement: "",
 };
 
 /**

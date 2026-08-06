@@ -91,7 +91,7 @@ einzigen Stelle** gepflegt:
 js/site-config.js
 ```
 
-Diese Datei öffnen und die sieben Felder ausfüllen:
+Diese Datei öffnen und die Felder ausfüllen:
 
 ```js
 legalName: "...",          // Firmenname für das Impressum
@@ -99,20 +99,50 @@ responsiblePerson: "...",  // vertretungsberechtigte Person
 addressStreet: "...",
 addressCity: "...",
 addressCountry: "...",
-email: "...",              // ohne "mailto:"
+email: "...",              // ohne "mailto:" — nur als Formular-Versandziel verwendet
 instagramUrl: "https://instagram.com/...",
 facebookUrl: "https://facebook.com/...",
-tiktokUrl: "https://www.tiktok.com/@...",   // optional
-youtubeUrl: "...",                          // optional
+tiktokUrl: "https://www.tiktok.com/@...",
+
+// Social-Media-Kennzahlen (Kooperationen-Seite), optional:
+instagramFollowers: "...", instagramEngagement: "...",
+facebookFollowers: "...",  facebookEngagement: "...",
+tiktokFollowers: "...",    tiktokEngagement: "...",
 ```
 
 Nach dem Speichern und Pushen erscheinen die Werte automatisch auf:
-Kontaktseite, Impressum, Datenschutzerklärung und im Footer jeder
-Seite (E-Mail). Felder, die noch offen sind (leer oder in
+Kontaktseite (als Buttons, siehe Abschnitt 4a), Impressum,
+Datenschutzerklärung und Kooperationen-Seite (Kennzahlen-Karten). Die
+E-Mail-Adresse erscheint dabei **nirgends als sichtbarer Text** — sie
+wird ausschließlich unsichtbar als Versandziel des Kontaktformulars
+verwendet. Felder, die noch offen sind (leer oder in
 `[eckigen Klammern]`), zeigen weiterhin klar erkennbar den bisherigen
-Platzhalter — kursiv, in Rotbraun abgesetzt — auch ganz ohne
-JavaScript. Es kann also gefahrlos einzeln nachgetragen werden, ohne
-dass zwischendurch etwas kaputt oder leer aussieht.
+Platzhalter — kursiv, in Rotbraun abgesetzt, bzw. bei den Kennzahlen ein
+schlichtes "—" — auch ganz ohne JavaScript. Es kann also gefahrlos
+einzeln nachgetragen werden, ohne dass zwischendurch etwas kaputt oder
+leer aussieht.
+
+### 4a. Kontaktseite: nur Buttons, keine sichtbaren URLs
+
+Die Kontaktseite zeigt Instagram, Facebook und TikTok ausschließlich als
+Buttons (`.social-btn`) — die eigentliche Profil-URL wird nirgends als
+Text angezeigt, nur als `href`-Ziel des Buttons verwendet. Ein weiterer
+Kanal (z. B. YouTube) lässt sich jederzeit ergänzen: in `kontakt.html`
+einen weiteren `.social-btn`-Block nach demselben Muster einfügen und in
+`js/site-config.js` das passende `...Url`-Feld anlegen.
+
+### 4b. Social-Media-Kennzahlen: vorbereitet für SPK Creator OS
+
+Die drei Kennzahlen-Karten auf der Kooperationen-Seite (Instagram,
+Facebook, TikTok — je Follower und Engagement-Rate) sind bewusst so
+gebaut, dass sie sich **ohne HTML-Änderung** befüllen lassen: Es reicht,
+die sechs `...Followers`/`...Engagement`-Felder in `js/site-config.js`
+einzutragen. Das gilt sowohl für die manuelle Pflege heute als auch für
+eine spätere automatische Befüllung aus SPK Creator OS — sobald dort
+eine Exportmöglichkeit (Datei oder API) besteht, muss nur noch ein
+kleines Skript diese sechs Felder in `js/site-config.js` schreiben (oder
+die Datei durch einen äquivalenten API-Abruf ersetzen); die
+Kooperationen-Seite selbst braucht dafür keine Anpassung.
 
 **Nicht** über diese Datei gesteuert: der Meta-Verification-Tag (siehe
 Abschnitt 5) sowie alle domain-abhängigen SEO-Tags (siehe Abschnitt 6),
@@ -356,3 +386,16 @@ Der vollständige Audit von Sprint 11.1 steht in **`AUDIT.md`** (Ergebnis:
 - Totes CSS entfernt (`.contact-list`, `.contact-item`, `.social-row`,
   `.social-pill`, `.footer-contact`), neue Komponenten `.social-btn` und
   `.platform-stats` ergänzt.
+
+### Sprint 11.10 — UX-Feinschliff &amp; Vorbereitung SPK Creator OS
+- Punkte 1–4 aus dem Sprint (doppeltes "SPK", Kontakt-Buttons, E-Mail
+  aus Footer, Kennzahlen nach Plattform) waren durch die vorherige
+  Feinschliff-Runde bereits umgesetzt — im Rahmen dieses Sprints erneut
+  gegengeprüft (Audit-Skript + Screenshots), keine weiteren Funde.
+- Neu: Die sechs Social-Media-Kennzahlen (Follower/Engagement je
+  Instagram, Facebook, TikTok) sind jetzt über `js/site-config.js`
+  gesteuert (`data-cfg`-Bindung wie beim Rest der Seite) statt fest im
+  HTML zu stehen. Damit lassen sie sich ohne Code-Änderung befüllen —
+  manuell heute, automatisiert aus SPK Creator OS sobald verfügbar
+  (siehe README, Abschnitt 4b). End-to-End mit Testwerten geprüft und
+  wieder auf den leeren Auslieferungszustand zurückgesetzt.

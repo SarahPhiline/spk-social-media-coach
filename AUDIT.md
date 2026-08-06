@@ -256,3 +256,26 @@ dass diese Bereiche vorbereitet, aber noch nicht befüllt sind.
 | `assets/photos/bio-grooming.jpg` | "Sarah &amp; My Milou", Über uns | IMG_7752.jpeg |
 | `assets/photos/story-jumping.jpg` | Story-Paar "Früher", Über uns | IMG_4577.JPG |
 | `assets/photos/story-dressage.jpg` | Story-Paar "Heute", Über uns | IMG_2705.jpg |
+
+## 13. Sprint 11.10 — UX-Feinschliff & Vorbereitung SPK Creator OS
+
+| Prüfung | Status |
+|---|---|
+| Doppeltes "SPK" in Header/Footer | ✅ bereits behoben (Feinschliff-Runde), gegengeprüft |
+| Kontaktseite: keine sichtbaren Instagram-/Facebook-URLs | ✅ bereits behoben, gegengeprüft |
+| Drei Social-Buttons (Instagram, Facebook, TikTok), einheitlicher Stil | ✅ |
+| E-Mail-Adresse nicht mehr im Footer | ✅ bereits behoben, gegengeprüft |
+| Social-Media-Kennzahlen sauber nach Plattform getrennt | ✅ |
+| Kennzahlen über zentrale Konfiguration steuerbar (Vorbereitung SPK Creator OS) | ✅ neu in diesem Sprint |
+| Keine Änderung am bestehenden Designstil | ✅ (nur Datenbindung ergänzt, keine visuelle/strukturelle Änderung) |
+
+**Ergebnis:** Die Punkte 1–4 des Sprints waren zum Zeitpunkt der Prüfung
+bereits aus der vorherigen Feinschliff-Runde umgesetzt (siehe
+Abschnitt „Feinschliff-Runde" im README-Changelog). Neu in diesem
+Sprint ist ausschließlich Punkt 5: die sechs Social-Media-Kennzahlen
+(Follower/Engagement je Plattform) sind jetzt über `data-cfg`-Attribute
+an `js/site-config.js` gebunden, genau wie alle anderen zentral
+gepflegten Felder der Website. Getestet durch temporäres Befüllen mit
+Beispielwerten (Screenshot verifiziert: alle sechs Werte erscheinen
+korrekt in den passenden Karten) und anschließendes Zurücksetzen auf den
+leeren Auslieferungszustand.
