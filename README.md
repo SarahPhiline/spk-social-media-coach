@@ -1,9 +1,10 @@
-# SPK — Unternehmenswebsite (Sprint 11.0)
+# SPK — Unternehmenswebsite
 
 Überarbeitete GitHub-Pages-Website für **spk-social-media-coach**. Aus dem
 bisherigen App-Landingpage-Projekt wurde die offizielle Unternehmens- und
-Creator-Website von SPK / Sarah Philine, vorbereitet für die Meta Business
-Verification.
+Creator-Website von SPK / Sarah Philine Koch, vorbereitet für die Meta
+Business Verification. Design und Farbwelt sind seit dem Marken-Update an
+das offizielle SPK-Logo angepasst (Schwarz/Rosé/Gold).
 
 Kein Build-Schritt, kein Backend, keine Abhängigkeiten außer Google Fonts
 (CDN). Reines HTML/CSS/JS, GitHub-Pages-kompatibel.
@@ -18,16 +19,21 @@ Kein Build-Schritt, kein Backend, keine Abhängigkeiten außer Google Fonts
 ├── ueber-uns.html         Über uns
 ├── kooperationen.html     Kooperationen (für Unternehmen)
 ├── kontakt.html           Kontakt (mailto-Formular, kein Backend)
-├── impressum.html         Impressum (§ 5 TMG) — enthält Platzhalter
-├── datenschutz.html       Datenschutzerklärung (DSGVO) — enthält Platzhalter
+├── impressum.html         Impressum (§ 5 TMG)
+├── datenschutz.html       Datenschutzerklärung (DSGVO)
 ├── privacy.html           Privacy Policy der App "SPK Social Media Coach" (unverändert übernommen, neu geskinnt)
 ├── terms.html             Terms of Service der App "SPK Social Media Coach" (unverändert übernommen, neu geskinnt)
 ├── css/style.css          Gesamtes Design-System (Tokens, Layout, Komponenten)
-├── js/main.js             Mobile-Navigation, Kontaktformular (mailto), Footer-Jahr
-├── assets/favicon.svg     Favicon (SPK-Monogramm)
-├── assets/og-image.jpg    Open-Graph-/Social-Preview-Bild (1200×630, generiert)
+├── js/site-config.js      Zentrale Unternehmensdaten (einzige Datei zum Pflegen)
+├── js/main.js             Mobile-Navigation, Kontaktformular (mailto), Config-Injection, Footer-Jahr
+├── assets/spk-logo.jpg        Original-Logo (1024×1024, Master-Datei)
+├── assets/spk-logo-nav.jpg    Logo, klein (120×120) — für Nav/Footer
+├── assets/spk-logo-portrait.jpg  Logo, mittel (240×240) — für Porträt-Flächen
+├── assets/favicon-16.png, favicon-32.png, apple-touch-icon.png
+├── assets/og-image.jpg    Open-Graph-/Social-Preview-Bild (1200×630, mit echtem Logo generiert)
 ├── robots.txt
 ├── sitemap.xml
+├── audit.py               Automatisiertes Prüfskript (siehe AUDIT.md)
 └── .nojekyll              verhindert Jekyll-Verarbeitung auf GitHub Pages
 ```
 
@@ -40,17 +46,18 @@ Funktion erfüllen als das neue Impressum/Datenschutz der Unternehmensseite.
 
 ## 2. Design
 
-- **Farben:** Ink `#161A16`, Paper `#F1ECE1`, Hunter-Grün `#33473A`,
-  Brass `#A6813D`, Oxblood `#6B2E2A`.
+- **Farben** (aus dem offiziellen SPK-Logo abgeleitet): Hintergrund
+  `#0D0C12` (Schwarz), Text `#F5F1EA` (Warmweiß), Rosé `#F2B4C0`, Gold
+  `#E3B876`.
 - **Typografie:** Fraunces (Display), Inter (Fließtext), IBM Plex Mono
   (Eyebrows/Labels) — via Google Fonts CDN eingebunden.
-- **Signatur-Element:** der "Sattel-Stich" (gestrichelte Doppellinie),
-  angelehnt an handgenähtes Leder/Sattelzeug — durchgängig als Divider,
-  Card-Rahmen und Detail verwendet, statt eines wörtlichen Pferde-Motivs.
-- Bewusst **keine** Fake-Fotos/Bildplatzhalter: Das "Porträt" auf der
-  Startseite/Über-uns-Seite ist ein gestaltetes, klar als Textur erkennbares
-  Feld mit Beschriftung — kein kaputt wirkendes Bild. Echte Fotos können
-  jederzeit eingesetzt werden (siehe Abschnitt 4).
+- **Signatur-Element:** ein dünner, geschwungener Bogen mit
+  Rosé→Gold-Verlauf (SVG), direkt aus den beiden Schwüngen im SPK-Logo
+  abgeleitet — als Divider und Kartenakzent verwendet.
+- **Logo:** Das offizielle SPK-Logo wird an allen relevanten Stellen
+  eingesetzt — Nav, Footer, Favicon (16/32/180px), Open-Graph-Bild sowie
+  als Bildmarke in den Porträt-Flächen auf Start- und Über-uns-Seite
+  (bewusst kein Fake-Foto-Platzhalter, sondern die echte Marke).
 
 ---
 
@@ -141,59 +148,48 @@ Business Verification) zu bestätigen:
 
 ---
 
-## 6. Offene Angaben — bitte von Laurenz ergänzen
+## 6. Offene Angaben
 
-Diese Website enthält **bewusst sichtbar markierte** Platzhalter (keine
-versteckten Lorem-Ipsum-Texte), da die echten Unternehmensdaten noch nicht
-vorliegen. Vor Veröffentlichung/Meta-Verification bitte ausfüllen:
+Die meisten Pflichtangaben sind bereits in `js/site-config.js` mit echten
+Daten hinterlegt (Stand: Marken-Update mit dem offiziellen SPK-Logo).
+Diese Website enthält für alles, was noch offen ist, weiterhin
+**bewusst sichtbar markierte** Platzhalter (keine versteckten
+Lorem-Ipsum-Texte).
 
-### Zentral in `js/site-config.js` (seit Sprint 11.1 — ein Ort für alles)
-- [ ] Vollständiger Name bzw. Firmenname (`legalName`)
-- [ ] Vertretungsberechtigte Person (`responsiblePerson`)
-- [ ] Ladungsfähige Anschrift (`addressStreet`, `addressCity`, `addressCountry`)
-- [ ] Geschäftliche E-Mail-Adresse (`email`)
-- [ ] Telefonnummer, optional (`phone`)
-- [ ] Instagram-Link (`instagramUrl`)
-- [ ] Facebook-Link (`facebookUrl`)
+### Bereits ausgefüllt in `js/site-config.js`
+- [x] Firmenname (`legalName`): "Sarah Philine Koch (SPK Sozial Media)" —
+      **bitte einmal gegenprüfen**, ob diese Kombination aus bürgerlichem
+      Namen und Markenbezeichnung so gewünscht ist (Begründung siehe
+      Kommentar direkt in der Datei).
+- [x] Verantwortliche Person (`responsiblePerson`): Sarah Philine Koch
+- [x] Anschrift: Flurstr. 2, 83620 Feldkirchen-Westerham, Deutschland
+- [x] Geschäftliche E-Mail (`email`): sarah.philine.koch@icloud.com —
+      wirkt jetzt auch auf `privacy.html`/`terms.html` (App-Rechtstexte)
+- [x] Instagram-Link (aus `@_sarah.philine_` erzeugt)
+- [x] Facebook-Link (aus `@sarahphiline.koch.7` erzeugt)
+- [x] Umsatzsteuer/Impressum: Kleinunternehmerregelung § 19 UStG korrekt
+      hinterlegt, kein Handelsregistereintrag
+
+### Noch offen
+- [ ] Telefonnummer, optional (`phone`) — Zeile bleibt automatisch
+      ausgeblendet, bis ein Wert eingetragen wird
 - [ ] TikTok-Link, optional (`tiktokUrl`)
 - [ ] YouTube-Link, optional (`youtubeUrl`)
-
-Diese Felder wirken automatisch auf `impressum.html`, `datenschutz.html`,
-`kontakt.html` und den Footer aller Seiten — siehe Abschnitt 4. Es muss
-**nicht** mehr in mehreren Dateien gesucht/ersetzt werden.
-
-### Weiterhin direkt im Impressum zu pflegen (Sonderfälle, nicht zentralisiert)
-- [ ] Umsatzsteuer-ID, falls vorhanden — sonst Hinweis auf § 19 UStG prüfen
-- [ ] Handelsregister-Eintrag, falls vorhanden
-
-Beide Seiten (`impressum.html`, `datenschutz.html`) haben oben je einen
-farblich hervorgehobenen "Noch zu ergänzen"-Hinweis für diese Sonderfälle.
-
-### Meta Business Verification
-- [ ] Verifizierungscode von Meta eintragen in `index.html`, im `<head>`
-      (Kurzanleitung: Abschnitt 5):
-      ```html
-      <meta name="facebook-domain-verification" content="HIER_CODE_EINFÜGEN">
-      ```
-
-### App-Seiten (`privacy.html`, `terms.html`)
-- [ ] `YOUR-EMAIL@example.com` durch echte Kontakt-E-Mail ersetzen (zweimal,
-      je einmal pro Datei) — dieser Platzhalter stammt bereits aus der
-      ursprünglichen Version dieser Seiten.
-
-### Kooperationen (`kooperationen.html`)
-- [ ] Media-Kit (PDF) erstellen und als `assets/media-kit.pdf` ablegen,
-      danach Download-Button im "Noch zu ergänzen"-Kasten ergänzen.
+- [ ] Meta-Verifizierungscode (siehe Abschnitt 5 — wird erst nach Start
+      der Verifizierung durch Meta bereitgestellt)
+- [ ] Media-Kit (PDF) für die Kooperationen-Seite:
+      als `assets/media-kit.pdf` ablegen, danach Download-Button im
+      "Noch zu ergänzen"-Kasten auf `kooperationen.html` ergänzen
 
 ### Optional / spätere Optimierung
 - [ ] Google Fonts self-hosten, um die in `datenschutz.html` beschriebene
       externe Verbindung zu vermeiden (aktuell dokumentiert, nicht blockierend).
-- [ ] Echtes Foto von Sarah Philine anstelle der gestalteten Textur-Fläche
-      in `index.html` (`.bio-portrait`) und `ueber-uns.html` einsetzen; dazu
-      das `<div class="bio-portrait">`-Markup durch ein `<img>` ersetzen.
+- [ ] Echtes Foto von Sarah Philine anstelle der Logo-Fläche in
+      `index.html` (`.bio-portrait`) und `ueber-uns.html` einsetzen; dazu
+      das `<img class="portrait-mark">`-Element durch ein Fotomotiv
+      ersetzen.
 - [ ] `assets/og-image.jpg` bei Bedarf durch eine Variante mit echtem Foto
-      ersetzen (aktuell ein programmatisch erzeugtes, markenkonformes
-      Grafik-Bild, 1200×630 px).
+      ergänzen (aktuell nutzt es bereits das echte Logo, 1200×630 px).
 
 ---
 
@@ -253,3 +249,26 @@ Der vollständige Audit von Sprint 11.1 steht in **`AUDIT.md`** (Ergebnis:
   auf der Startseite (Details: `AUDIT.md`, Abschnitt 2).
 - Keine Datenbankänderungen, keine neuen Umgebungsvariablen, kein
   Build-Schritt (weiterhin reine statische Website ohne Backend).
+
+### Marken-Update (Logo + echte Unternehmensdaten)
+- Design komplett auf das offizielle SPK-Logo abgestimmt: neue
+  Farbwelt (Schwarz/Rosé/Gold statt Hunter-Grün/Parchment/Brass),
+  Signatur-Element von "Sattelstich" auf einen aus dem Logo
+  abgeleiteten Bogen umgestellt.
+- Logo eingebunden: `assets/spk-logo.jpg` (Master), plus optimierte
+  Varianten `spk-logo-nav.jpg` (120×120, Nav/Footer) und
+  `spk-logo-portrait.jpg` (240×240, Porträt-Flächen) sowie Favicon-Set
+  (16/32/180px) — alle aus der Original-Datei erzeugt, um unnötig große
+  Bilder auf jeder Seite zu vermeiden.
+- `assets/og-image.jpg` mit dem echten Logo neu generiert.
+- `js/site-config.js` mit echten Daten befüllt: Name, Anschrift, E-Mail,
+  Instagram- und Facebook-Link; `privacy.html`/`terms.html` nutzen jetzt
+  ebenfalls die zentrale E-Mail statt des ursprünglichen
+  `YOUR-EMAIL@example.com`-Platzhalters.
+- Impressum: Kleinunternehmerregelung § 19 UStG korrekt hinterlegt
+  (kein Umsatzsteuer-ID-Platzhalter mehr, kein Handelsregistereintrag).
+- **Bug gefunden und behoben:** Der "Kooperation anfragen"-Button in der
+  Navigation erschien am Desktop doppelt (ein CSS-Spezifitätsfehler, der
+  bereits seit Sprint 11.0 im Code war, aber erst bei der Design-Abnahme
+  auffiel). `.nav-cta.mobile` wird jetzt korrekt nur unterhalb von
+  860px angezeigt.

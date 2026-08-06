@@ -22,6 +22,11 @@
       }
     });
 
+    document.querySelectorAll("[data-cfg-optional]").forEach(function (el) {
+      var key = el.getAttribute("data-cfg-optional");
+      if (cfg.isFilled(cfg[key])) { el.hidden = false; }
+    });
+
     document.querySelectorAll("[data-cfg-href]").forEach(function (el) {
       var key = el.getAttribute("data-cfg-href");
       var val = cfg[key];

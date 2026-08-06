@@ -164,12 +164,32 @@ einem echten Smartphone nach dem Deployment wird weiterhin empfohlen.
 ## 8. Verbleibende, bewusst offene Punkte
 
 Diese Punkte sind **kein technischer Fehler**, sondern warten laut
-Sprint-Vorgabe auf externe Informationen:
+Sprint-Vorgabe auf externe Informationen bzw. sind bewusst optional:
 
 - Echter Meta-Verifizierungscode (wird erst nach Start der Verifizierung
   durch Meta bereitgestellt).
-- Echte Unternehmensdaten in `js/site-config.js` (Name, Anschrift,
-  E-Mail, Social-Links) — bis dahin klar als Platzhalter erkennbar,
-  wie in den Sprint-Annahmen vorgesehen.
-- USt-ID / Handelsregistereintrag im Impressum (Sonderfall, siehe dort).
+- Telefonnummer, TikTok- und YouTube-Link (alle optional, `js/site-config.js`).
 - Media-Kit-PDF für die Kooperationen-Seite.
+
+Name, Anschrift, geschäftliche E-Mail, Instagram- und Facebook-Link sowie
+die Kleinunternehmerregelung im Impressum sind seit dem Marken-Update
+bereits mit echten Daten befüllt (siehe Abschnitt 9).
+
+## 9. Marken-Update — zusätzlich gefundener und behobener Bug
+
+Bei der Design-Anpassung an das offizielle SPK-Logo wurde ein
+CSS-Spezifitätsfehler entdeckt, der bereits seit Sprint 11.0 im Code war,
+optisch aber erst mit den kräftigeren Rosé/Gold-Verlaufsfarben auffiel:
+Die Regel `@media (min-width: 860px) { .nav-cta { display: inline-flex; } }`
+traf ungewollt auch auf den mobil-only-Button (`.nav-cta.mobile` in der
+Menüklappe), sodass am Desktop zwei "Kooperation anfragen"-Buttons
+gleichzeitig sichtbar waren — einer regulär rechts in der Navigation,
+einer verkürzt direkt neben den Menülinks. Behoben durch Verschärfung des
+Selektors auf `.nav-cta:not(.mobile)`. Per Screenshot bei 1440 px und
+600 px Breite verifiziert.
+
+Außerdem wurden die Logo-Bilddateien größenoptimiert: Statt des
+1024×1024-Originals (135 KB) laden Nav und Footer jetzt eine 120×120-Variante
+(4,8 KB), die Porträt-Flächen eine 240×240-Variante (10,5 KB). Das Original
+bleibt als Master-Datei im Projekt erhalten, wird aber von keiner Seite
+mehr direkt geladen.

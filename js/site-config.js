@@ -27,24 +27,29 @@ window.SPK_CONFIG = {
   brandName: "SPK",
 
   // Vollständiger Name / offizieller Firmenname für das Impressum.
-  legalName: "[Vollständiger Name / Firmenname bitte ergänzen]",
+  // Hinweis: Für Einzelunternehmer:innen ohne Handelsregistereintrag
+  // verlangt § 5 TMG den bürgerlichen Namen; der Markenname "SPK Sozial
+  // Media" wurde deshalb ergänzend in Klammern aufgeführt. Falls es einen
+  // eigenständigen Handelsregistereintrag unter "SPK Sozial Media" gibt,
+  // hier entsprechend anpassen.
+  legalName: "Sarah Philine Koch (SPK Sozial Media)",
 
   // Vertretungsberechtigte Person (bei Einzelunternehmen meist identisch
   // mit legalName).
-  responsiblePerson: "[Name der vertretungsberechtigten Person bitte ergänzen]",
+  responsiblePerson: "Sarah Philine Koch",
 
   // Anschrift
-  addressStreet: "[Straße und Hausnummer bitte ergänzen]",
-  addressCity: "[Postleitzahl und Ort bitte ergänzen]",
-  addressCountry: "[Land bitte ergänzen]",
+  addressStreet: "Flurstr. 2",
+  addressCity: "83620 Feldkirchen-Westerham",
+  addressCountry: "Deutschland",
 
   // Kontakt
-  email: "", // z. B. "kontakt@spk-pferdesport.de" — leer = Platzhalter bleibt sichtbar
+  email: "sarah.philine.koch@icloud.com",
   phone: "", // optional, z. B. "+49 30 123456"
 
   // Social-Media-Profile (vollständige URLs)
-  instagramUrl: "", // z. B. "https://instagram.com/_sarah.philine_"
-  facebookUrl: "",  // z. B. "https://facebook.com/spk.pferdesport"
+  instagramUrl: "https://instagram.com/_sarah.philine_",
+  facebookUrl: "https://facebook.com/sarahphiline.koch.7",
   tiktokUrl: "",    // z. B. "https://www.tiktok.com/@_sarah.philine_"
   youtubeUrl: "",   // optional
 
