@@ -258,9 +258,11 @@ dass diese Bereiche vorbereitet, aber noch nicht befüllt sind.
 |---|---|---|
 | `assets/photos/hero-sarah-milou.jpg` | Hero, Startseite | DSC_0876.JPG |
 | `assets/photos/bio-dressage-laugh.jpg` | "Warum SPK", Startseite | 802bb388-…JPG |
-| `assets/photos/bio-grooming.jpg` | "Sarah &amp; My Milou", Über uns | IMG_7752.jpeg |
-| `assets/photos/story-jumping.jpg` | Story-Paar "Früher", Über uns | IMG_4577.JPG |
-| `assets/photos/story-dressage.jpg` | Story-Paar "Heute", Über uns | IMG_2705.jpg |
+| `assets/photos/bio-grooming.jpg` | "Sarah &amp; My Milou", Über uns (unten im Foto-Stack) | IMG_7752.jpeg |
+| `assets/photos/milou-foal-2020.jpg` | "Sarah &amp; My Milou", Über uns (oben im Foto-Stack, "2020 · Der Anfang") | image00003.jpeg |
+| `assets/photos/story-jumping.jpg` | Story-Paar "Springsport · das aktuelle Comeback", Über uns | image00015.jpeg (ersetzt ursprüngliches IMG_4577.JPG) |
+| `assets/photos/story-dressage.jpg` | Story-Paar "Para-Dressur · Grade III", Über uns | IMG_2705.jpg |
+| `assets/photos/award-ceremony.jpg` | "Sportliche Meilensteine", Über uns (Siegerehrung) | image00005.jpeg |
 
 ## 13. Sprint 11.10 — UX-Feinschliff & Vorbereitung SPK Creator OS
 
@@ -315,3 +317,31 @@ gar nicht nötig sind, und damit die wahrscheinlichste Ursache für die im
 Sprint genannten wiederkehrenden Timeouts). "Deploy from a branch"
 umgeht diese Kette vollständig: GitHub Pages liest die Dateien direkt
 aus dem Branch und veröffentlicht sie, ohne Zwischenschritt.
+
+## 15. Bilder-Update & professionelle Durchsicht
+
+| Prüfung | Status |
+|---|---|
+| Neue Fotos logisch platziert (Fohlen-Foto, aktuelles Sprung-Foto, Siegerehrung) | ✅ |
+| Fehlerhafte "Früher"-Beschriftung beim Sprung-Foto korrigiert | ✅ — war tatsächlich ein aktuelles Foto, nicht historisch |
+| Terminologie "Para-Reitsport" statt "Para-Dressur" als Markenidentität | ✅ site-weit, faktische Wettkampfergebnisse blieben disziplinspezifisch |
+| Begriff "Para-Reitsport" gegen offizielle Quelle geprüft | ✅ Bayerischer Reit- und Fahrverband führt ihn als eigene Sparte |
+| Presse-Recherche durchgeführt | ✅ keine redaktionelle Berichterstattung gefunden, keine Fake-Einträge ergänzt |
+| HTML-Tag-Balance nach den Änderungen (div/section/figure) | ✅ per Skript geprüft, ausgeglichen |
+| Alle neuen Bildpfade laden (HTTP 200) | ✅ |
+| Mobile Darstellung der neuen Foto-Layouts (Stack, Paar, Einzelfoto) | ✅ 600 px getestet |
+| Zusätzlich gefunden: `og:title`/`twitter:title` wichen vom `<title>`-Tag der Startseite ab | ✅ behoben (Altlast aus Sprint 11.1) |
+| OG-Bild auf veraltete/dressurspezifische Formulierungen geprüft | ✅ Text im Bild ist generisch, keine Änderung nötig |
+
+**Zur Presse-Recherche im Detail:** Gesucht wurde nach "Sarah Philine
+Koch" in Kombination mit Para-Dressur, Reiterin, Zeitung sowie nach den
+konkreten Turnierergebnissen (Bayerische Meisterschaft München-Riem).
+Gefunden wurde ausschließlich ein Ergebnis-/Datenbankprofil auf
+rimondo.com (einer Pferdesport-Ergebnisdatenbank, keine Redaktion) sowie
+öffentliche Turnier-Ausschreibungen des Bayerischen Reit- und
+Fahrverbands. Keines davon ist redaktionelle Presse im eigentlichen
+Sinn. Es wurde deshalb bewusst **nichts** in den "Presse &
+Erwähnungen"-Bereich der Kooperationen-Seite eingetragen, um keine
+Datenbank- oder Ausschreibungs-Einträge fälschlich als Medienberichte
+darzustellen — die Platzhalter-Slots bleiben dort unverändert stehen,
+bis echte Presseberichterstattung vorliegt.

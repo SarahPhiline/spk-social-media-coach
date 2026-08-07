@@ -466,3 +466,43 @@ Der vollständige Audit von Sprint 11.1 steht in **`AUDIT.md`** (Ergebnis:
   konnte kein dort ggf. vorhandener Workflow eingesehen oder entfernt
   werden — die Diagnose-Schritte in Abschnitt 3a sind dafür ausgelegt,
   das in unter zwei Minuten selbst zu erledigen.
+
+### Bilder-Update &amp; Terminologie: Para-Reitsport statt Para-Dressur
+- Drei neue Fotos aus einer 16-teiligen Lieferung eingebunden:
+  `assets/photos/milou-foal-2020.jpg` (My Milou als Fohlen, 2020 — neu
+  in der "Sarah & My Milou"-Sektion, gestapelt über dem bestehenden
+  Weide-Foto), `assets/photos/story-jumping.jpg` (aktuelles
+  Springsport-Comeback, ersetzt das bisherige Foto) und
+  `assets/photos/award-ceremony.jpg` (Siegerehrung, neu unterhalb der
+  Sportliche-Meilensteine-Karten).
+- **Korrigiert:** Das bisherige Sprung-Foto war fälschlich als "Früher"
+  beschriftet, obwohl es ein aktuelles Foto von Sarahs Comeback im
+  Springsport ist. Beide Bilder im Story-Paar zeigen jetzt korrekt zwei
+  parallele, aktuelle Disziplinen ("Springsport · das aktuelle Comeback"
+  / "Para-Dressur · Grade III") statt einer irreführenden
+  Vorher-Nachher-Erzählung.
+- Sprachliche Anpassung site-weit: "Para-Dressurreiterin im Grade III"
+  wurde zu "Para-Reitsport-Athletin — aktiv in der Para-Dressur (Grade
+  III) und mit wachsendem Comeback im Springsport" erweitert (Startseite
+  Hero-Bildunterschrift, Kurzvorstellung, Sportliche-Erfolge-Intro;
+  Über-uns Meta-Tags, Lead-Text, Sektionstitel "Springreiten,
+  Para-Dressur & das Comeback"). Konkrete Wettkampfergebnisse (z. B.
+  "4. Platz Grade III") bleiben unverändert disziplinspezifisch, da es
+  sich um Fakten und nicht um Markenidentität handelt. Der Begriff
+  "Para-Reitsport" wurde gegen die offizielle Terminologie des
+  Bayerischen Reit- und Fahrverbands geprüft (führt Dressur, Springen,
+  Voltigieren und Para-Reitsport als eigene Sparte).
+- Neue CSS-Komponenten `.bio-photo-stack` (zwei gestapelte Fotos) und
+  `.story-photo` (einzelnes, breites Foto mit Bildunterschrift) ergänzt.
+- Recherche nach Presseberichten über Sarah Philine Koch durchgeführt:
+  keine redaktionelle Berichterstattung gefunden, nur ein
+  Ergebnis-/Datenbankprofil (rimondo.com) und offizielle
+  Turnier-Ausschreibungen. Bewusst **nicht** als "Presseartikel" auf der
+  Kooperationen-Seite eingetragen, um keine Datenbank-Einträge als
+  redaktionelle Presse auszugeben — die Platzhalter bleiben dort
+  unverändert bestehen.
+- Im Zuge der Durchsicht zusätzlich gefunden und behoben: `og:title` und
+  `twitter:title` der Startseite trugen noch die längere, vor der
+  SEO-Kürzung in Sprint 11.1 verwendete Version des Titels
+  ("... im Pferdesport") und wichen dadurch vom `<title>`-Tag ab — jetzt
+  wieder konsistent.
