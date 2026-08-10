@@ -28,7 +28,7 @@ window.SPK_CONFIG = {
 
   // Vollständiger Name / offizieller Firmenname für das Impressum.
   // Hinweis: Für Einzelunternehmer:innen ohne Handelsregistereintrag
-  // verlangt § 5 TMG den bürgerlichen Namen; der Markenname "SPK – Social
+  // verlangt § 5 DDG den bürgerlichen Namen; der Markenname "SPK – Social
   // Media" wurde deshalb ergänzend in Klammern aufgeführt. Falls es einen
   // eigenständigen Handelsregistereintrag unter diesem Namen gibt, hier
   // entsprechend anpassen.
@@ -83,7 +83,7 @@ window.SPK_CONFIG = {
 
   // Aktuelle Domain (rein informativ, wird in der README referenziert;
   // steuert keine Tags automatisch — siehe Hinweis oben).
-  domain: "https://sarahphiline.github.io/spk-social-media-coach/",
+  domain: "https://sarahphiline.de/",
 
   // Social-Media-Kennzahlen für die Kooperationen-Seite ("Vertrauen &
   // Nachweise" → Social-Media-Kennzahlen). Leer lassen = die Seite zeigt

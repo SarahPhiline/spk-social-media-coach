@@ -19,7 +19,7 @@ Kein Build-Schritt, kein Backend, keine Abhängigkeiten außer Google Fonts
 ├── ueber-uns.html         Über uns
 ├── kooperationen.html     Kooperationen (für Unternehmen)
 ├── kontakt.html           Kontakt (mailto-Formular, kein Backend)
-├── impressum.html         Impressum (§ 5 TMG)
+├── impressum.html         Impressum (§ 5 DDG)
 ├── datenschutz.html       Datenschutzerklärung (DSGVO)
 ├── privacy.html           Privacy Policy der App "SPK Social Media Coach" (unverändert übernommen, neu geskinnt)
 ├── terms.html             Terms of Service der App "SPK Social Media Coach" (unverändert übernommen, neu geskinnt)
@@ -123,7 +123,7 @@ vorhandenen Dateien aus, ohne Zwischenschritt.
 4. **GitHub Pages veröffentlicht automatisch** — kein manueller Trigger
    nötig; bei "Deploy from a branch" i. d. R. innerhalb von 1–2 Minuten
    live, ganz ohne Actions-Warteschlange.
-5. **Website prüfen** — `https://sarahphiline.github.io/spk-social-media-coach/`
+5. **Website prüfen** — `https://sarahphiline.de/`
    aufrufen und die geänderten Seiten kurz gegenchecken.
 
 **Optional:** Eigene Domain unter **Settings → Pages → Custom domain**
@@ -276,7 +276,7 @@ Business Verification) zu bestätigen:
    die Startseite serverseitig aus — ein Tag auf `index.html` reicht,
    da die Verifizierung domainweit gilt.
 7. Bei Fehlern: prüfen, ob die Seite unter
-   `https://sarahphiline.github.io/spk-social-media-coach/` öffentlich
+   `https://sarahphiline.de/` öffentlich
    ohne Login erreichbar ist und der Tag im gerenderten Seitenquelltext
    (Browser → "Seitenquelltext anzeigen") tatsächlich sichtbar ist.
 
