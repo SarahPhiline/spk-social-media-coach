@@ -202,6 +202,55 @@ da Crawler diese ohne JavaScript lesen müssen.
 Technischer Hintergrund, Datenfluss und Grenzen dieses Mechanismus:
 siehe `AUDIT.md`, Abschnitt 4.
 
+### 4c. Kontaktformular scharf schalten (WICHTIG vor dem Livegang)
+
+Im Auslieferungszustand öffnet das Kontaktformular das lokale
+E-Mail-Programm des Besuchers (`mailto:`). **Das funktioniert bei vielen
+Besuchern nicht** — wer Webmail im Browser nutzt (GMX, Web.de, Gmail,
+Outlook Web), sieht beim Absenden schlicht keine Reaktion. Für eine
+Geschäftsseite, auf der Werbepartner anfragen sollen, ist das ein echter
+Verlust: Die Anfrage kommt nie an, und niemand merkt es.
+
+Lösung: einen kostenlosen Formular-Dienst eintragen. Kein Backend, kein
+Server, ca. 5 Minuten Aufwand.
+
+1. Bei einem Formular-Dienst anmelden. Gängige Anbieter mit kostenlosem
+   Kontingent sind z. B. **Web3Forms**, **Formspree** oder **Formspark**.
+   Für eine deutsche Geschäftsseite lohnt ein Blick darauf, wo der
+   Anbieter Daten verarbeitet und ob er einen
+   Auftragsverarbeitungsvertrag (AVV) anbietet — das ist DSGVO-relevant.
+2. Dort die Empfänger-Adresse hinterlegen (die Adresse, an die die
+   Anfragen gehen sollen).
+3. Den vom Anbieter erzeugten Endpunkt bzw. Zugangsschlüssel in
+   `js/site-config.js` eintragen:
+   ```js
+   contactFormEndpoint: "https://…",   // vom Anbieter
+   contactFormAccessKey: "",           // nur falls der Anbieter das verlangt
+   formProviderName: "…",              // Name für die Datenschutzerklärung
+   ```
+   - Steckt der Schlüssel bereits **in der URL** (Formspree, Formspark),
+     bleibt `contactFormAccessKey` leer.
+   - Verlangt der Anbieter den Schlüssel **im Formularinhalt**
+     (Web3Forms), gehört er in `contactFormAccessKey`.
+4. `formProviderName` **nicht vergessen** — dieser Name erscheint
+   automatisch in der Datenschutzerklärung (Abschnitt 5). Bleibt das Feld
+   leer, steht dort nur „unseren Formular-Dienstleister", was rechtlich
+   zu unbestimmt ist.
+5. Committen, pushen, auf der Live-Seite eine Testnachricht senden.
+
+**Was dabei automatisch passiert:** Sobald `contactFormEndpoint` gefüllt
+ist, schaltet die Website selbstständig um — die Nachricht wird wirklich
+abgeschickt, der Besucher bleibt auf der Seite und bekommt eine
+Bestätigung; und die Datenschutzerklärung zeigt automatisch den
+passenden Absatz (Dienstleister statt `mailto:`). Bleibt das Feld leer,
+bleibt alles beim bisherigen `mailto:`-Verhalten. Beide Zustände sind in
+sich stimmig, es kann also nichts „halb umgestellt" sein.
+
+**Spam-Schutz** ist bereits eingebaut (unsichtbares Honeypot-Feld) und
+in der Datenschutzerklärung beschrieben — dafür ist nichts zu tun.
+
+---
+
 ## 5. Domain-Verifizierung bei Meta
 
 Kurzanleitung, um die Website für Meta Business (Instagram/Facebook
@@ -506,3 +555,33 @@ Der vollständige Audit von Sprint 11.1 steht in **`AUDIT.md`** (Ergebnis:
   SEO-Kürzung in Sprint 11.1 verwendete Version des Titels
   ("... im Pferdesport") und wichen dadurch vom `<title>`-Tag ab — jetzt
   wieder konsistent.
+
+### Bildzuschnitt-Korrektur
+- Zwei Fotos (Weide-Foto in der "Sarah & My Milou"-Sektion, Siegerehrung
+  bei den Sportlichen Meilensteinen) waren im falschen Seitenverhältnis
+  gespeichert und wurden dadurch vom Browser automatisch nachgeschnitten
+  — Sarah fiel dabei teilweise aus dem Bild. Beide Fotos wurden aus den
+  Originaldateien neu zugeschnitten, exakt passend zum jeweiligen
+  CSS-Format. Details und Ursachenanalyse: `AUDIT.md`, Abschnitt 16.
+
+### Homepage-Fertigstellung (Formular & Platzhalter-Abbau)
+- `kooperationen.html`: Bereiche ohne echten Inhalt entfernt —
+  Partnerlogos, Presse & Erwähnungen, Kundenstimmen. Der
+  Media-Kit-Bereich ist jetzt eine normale Sektion mit Anfrage-Button
+  statt eines „Noch zu ergänzen"-Kastens.
+- Social-Media-Kennzahlen erscheinen automatisch erst, wenn in
+  `js/site-config.js` mindestens ein Wert eingetragen ist — bis dahin ist
+  der Block unsichtbar statt eine Reihe „—" zu zeigen. Die Zahlen können
+  manuell aus SPK Creator OS übernommen werden, eine API-Anbindung ist
+  dafür nicht nötig.
+- Kontaktformular grundlegend überarbeitet: versendet Nachrichten jetzt
+  wirklich, sobald ein Formular-Endpunkt konfiguriert ist (Anleitung:
+  Abschnitt 4c). Inklusive Feldvalidierung, verständlichen Erfolgs- und
+  Fehlermeldungen sowie unsichtbarem Spam-Schutz.
+- Datenschutzerklärung (Abschnitt 5) beschreibt jetzt automatisch den
+  tatsächlich aktiven Formular-Modus und nennt den Dienstleister, sobald
+  einer konfiguriert ist.
+- Textkorrektur auf der Kontaktseite: Der Einleitungssatz versprach noch
+  Kontakt „per E-Mail", obwohl die E-Mail-Adresse dort bewusst nicht mehr
+  angezeigt wird.
+- Totes CSS entfernt (`.logo-slot`, `.testimonial-*`).

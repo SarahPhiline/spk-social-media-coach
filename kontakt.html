@@ -51,7 +51,7 @@
     <div class="container">
       <span class="eyebrow">Kontakt</span>
       <h1>Sprechen wir über Ihre Idee</h1>
-      <p class="lead">Ob Kooperationsanfrage, Coaching oder allgemeine Frage — die schnellste Antwort gibt es per E-Mail oder über das Formular.</p>
+      <p class="lead">Ob Kooperationsanfrage, Coaching oder allgemeine Frage — schreiben Sie uns über das Formular, wir melden uns zeitnah zurück.</p>
     </div>
   </section>
 
@@ -92,8 +92,12 @@
               <label for="message">Nachricht</label>
               <textarea id="message" name="message" rows="5" required></textarea>
             </div>
+            <div class="form-trap" aria-hidden="true">
+              <label for="website">Bitte dieses Feld leer lassen</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+            </div>
             <button class="btn btn-primary" type="submit">Nachricht senden <span class="btn-arrow" aria-hidden="true">→</span></button>
-            <p class="form-note">Das Formular öffnet Ihr E-Mail-Programm mit einer vorbereiteten Nachricht — es gibt kein serverseitiges Backend, es werden keine Daten auf dieser Website gespeichert.</p>
+            <p class="form-note">Ihre Angaben werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet. Weitere Informationen finden Sie in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
             <p class="form-status" id="form-status" role="status"></p>
           </form>
         </div>

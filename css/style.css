@@ -414,6 +414,10 @@ section { padding: clamp(3rem, 7vw, 5.5rem) 0; }
 }
 .form-row input:focus, .form-row textarea:focus { outline: 2px solid var(--gold); outline-offset: 1px; border-color: var(--gold); }
 .form-note { font-size: 0.85rem; color: var(--text-soft); }
+.form-note a { color: var(--gold); border-bottom: 1px solid var(--line-strong); }
+.form-note a:hover { color: var(--rose); border-color: var(--rose); }
+/* Honeypot: hidden from humans (incl. screen readers), visible to bots. */
+.form-trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .form-status { font-family: var(--font-mono); font-size: 0.85rem; display: none; padding: 0.7rem 0.9rem; border-radius: var(--radius); }
 .form-status.is-visible { display: block; }
 .form-status.ok { background: rgba(227,184,118,0.14); color: var(--gold); }
@@ -577,7 +581,7 @@ section { padding: clamp(3rem, 7vw, 5.5rem) 0; }
 .story-photo { margin: 2.2rem 0; }
 .story-photo img {
   width: 100%;
-  max-height: 420px;
+  aspect-ratio: 3 / 2;
   object-fit: cover;
   border-radius: var(--radius);
   border: 1px solid var(--line-strong);
@@ -602,18 +606,6 @@ section { padding: clamp(3rem, 7vw, 5.5rem) 0; }
   color: var(--text-soft);
   margin-bottom: 1.2rem;
 }
-.logo-row { display: flex; flex-wrap: wrap; gap: 1rem; }
-.logo-slot {
-  width: 150px; height: 72px;
-  border: 1px dashed var(--line-strong);
-  border-radius: var(--radius);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--text-soft);
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  text-align: center;
-  padding: 0.5rem;
-}
 .stat-row { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
 .stat-item { text-align: left; }
 .stat-item .stat-value { font-family: var(--font-display); font-size: 2.2rem; color: var(--text); }
@@ -623,26 +615,6 @@ section { padding: clamp(3rem, 7vw, 5.5rem) 0; }
 .platform-name { font-family: var(--font-display); font-size: 1.05rem; color: var(--text); margin: 0 0 0.9rem; }
 .platform-stat-group .stat-row { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
 .platform-stat-group .stat-value { font-size: 1.7rem; }
-.testimonial-row { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-.testimonial-card {
-  background: var(--bg-raised);
-  border: 1px dashed var(--line-strong);
-  border-radius: var(--radius);
-  padding: 1.6rem;
-  color: var(--text-soft);
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  line-height: 1.5;
-}
-.testimonial-card .slot-label {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 0.8rem;
-}
 
 /* Introductory teaser on the homepage (Kurzvorstellung) */
 .intro-teaser { max-width: 62ch; }

@@ -345,3 +345,73 @@ Erwähnungen"-Bereich der Kooperationen-Seite eingetragen, um keine
 Datenbank- oder Ausschreibungs-Einträge fälschlich als Medienberichte
 darzustellen — die Platzhalter-Slots bleiben dort unverändert stehen,
 bis echte Presseberichterstattung vorliegt.
+
+## 16. Bildzuschnitt-Korrektur (Nutzerfeedback)
+
+Nach Sichtung der ausgelieferten Version wurde gemeldet, dass zwei Fotos
+falsch zugeschnitten waren und Sarah teilweise aus dem Bild fielen:
+
+**Ursache:** Beide betroffenen Bilder wurden mit einem Seitenverhältnis
+gespeichert, das nicht zum tatsächlichen CSS-Anzeigeformat passte.
+`object-fit: cover` schneidet in diesem Fall automatisch nach, um die
+Differenz auszugleichen — und zwar ohne Rücksicht auf den Bildinhalt:
+
+- `bio-grooming.jpg` war (aus der vorherigen Verwendung als
+  Einzelbild) im Format 4:5 gespeichert, wurde aber ab Sprint mit den
+  neuen Fotos in einem gestapelten 4:3-Rahmen (`.bio-photo-stack`)
+  angezeigt. Die Differenz führte dazu, dass Sarahs Kopf am oberen
+  Bildrand abgeschnitten wurde.
+- `award-ceremony.jpg` war 900×562 px (Verhältnis 1,6:1), wurde aber
+  über `max-height: 420px` in einem deutlich breiteren, vom Viewport
+  abhängigen Rahmen angezeigt (effektiv bis zu ca. 2,6:1) — dadurch
+  wurden bei größeren Bildschirmen Personen am linken und rechten Rand
+  abgeschnitten, teils auch Sarah selbst.
+
+**Behoben:** Beide Bilder wurden aus den Originaldateien neu
+zugeschnitten — exakt passend zum jeweiligen CSS-Format (4:3 bzw. 3:2),
+sodass `object-fit: cover` nur noch skaliert und nicht mehr zusätzlich
+nachschneidet. Die `.story-photo`-Regel wurde von einer
+viewport-abhängigen `max-height`-Angabe auf ein festes
+`aspect-ratio: 3/2` umgestellt, damit dieselbe Fehlerklasse bei anderen
+Bildschirmgrößen nicht erneut auftreten kann. Per Screenshot auf
+Desktop- und Mobile-Breite verifiziert: Sarah ist auf beiden Fotos jetzt
+vollständig und mittig im Bild.
+
+**Lehre für künftige Bild-Updates:** Bei neuen Fotos für eine bestehende
+CSS-Komponente muss der Datei-Zuschnitt exakt dem dort verwendeten
+`aspect-ratio`-Wert entsprechen — sonst schneidet `object-fit: cover`
+unkontrolliert nach, unabhängig vom Bildinhalt.
+
+## 17. Homepage-Fertigstellung: Formular & Platzhalter-Abbau
+
+Vorgabe: Die Homepage soll ohne neue Features fertiggestellt werden, das
+Kontaktformular muss zuverlässig funktionieren, und Bereiche ohne echten
+Inhalt (Werbepartner, Presse) sollen bis auf Weiteres verschwinden.
+
+| Änderung | Status |
+|---|---|
+| Partnerlogos, Presse & Kundenstimmen aus `kooperationen.html` entfernt | ✅ |
+| Media-Kit-„Noch zu ergänzen"-Kasten durch normale Anfrage-Sektion ersetzt | ✅ |
+| Social-Media-Kennzahlen blenden sich automatisch aus, solange leer | ✅ beide Richtungen getestet |
+| Kontaktformular versendet echte Nachrichten (Endpunkt-Modus) | ✅ End-to-End gegen Mock-Server verifiziert |
+| Fallback auf `mailto:` bleibt erhalten, wenn kein Endpunkt gesetzt ist | ✅ |
+| Fehlerfall (Server antwortet 500) zeigt verständliche Meldung | ✅ getestet |
+| Spam-Schutz per Honeypot-Feld | ✅ unsichtbar, in Datenschutz beschrieben |
+| Datenschutzerklärung passt sich dem aktiven Formular-Modus an | ✅ beide Modi im DOM verifiziert |
+| Totes CSS entfernt (`.logo-slot`, `.testimonial-*`) | ✅ |
+
+**Warum das Formular überarbeitet wurde:** Die bisherige `mailto:`-Lösung
+öffnet das lokale E-Mail-Programm des Besuchers. Wer Webmail im Browser
+nutzt (GMX, Web.de, Gmail, Outlook Web) — das ist ein erheblicher Teil
+der Besucher — sieht beim Absenden schlicht keine Reaktion. Die Anfrage
+geht verloren, ohne dass es jemandem auffällt. Für eine Seite, über die
+Werbepartner Kontakt aufnehmen sollen, ist das ein echtes Risiko. Die
+Umstellung erfolgt über ein einziges Feld in `js/site-config.js`
+(`contactFormEndpoint`), Anleitung in README Abschnitt 4c.
+
+**Bewusst offen gelassen:** Der Formular-Endpunkt ist im
+Auslieferungszustand **leer**, weil dafür ein Konto bei einem
+Formular-Dienst nötig ist, das nur Laurenz/Sarah anlegen können. Bis
+dahin bleibt das `mailto:`-Verhalten aktiv — die Seite ist also
+funktionsfähig, aber das Formular erreicht noch nicht alle Besucher.
+Das ist der letzte verbleibende Schritt vor dem Livegang.

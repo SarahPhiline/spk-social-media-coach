@@ -47,6 +47,29 @@
     if (form && cfg.isFilled(cfg.email)) {
       form.setAttribute("data-mailto", cfg.email);
     }
+
+    // Privacy policy: show the paragraph matching the active contact-form
+    // mode, so the legal text never describes a setup that isn't in use.
+    var usesEndpoint = cfg.isFilled(cfg.contactFormEndpoint);
+    document.querySelectorAll("[data-form-mode]").forEach(function (el) {
+      var mode = el.getAttribute("data-form-mode");
+      el.hidden = usesEndpoint ? (mode !== "endpoint") : (mode !== "mailto");
+    });
+
+    // Social-media stats: only show the block once at least one real number
+    // is configured. Otherwise it would display a row of "—" and look
+    // unfinished to sponsors.
+    var statsBlock = document.getElementById("social-stats");
+    if (statsBlock) {
+      var statKeys = [
+        "instagramFollowers", "instagramEngagement",
+        "facebookFollowers", "facebookEngagement",
+        "tiktokFollowers", "tiktokEngagement"
+      ];
+      for (var i = 0; i < statKeys.length; i++) {
+        if (cfg.isFilled(cfg[statKeys[i]])) { statsBlock.hidden = false; break; }
+      }
+    }
   }
   applySiteConfig();
 
@@ -89,36 +112,104 @@
     revealEls.forEach(function (el) { el.classList.add("is-visible"); });
   }
 
-  // Contact form (no backend on GitHub Pages: build a mailto: draft)
-  var form = document.getElementById("contact-form");
-  if (form) {
-    form.addEventListener("submit", function (e) {
+  // ---------------------------------------------------------------
+  // Contact form
+  // ---------------------------------------------------------------
+  // Two modes, depending on whether a form endpoint is configured in
+  // js/site-config.js (contactFormEndpoint):
+  //
+  //   1. Endpoint configured  -> the message is POSTed and really sent.
+  //      The visitor stays on the page and gets a confirmation.
+  //   2. No endpoint          -> falls back to opening the visitor's local
+  //      mail program via mailto:. This works for some visitors but NOT for
+  //      people using webmail in the browser, so mode 1 is strongly
+  //      preferred for a business site. See README, section 4c.
+  // ---------------------------------------------------------------
+  var contactForm = document.getElementById("contact-form");
+  if (contactForm) {
+    var statusEl = document.getElementById("form-status");
+    var submitBtn = contactForm.querySelector('button[type="submit"]');
+    var submitBtnLabel = submitBtn ? submitBtn.innerHTML : "";
+
+    function setStatus(text, isOk) {
+      if (!statusEl) { return; }
+      statusEl.textContent = text;
+      statusEl.classList.add("is-visible");
+      if (isOk) { statusEl.classList.add("ok"); }
+      else { statusEl.classList.remove("ok"); }
+    }
+
+    contactForm.addEventListener("submit", function (e) {
       e.preventDefault();
-      var name = form.elements["name"].value.trim();
-      var email = form.elements["email"].value.trim();
-      var message = form.elements["message"].value.trim();
-      var status = document.getElementById("form-status");
+
+      var name = contactForm.elements["name"].value.trim();
+      var email = contactForm.elements["email"].value.trim();
+      var message = contactForm.elements["message"].value.trim();
+
+      // Honeypot: real people never fill this hidden field, bots often do.
+      var trap = contactForm.elements["website"];
+      if (trap && trap.value) { return; }
 
       if (!name || !email || !message) {
-        if (status) {
-          status.textContent = "Bitte füllen Sie alle Felder aus.";
-          status.classList.add("is-visible");
-          status.classList.remove("ok");
-        }
+        setStatus("Bitte füllen Sie alle Felder aus.", false);
+        return;
+      }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        setStatus("Bitte geben Sie eine gültige E-Mail-Adresse an.", false);
         return;
       }
 
-      var to = form.getAttribute("data-mailto") || "";
+      var cfg = window.SPK_CONFIG;
+      var endpoint = cfg && cfg.isFilled(cfg.contactFormEndpoint)
+        ? cfg.contactFormEndpoint
+        : "";
+
+      // --- Mode 1: real submission via form endpoint ---
+      if (endpoint) {
+        if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Wird gesendet …"; }
+        setStatus("Nachricht wird gesendet …", false);
+
+        var payload = {
+          name: name,
+          email: email,
+          message: message,
+          subject: "Neue Anfrage über die SPK-Website"
+        };
+        // Some providers (e.g. Web3Forms) expect the key inside the payload.
+        if (cfg.isFilled(cfg.contactFormAccessKey)) {
+          payload.access_key = cfg.contactFormAccessKey;
+        }
+
+        fetch(endpoint, {
+          method: "POST",
+          headers: { "Accept": "application/json", "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        })
+          .then(function (res) {
+            if (!res.ok) { throw new Error("HTTP " + res.status); }
+            contactForm.reset();
+            setStatus("Vielen Dank für Ihre Nachricht! Wir melden uns zeitnah bei Ihnen.", true);
+          })
+          .catch(function () {
+            setStatus(
+              "Die Nachricht konnte gerade nicht gesendet werden. Bitte versuchen Sie es später noch einmal.",
+              false
+            );
+          })
+          .then(function () {
+            if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = submitBtnLabel; }
+          });
+        return;
+      }
+
+      // --- Mode 2: fallback to the visitor's local mail program ---
+      var to = contactForm.getAttribute("data-mailto") || "";
       var subject = encodeURIComponent("Kooperationsanfrage über die Website");
       var body = encodeURIComponent(
         "Name: " + name + "\nE-Mail: " + email + "\n\nNachricht:\n" + message
       );
       window.location.href = "mailto:" + to + "?subject=" + subject + "&body=" + body;
-
-      if (status) {
-        status.textContent = "Ihr E-Mail-Programm wird geöffnet, um die Nachricht zu senden.";
-        status.classList.add("is-visible", "ok");
-      }
+      setStatus("Ihr E-Mail-Programm wird geöffnet, um die Nachricht zu senden.", true);
     });
   }
 

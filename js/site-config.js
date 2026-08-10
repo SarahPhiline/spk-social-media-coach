@@ -47,6 +47,31 @@ window.SPK_CONFIG = {
   email: "sarah.philine.koch@icloud.com",
   phone: "", // optional, z. B. "+49 30 123456"
 
+  // Endpunkt für das Kontaktformular.
+  // LEER  = das Formular öffnet das lokale E-Mail-Programm des Besuchers
+  //         (funktioniert NICHT bei Leuten, die Webmail im Browser nutzen —
+  //         für eine Geschäftsseite daher nicht empfohlen).
+  // GEFÜLLT = die Nachricht wird wirklich abgeschickt, der Besucher bleibt
+  //         auf der Seite und bekommt eine Bestätigung.
+  // Einrichtung in ~5 Minuten, kein Backend nötig — siehe README,
+  // Abschnitt 4c. Beispiel: "https://api.web3forms.com/submit"
+  contactFormEndpoint: "",
+
+  // Nur nötig, wenn der gewählte Anbieter einen Zugangsschlüssel im
+  // Formular-Inhalt erwartet (z. B. Web3Forms). Bei Anbietern, bei denen
+  // der Schlüssel bereits in der Endpunkt-URL steckt (z. B. Formspree,
+  // Formspark), bleibt das Feld leer.
+  // Hinweis: Dieser Schlüssel ist im Quelltext der Website sichtbar. Das
+  // ist bei diesen Diensten so vorgesehen und unkritisch — er erlaubt nur
+  // das Absenden von Formularen, keinen Zugriff auf empfangene Nachrichten.
+  contactFormAccessKey: "",
+
+  // Name des Formular-Dienstleisters — erscheint automatisch in der
+  // Datenschutzerklärung (Abschnitt 5). MUSS ausgefüllt werden, sobald ein
+  // contactFormEndpoint gesetzt ist, sonst ist die Datenschutzerklärung
+  // unvollständig. Beispiel: "Web3Forms (Sandbox Studios LLC)"
+  formProviderName: "",
+
   // Social-Media-Profile (vollständige URLs). Weitere Kanäle (z. B.
   // YouTube) können bei Bedarf als weiteres Feld ergänzt werden — dazu in
   // kontakt.html einen zusätzlichen .social-pill-Block nach demselben
