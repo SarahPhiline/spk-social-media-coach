@@ -1,3 +1,38 @@
+/* ------------------------------------------------------------------
+   Schriftarten - lokal eingebunden (kein Google-Fonts-CDN).
+   Grund: Beim Laden ueber Google wird die IP-Adresse jedes Besuchers
+   an Google uebertragen. Das ist in Deutschland datenschutzrechtlich
+   angreifbar. Die Dateien liegen jetzt unter assets/fonts/.
+   ------------------------------------------------------------------ */
+@font-face {
+  font-family: "Fraunces";
+  src: url("../assets/fonts/fraunces-latin-opsz-normal.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/inter-latin-wght-normal.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("../assets/fonts/ibm-plex-mono-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("../assets/fonts/ibm-plex-mono-latin-500-normal.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* =========================================================
    SPK — Unternehmenswebsite
    Design tokens — abgeleitet aus dem offiziellen SPK-Logo

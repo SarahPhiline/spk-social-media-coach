@@ -100,7 +100,7 @@ if os.path.exists("sitemap.xml"):
         report["sitemap_urls"] = locs
         report["sitemap_wellformed"] = True
         for loc in locs:
-            path_part = loc.replace("https://sarahphiline.github.io/spk-social-media-coach/", "")
+            path_part = loc.replace("https://sarahphiline.de/", "")
             if path_part == "":
                 path_part = "index.html"
             if not os.path.exists(path_part):

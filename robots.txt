@@ -3,4 +3,4 @@ Allow: /
 Disallow: /impressum.html
 Disallow: /datenschutz.html
 
-Sitemap: https://sarahphiline.github.io/spk-social-media-coach/sitemap.xml
+Sitemap: https://sarahphiline.de/sitemap.xml
