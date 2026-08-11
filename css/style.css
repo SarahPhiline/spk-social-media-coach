@@ -667,3 +667,15 @@ section { padding: clamp(3rem, 7vw, 5.5rem) 0; }
   font-weight: 600;
 }
 .skip-link:focus { left: 1rem; top: 1rem; }
+
+/* Namenszusatz neben dem Logo: Name gross, Disziplin klein darunter.
+   Auf schmalen Displays wird die Unterzeile ausgeblendet, damit die
+   Kopfzeile nicht umbricht. */
+.brand-text { display: flex; flex-direction: column; line-height: 1.15; min-width: 0; }
+.brand-name { font-family: var(--font-display); font-size: 1.02rem; font-weight: 600; white-space: nowrap; }
+.brand-role {
+  font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--gold); margin-top: 0.15rem; white-space: nowrap;
+}
+@media (max-width: 560px) { .brand-role { display: none; } }
+@media (max-width: 400px) { .brand-name { font-size: 0.92rem; } }
