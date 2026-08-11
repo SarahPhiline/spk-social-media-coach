@@ -55,7 +55,7 @@ window.SPK_CONFIG = {
   //         auf der Seite und bekommt eine Bestätigung.
   // Einrichtung in ~5 Minuten, kein Backend nötig — siehe README,
   // Abschnitt 4c. Beispiel: "https://api.web3forms.com/submit"
-  contactFormEndpoint: "",
+  contactFormEndpoint: "https://api.web3forms.com/submit",
 
   // Nur nötig, wenn der gewählte Anbieter einen Zugangsschlüssel im
   // Formular-Inhalt erwartet (z. B. Web3Forms). Bei Anbietern, bei denen
@@ -64,13 +64,13 @@ window.SPK_CONFIG = {
   // Hinweis: Dieser Schlüssel ist im Quelltext der Website sichtbar. Das
   // ist bei diesen Diensten so vorgesehen und unkritisch — er erlaubt nur
   // das Absenden von Formularen, keinen Zugriff auf empfangene Nachrichten.
-  contactFormAccessKey: "",
+  contactFormAccessKey: "06db12d6-41c0-4699-bd87-870a4afa3718",
 
   // Name des Formular-Dienstleisters — erscheint automatisch in der
   // Datenschutzerklärung (Abschnitt 5). MUSS ausgefüllt werden, sobald ein
   // contactFormEndpoint gesetzt ist, sonst ist die Datenschutzerklärung
   // unvollständig. Beispiel: "Web3Forms (Sandbox Studios LLC)"
-  formProviderName: "",
+  formProviderName: "Web3Forms (Sandbox Studios LLC)",
 
   // Social-Media-Profile (vollständige URLs). Weitere Kanäle (z. B.
   // YouTube) können bei Bedarf als weiteres Feld ergänzt werden — dazu in
