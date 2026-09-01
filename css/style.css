@@ -623,6 +623,11 @@ section { padding: clamp(3rem, 7vw, 5.5rem) 0; }
   border: 1px solid var(--line-strong);
   display: block;
 }
+.story-photo.portrait img { aspect-ratio: 2 / 3; }
+@media (min-width: 640px) {
+  .story-photo.portrait img { max-width: 482px; margin: 0 auto; }
+  .story-photo.portrait figcaption { max-width: 482px; margin-left: auto; margin-right: auto; }
+}
 .story-photo figcaption {
   margin-top: 0.6rem;
   font-family: var(--font-mono);
