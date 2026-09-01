@@ -570,7 +570,6 @@ section { padding: clamp(3rem, 7vw, 5.5rem) 0; }
   text-transform: uppercase;
 }
 .hero-photo-caption span { display: block; color: var(--text-soft); margin-top: 0.3rem; font-size: 0.7rem; letter-spacing: 0.04em; }
-.hero-photo-note { margin-top: 0.6rem; color: var(--text-soft); font-size: 0.97rem; }
 
 .bio-photo {
   border-radius: var(--radius);
