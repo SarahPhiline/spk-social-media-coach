@@ -6,13 +6,55 @@ os.chdir(ROOT)
 
 report = {"pages": {}, "issues": [], "notices": []}
 
+def ist_inhaltsseite(inhalt: str) -> bool:
+    """Ist das eine Seite fuer Besucher - oder eine Bestaetigungsdatei?
+
+    HINTERGRUND (03.09.2026): Das Audit meldete zehn Probleme an
+    `googled99aba912c61d880.html` - fehlender Titel, fehlende Beschreibung,
+    fehlender canonical-Link, fehlende og-Angaben. Das ist die
+    Bestaetigungsdatei der Google Search Console, am 01.09.2026 angelegt.
+    Sie besteht aus einer Zeile Text und DARF nichts davon haben: Google
+    verlangt genau diesen Inhalt und nichts sonst. Sie zu "reparieren"
+    haette die Bestaetigung zerstoert und den Zugang zur Search Console
+    gekostet.
+
+    GEPRUEFT WIRD DAS HTML-GERUEST, NICHT DER DATEINAME, und das ist der
+    Kern: Eine Namensliste muesste bei jedem neuen Dienst gepflegt werden -
+    Bing, Pinterest, ein Werbenetzwerk -, und der naechste Fehlalarm kaeme
+    erst auf, wenn ihn jemand meldet. Eine Datei ohne <html>-Element ist
+    dagegen nie eine Inhaltsseite, ganz gleich wie sie heisst.
+
+    AM BESTAND BELEGT (03.09.2026): Alle acht echten Seiten dieser Website
+    tragen <html> und <head>; die Bestaetigungsdatei traegt weder noch und
+    ist 53 Byte gross. Im Repository liegt bereits eine zweite Datei dieser
+    Art - tiktokKxZFgkVgayXCxyjvDdH6Wp1MWPnEt6mM.txt -, die nur deshalb
+    keinen Fehlalarm ausloest, weil sie auf .txt endet.
+
+    Uebersprungene Dateien werden unter "skipped_non_pages" ausgewiesen,
+    nicht stillschweigend weggelassen: Wer den Bericht liest, soll sehen,
+    dass es sie gibt.
+    """
+    return re.search(r"<html[\s>]", inhalt, re.I) is not None
+
+
 html_files = sorted(glob.glob("*.html"))
 
 REQUIRED_META = ["title", "description", "canonical", "og:title", "og:description",
                   "og:image", "favicon", "viewport"]
 
+report["skipped_non_pages"] = []
+
 for path in html_files:
     content = open(path, encoding="utf-8").read()
+
+    if not ist_inhaltsseite(content):
+        report["skipped_non_pages"].append(path)
+        report["notices"].append(
+            f"{path}: kein <html>-Element - als Bestaetigungs- oder Hilfsdatei "
+            f"behandelt und nicht auf Seitenmerkmale geprueft."
+        )
+        continue
+
     page = {}
 
     # Title
