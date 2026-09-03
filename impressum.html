@@ -60,21 +60,39 @@
     <div class="container">
       <div class="prose">
 
+        <!-- PFLICHTANGABEN NACH § 5 DDG — FEST IM HTML, NICHT NUR PER SKRIPT.
+
+             Bis zum 03.09.2026 stand hier nur ein Platzhalter in eckigen
+             Klammern; die echten Werte setzte js/main.js beim Laden ein.
+             Wer die Seite ohne JavaScript öffnete — Textbrowser,
+             Vorschaudienst einer Messenger-App, blockiertes oder nicht
+             geladenes Skript — sah statt Name und Anschrift den Text
+             "[Vollständiger Name / Firmenname bitte ergänzen]". Eine
+             Anbieterkennzeichnung muss aber ständig verfügbar sein.
+
+             Die Werte stehen deshalb ab jetzt zweimal: hier fest und in
+             js/site-config.js. Das ist eine bewusste Doppelung — Michael
+             hat sie am 03.09.2026 in Kauf genommen. Der data-cfg-
+             Mechanismus bleibt unverändert und überschreibt diese Texte
+             weiterhin; neu ist nur, dass der Notfalltext der echte Wert
+             ist statt einer Klammer.
+
+             WER HIER ETWAS ÄNDERT, ÄNDERT AUCH js/site-config.js. -->
         <h2>Angaben gemäß § 5 DDG</h2>
         <p>
-          <span class="cfg-placeholder" data-cfg="legalName">[Vollständiger Name / Firmenname bitte ergänzen]</span><br>
-          <span class="cfg-placeholder" data-cfg="addressStreet">[Straße und Hausnummer bitte ergänzen]</span><br>
-          <span class="cfg-placeholder" data-cfg="addressCity">[Postleitzahl und Ort bitte ergänzen]</span><br>
-          <span class="cfg-placeholder" data-cfg="addressCountry">[Land bitte ergänzen]</span>
+          <span data-cfg="legalName">Sarah Philine Koch – Social Media Creator</span><br>
+          <span data-cfg="addressStreet">Flurstraße 2</span><br>
+          <span data-cfg="addressCity">83620 Feldkirchen-Westerham</span><br>
+          <span data-cfg="addressCountry">Deutschland</span>
         </p>
 
         <h2>Vertreten durch</h2>
-        <p><span class="cfg-placeholder" data-cfg="responsiblePerson">[Name der vertretungsberechtigten Person bitte ergänzen — bei Einzelunternehmen in der Regel identisch mit obiger Angabe]</span></p>
+        <p><span data-cfg="responsiblePerson">Sarah Philine Koch</span></p>
 
         <h2>Kontakt</h2>
         <p>
           <span data-cfg-optional="phone" hidden>Telefon: <span data-cfg="phone"></span><br></span>
-          E-Mail: <a href="#" class="cfg-placeholder" data-cfg="email" data-cfg-href="email">[Geschäftliche E-Mail-Adresse bitte ergänzen]</a>
+          E-Mail: <a href="mailto:kontakt@sarahphiline.de" data-cfg="email" data-cfg-href="email">kontakt@sarahphiline.de</a>
         </p>
 
         <h2>Umsatzsteuer</h2>
@@ -84,10 +102,11 @@
         <p>Kein Handelsregistereintrag (Kleinunternehmen/Einzelunternehmen).</p>
 
         <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+        <!-- Ebenfalls fest verdrahtet, siehe Begründung weiter oben. -->
         <p>
-          <span class="cfg-placeholder" data-cfg="responsiblePerson">[Name und Anschrift der inhaltlich verantwortlichen Person bitte ergänzen]</span><br>
-          <span class="cfg-placeholder" data-cfg="addressStreet">[Straße und Hausnummer bitte ergänzen]</span>,
-          <span class="cfg-placeholder" data-cfg="addressCity">[Postleitzahl und Ort bitte ergänzen]</span>
+          <span data-cfg="responsiblePerson">Sarah Philine Koch</span><br>
+          <span data-cfg="addressStreet">Flurstraße 2</span>,
+          <span data-cfg="addressCity">83620 Feldkirchen-Westerham</span>
         </p>
 
         <h2>EU-Streitschlichtung</h2>
@@ -96,7 +115,7 @@
           <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">https://ec.europa.eu/consumers/odr/</a>.
           Unsere E-Mail-Adresse finden Sie oben in diesem Impressum.
         </p>
-        <p>Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen. [Bitte prüfen und ggf. anpassen, falls doch eine Teilnahmebereitschaft besteht.]</p>
+        <p>Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
 
         <h2>Haftung für Inhalte</h2>
         <p>Als Diensteanbieter sind wir gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Wir sind jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt.</p>

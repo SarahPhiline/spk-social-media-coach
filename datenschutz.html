@@ -61,12 +61,17 @@
       <div class="prose">
 
         <h2>1. Verantwortlicher</h2>
+        <!-- Wie im Impressum fest im HTML statt nur per Skript (03.09.2026):
+             Wer der Verantwortliche ist, muss auch ohne JavaScript lesbar
+             sein. Dieselben Werte stehen in js/site-config.js — wer hier
+             etwas ändert, ändert auch dort. Begründung ausführlich im
+             Kopfkommentar von js/site-config.js. -->
         <p>
           Verantwortlich für die Datenverarbeitung auf dieser Website im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:<br>
-          <span class="cfg-placeholder" data-cfg="legalName">[Name / Firma bitte ergänzen]</span><br>
-          <span class="cfg-placeholder" data-cfg="addressStreet">[Straße bitte ergänzen]</span>,
-          <span class="cfg-placeholder" data-cfg="addressCity">[Ort bitte ergänzen]</span><br>
-          E-Mail: <a href="#" class="cfg-placeholder" data-cfg="email" data-cfg-href="email">[Geschäftliche E-Mail-Adresse bitte ergänzen]</a>
+          <span data-cfg="legalName">Sarah Philine Koch – Social Media Creator</span><br>
+          <span data-cfg="addressStreet">Flurstraße 2</span>,
+          <span data-cfg="addressCity">83620 Feldkirchen-Westerham</span><br>
+          E-Mail: <a href="mailto:kontakt@sarahphiline.de" data-cfg="email" data-cfg-href="email">kontakt@sarahphiline.de</a>
         </p>
         <p>Die vollständigen Angaben finden Sie im <a href="impressum.html">Impressum</a>.</p>
 

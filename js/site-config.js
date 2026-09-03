@@ -13,9 +13,25 @@
  *   in eckigen Klammern steht (z. B. "[Straße bitte ergänzen]"), bleibt
  *   er auf der Website automatisch als sichtbarer Platzhalter erhalten.
  * - Diese Datei wird clientseitig eingebunden. Für rechtlich zwingende
- *   Angaben (Impressum/Datenschutz) bleibt zusätzlich der ursprüngliche
- *   Platzhaltertext im HTML als Fallback erhalten, falls JavaScript im
- *   Browser des Besuchers deaktiviert ist.
+ *   Angaben (Impressum/Datenschutz) steht im HTML zusätzlich derselbe
+ *   Wert fest verdrahtet, falls JavaScript im Browser des Besuchers
+ *   nicht läuft.
+ *
+ * ACHTUNG — DOPPELT GEPFLEGTE WERTE (Entscheidung vom 03.09.2026):
+ *   legalName, addressStreet, addressCity, addressCountry,
+ *   responsiblePerson und email stehen NICHT nur hier, sondern ein
+ *   zweites Mal fest im HTML von impressum.html und datenschutz.html.
+ *   Wer einen dieser sechs Werte ändert, muss beide Stellen ändern.
+ *
+ *   Das verstößt bewusst gegen die Regel "keine Parallel-Lösungen" und
+ *   wurde von Michael am 03.09.2026 ausdrücklich in Kauf genommen.
+ *   Grund: Eine Anbieterkennzeichnung nach § 5 DDG muss ständig
+ *   verfügbar sein. Hing sie allein an diesem Skript, sah ein Besucher
+ *   ohne JavaScript — Textbrowser, Vorschaudienst, blockiertes Skript,
+ *   Ladefehler — statt Name und Anschrift den Text
+ *   "[Vollständiger Name / Firmenname bitte ergänzen]".
+ *   Eine Doppelung, die auffällt, ist besser als eine Pflichtangabe,
+ *   die verschwindet.
  * - Domain-abhängige SEO-Tags (canonical, og:url, sitemap.xml, robots.txt)
  *   werden HIER NICHT gepflegt, da Suchmaschinen- und Social-Media-Crawler
  *   diese meist ohne JavaScript lesen. Bei Domain-Wechsel siehe README.md,
@@ -28,23 +44,31 @@ window.SPK_CONFIG = {
 
   // Vollständiger Name / offizieller Firmenname für das Impressum.
   // Hinweis: Für Einzelunternehmer:innen ohne Handelsregistereintrag
-  // verlangt § 5 DDG den bürgerlichen Namen; der Markenname "SPK – Social
-  // Media" wurde deshalb ergänzend in Klammern aufgeführt. Falls es einen
-  // eigenständigen Handelsregistereintrag unter diesem Namen gibt, hier
-  // entsprechend anpassen.
-  legalName: "Sarah Philine Koch (SPK – Social Media)",
+  // verlangt § 5 DDG den bürgerlichen Namen.
+  // Stand 03.09.2026: Der Wortlaut folgt dem Gewerbeschein vom 01.09.2026
+  // (Einzelunternehmen im Nebenerwerb, nach telefonischer Korrektur am
+  // 03.09.2026). Vorher stand hier "Sarah Philine Koch (SPK – Social
+  // Media)" — ein Marketingname, der so nicht angemeldet ist. Das
+  // Impressum muss zur Anmeldung passen.
+  legalName: "Sarah Philine Koch – Social Media Creator",
 
   // Vertretungsberechtigte Person (bei Einzelunternehmen meist identisch
   // mit legalName).
   responsiblePerson: "Sarah Philine Koch",
 
   // Anschrift
-  addressStreet: "Flurstr. 2",
+  // Stand 03.09.2026: ausgeschrieben wie im Gewerbeschein vom 01.09.2026.
+  // Vorher stand hier die Abkürzung "Flurstr. 2".
+  addressStreet: "Flurstraße 2",
   addressCity: "83620 Feldkirchen-Westerham",
   addressCountry: "Deutschland",
 
   // Kontakt
-  email: "sarah.philine.koch@icloud.com",
+  // Stand 03.09.2026: eigenes Geschäftspostfach, eingerichtet und geprüft.
+  // Vorher stand hier die private Adresse sarah.philine.koch@icloud.com.
+  // Diese Adresse steht ein zweites Mal fest im HTML von impressum.html,
+  // datenschutz.html, privacy.html und terms.html — siehe Kopfkommentar.
+  email: "kontakt@sarahphiline.de",
   phone: "", // optional, z. B. "+49 30 123456"
 
   // Endpunkt für das Kontaktformular.
