@@ -230,6 +230,21 @@ button { font-family: inherit; }
   height: 2px;
   background: var(--gradient-accent);
 }
+/* Die Schaltflaeche "Kooperation anfragen" steht im aufgeklappten Mobilmenue
+   als <a class="btn btn-primary"> INNERHALB von .nav-links. Damit treffen sie
+   zwei Regeln mit gleicher Spezifitaet: `.btn-primary` (0,1,0) setzt den
+   dunklen Text #17120d, `.nav-links a` (0,1,1) setzt das helle --text-soft
+   fuer Menueeintraege. `.nav-links a` ist spezifischer und gewinnt - der Knopf
+   bekam hellgrauen Text auf dem hellen Rosa-Goldverlauf, gemessen 1,18 zu 1
+   (03.09.2026, 390 px). Am Rechner faellt das nie auf, weil das Menue dort
+   nicht aufklappt.
+   Diese Regel holt die Knopffarbe zurueck. Sie steht bewusst NACH der
+   :hover-Regel darueber, weil `.nav-links a:hover` dieselbe Spezifitaet hat
+   und sonst die Quelltextreihenfolge entscheiden wuerde. Der Wert ist derselbe
+   wie in .btn-primary, keine neue Farbe. Geprueft von
+   pruefungen/test_kontrast_menue.py. */
+.nav-links a.btn-primary,
+.nav-links a.btn-primary:hover { color: #17120d; }
 .nav-cta { display: none; }
 @media (min-width: 860px) { .nav-cta:not(.mobile) { display: inline-flex; } }
 
