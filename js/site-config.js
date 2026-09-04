@@ -109,6 +109,18 @@ window.SPK_CONFIG = {
   // steuert keine Tags automatisch — siehe Hinweis oben).
   domain: "https://sarahphiline.de/",
 
+  // Kauflinks fuer das Buch "Kaempfen, nie aufgeben" (buch.html).
+  // LEER = der zugehoerige Knopf wird nicht angezeigt - kein toter Knopf,
+  // keine Platzhalter-Adresse. Die drei Kanaele gehen nacheinander live;
+  // buch.html sieht mit einem, zwei oder drei gefuellten Feldern richtig
+  // aus. Der Preis (7,99 Euro, Buchpreisbindung) und die ISBN stehen
+  // bewusst NICHT hier, sondern fest im HTML von buch.html - Pflicht-
+  // angaben duerfen nicht an diesem Skript haengen (siehe dortige
+  // FREISCHALTUNG-Checkliste).
+  bookLinkCopecart: "",
+  bookLinkAmazon: "",
+  bookLinkThalia: "",
+
   // Social-Media-Kennzahlen für die Kooperationen-Seite ("Vertrauen &
   // Nachweise" → Social-Media-Kennzahlen). Leer lassen = die Seite zeigt
   // automatisch "—" statt einer erfundenen Zahl.

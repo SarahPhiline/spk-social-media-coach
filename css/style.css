@@ -146,6 +146,14 @@ button { font-family: inherit; }
 }
 
 /* ---------- Buttons ---------- */
+/* [hidden] muss vor .btn stehen und braucht display:none ausdruecklich:
+   Die UA-Regel "[hidden]{display:none}" hat dieselbe Spezifitaet wie eine
+   Klasse, verliert aber gegen JEDE Autorenregel, gleich welche Reihenfolge -
+   .btn{display:inline-flex} haette einen mit hidden ausgeblendeten Knopf
+   (siehe buch.html, die drei Kauf-Knoepfe) sonst trotzdem angezeigt.
+   Gefunden und behoben 04.09.2026 am Bild: alle drei standen sichtbar da,
+   obwohl bookLinkCopecart/-Amazon/-Thalia leer waren. */
+.btn[hidden] { display: none; }
 .btn {
   display: inline-flex;
   align-items: center;
@@ -699,3 +707,90 @@ section { padding: clamp(3rem, 7vw, 5.5rem) 0; }
 }
 @media (max-width: 560px) { .brand-role { display: none; } }
 @media (max-width: 400px) { .brand-name { font-size: 0.92rem; } }
+
+/* ---------- Download-Karte (Vorlagen zum Ausdrucken) ----------
+   Ein einzelner, ruhiger Block: Text + ein Knopf. Keine neue
+   Komponente im eigentlichen Sinn - .cta-band liefert schon Flaeche,
+   Rand und den dezenten Verlauf im Hintergrund; hier nur auf einen
+   Block statt zwei Spalten umgestellt. */
+.download-card {
+  background: var(--bg-raised-2);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  padding: clamp(2rem, 5vw, 3rem);
+  position: relative;
+  overflow: hidden;
+}
+.download-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-accent);
+  opacity: 0.05;
+  pointer-events: none;
+}
+.download-card p { color: var(--text-soft); font-size: 1.02rem; max-width: 62ch; position: relative; }
+.download-card .hero-actions { margin-top: 1.6rem; position: relative; }
+.download-note { color: var(--text-soft); font-size: 0.88rem; max-width: 62ch; margin-top: 1.3rem; }
+.download-note a { color: var(--gold); border-bottom: 1px solid var(--line-strong); }
+.download-note a:hover { color: var(--rose); border-color: var(--rose); }
+
+/* ---------- Buchseite (Kaempfen, nie aufgeben) ----------
+   Kopfbereich: Cover links, Titel/Preis/Knoepfe rechts - dasselbe
+   Grundmuster wie .hero-grid, nur mit dem Cover statt einem Foto im
+   4:5-Rahmen. Das Cover bleibt in seinem eigenen Seitenverhaeltnis
+   (5:8, Buchformat) statt zugeschnitten zu werden. */
+.book-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+@media (min-width: 860px) {
+  .book-hero-grid { grid-template-columns: 0.62fr 1.38fr; gap: 3.5rem; align-items: center; }
+}
+.book-cover {
+  max-width: 320px;
+  margin: 0 auto;
+}
+@media (min-width: 860px) { .book-cover { margin: 0; } }
+.book-cover img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius);
+  border: 1px solid var(--line-strong);
+  box-shadow: 0 30px 60px -24px rgba(0, 0, 0, 0.55);
+}
+.book-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  margin: 1.3rem 0 0.4rem;
+  flex-wrap: wrap;
+}
+.book-price {
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+.book-price-note { font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-soft); letter-spacing: 0.02em; }
+.book-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 1.4rem; }
+
+/* ---------- Buchangaben (Fakten-Liste) ---------- */
+.book-facts { display: grid; gap: 0.9rem 2rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); max-width: 74ch; }
+.book-facts div { border-top: 1px solid var(--line); padding-top: 0.7rem; }
+.book-facts dt { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); margin: 0; }
+.book-facts dd { margin: 0.35rem 0 0; font-size: 1rem; color: var(--text); }
+
+/* ---------- Schlusshinweis ---------- */
+.book-closing {
+  border-left: 2px solid var(--gold);
+  padding-left: 1.4rem;
+  max-width: 68ch;
+  color: var(--text-soft);
+  font-size: 1.02rem;
+}
+.book-closing a { color: var(--gold); border-bottom: 1px solid var(--line-strong); }
+.book-closing a:hover { color: var(--rose); border-color: var(--rose); }

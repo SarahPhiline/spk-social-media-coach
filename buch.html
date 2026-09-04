@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<!--
+  ══════════════════════════════════════════════════════════════════
+  FREISCHALTUNG — wenn das Buch kaufbar ist
+  ══════════════════════════════════════════════════════════════════
+  Diese Seite ist absichtlich VERBORGEN: kein Menüpunkt, kein Link von
+  irgendeiner bestehenden Seite, nicht in sitemap.xml, in robots.txt
+  gesperrt und mit <meta name="robots" content="noindex, nofollow">
+  versehen. Wer die Adresse sarahphiline.de/buch kennt, kommt hin -
+  sonst niemand und keine Suchmaschine.
+
+  Michaels EINE Ansage, wenn es so weit ist: "Das Buch ist jetzt
+  kaufbar, hier sind die Links." Alles Weitere ist diese Checkliste -
+  in einem Auftrag abzuarbeiten, nicht von Hand an fuenf Stellen:
+
+  1. In js/site-config.js die drei Felder bookLinkCopecart,
+     bookLinkAmazon, bookLinkThalia mit den echten Adressen fuellen
+     (leer bleiben darf jedes einzelne - der Knopf erscheint dann
+     einfach nicht).
+  2. In DIESER Datei die Zeile <meta name="robots" ...> weiter unten
+     entfernen.
+  3. In robots.txt die beiden Zeilen "Disallow: /buch" und
+     "Disallow: /buch.html" entfernen.
+  4. In vorlagen.html den auskommentierten Absatz "Verweis auf /buch"
+     einkommentieren (steht dort ebenfalls markiert).
+  5. In sitemap.xml einen Eintrag fuer /buch ergaenzen, nach demselben
+     Muster wie der Eintrag fuer /vorlagen dort (URL mit der Endung
+     .html, weil audit.py sitemap-URLs gegen den tatsaechlichen
+     Dateinamen prueft; der canonical-Link in dieser Datei nennt
+     weiterhin die sauberere Adresse ohne Endung).
+  6. Sobald der Verkaufsstart feststeht: datePublished im JSON-LD
+     weiter unten von "2026" auf das genaue Datum (JJJJ-MM-TT)
+     praezisieren - am 04.09.2026 bewusst nur auf das Jahr gesetzt,
+     weil der Tag noch nicht feststeht.
+  ══════════════════════════════════════════════════════════════════
+-->
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kämpfen, nie aufgeben — Das Buch von Michael Koch</title>
+<meta name="description" content="„Kämpfen, nie aufgeben“ – wie Sarah nach schwerer Erkrankung zurück in den Sattel fand, erzählt von ihrem Vater Michael Koch. E-Book, 7,99 €.">
+<link rel="canonical" href="https://sarahphiline.de/buch">
+
+<!-- Solange diese Seite nicht freigeschaltet ist: nicht indexieren.
+     Siehe Punkt 2 der Checkliste oben. -->
+<meta name="robots" content="noindex, nofollow">
+
+<!-- Strukturierte Daten (schema.org Book). datePublished traegt
+     bewusst nur das Jahr (siehe Checkliste Punkt 6) - der genaue Tag
+     steht noch nicht fest, und ISO 8601 laesst ein reines Jahr als
+     gueltiges Datum zu. Eine erfundene Tagesangabe waere falscher als
+     die geringere Genauigkeit. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": "Kämpfen, nie aufgeben",
+  "author": {
+    "@type": "Person",
+    "name": "Michael Koch"
+  },
+  "isbn": "978-3-9829464-0-5",
+  "bookFormat": "https://schema.org/EBook",
+  "numberOfPages": 123,
+  "datePublished": "2026",
+  "inLanguage": "de",
+  "url": "https://sarahphiline.de/buch",
+  "image": "https://sarahphiline.de/assets/photos/buch-cover-800.jpg",
+  "offers": {
+    "@type": "Offer",
+    "price": "7.99",
+    "priceCurrency": "EUR"
+  }
+}
+</script>
+
+<meta property="og:type" content="book">
+<meta property="og:site_name" content="SPK">
+<meta property="og:title" content="Kämpfen, nie aufgeben — Das Buch von Michael Koch">
+<meta property="og:description" content="„Kämpfen, nie aufgeben“ – wie Sarah nach schwerer Erkrankung zurück in den Sattel fand, erzählt von ihrem Vater Michael Koch. E-Book, 7,99 €.">
+<meta property="og:image" content="https://sarahphiline.de/assets/photos/buch-cover-800.jpg">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="1280">
+<meta property="og:url" content="https://sarahphiline.de/buch">
+<meta property="og:locale" content="de_DE">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<meta name="theme-color" content="#0D0C12">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Hauptnavigation">
+    <a class="brand" href="index.html">
+      <img class="brand-mark" src="assets/spk-logo-nav.jpg" alt="SPK – Sarah Philine Koch">
+            <span class="brand-text">
+              <span class="brand-name">Sarah Philine Koch</span>
+              <span class="brand-role">Para-Reitsportlerin</span>
+            </span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Start</a></li>
+      <li><a href="ueber-uns.html">Über uns</a></li>
+      <li><a href="kooperationen.html">Kooperationen</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+      <li class="nav-cta mobile"><a class="btn btn-primary" href="kontakt.html">Kooperation anfragen</a></li>
+    </ul>
+    <a class="btn btn-primary nav-cta" href="kontakt.html">Kooperation anfragen</a>
+    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-links">Menü</button>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="container book-hero-grid">
+      <div class="book-cover">
+        <picture>
+          <source type="image/webp" srcset="assets/photos/buch-cover-400.webp 400w, assets/photos/buch-cover-800.webp 800w" sizes="(min-width: 860px) 320px, 60vw">
+          <source type="image/jpeg" srcset="assets/photos/buch-cover-400.jpg 400w, assets/photos/buch-cover-800.jpg 800w" sizes="(min-width: 860px) 320px, 60vw">
+          <img src="assets/photos/buch-cover-800.jpg" width="800" height="1280" alt="Buchcover „Kämpfen, nie aufgeben“ von Michael Koch">
+        </picture>
+      </div>
+      <div>
+        <span class="eyebrow">E-Book · Michael Koch</span>
+        <h1>Kämpfen, nie aufgeben</h1>
+        <p class="lead">Wie meine Tochter zurück in den Sattel fand – und ich lernte, sie in der digitalen Welt zu begleiten</p>
+        <div class="intro-teaser">
+          <p>Im November 2022 ruft der Rettungsdienst an. Sarah reitet Turniere, macht eine Ausbildung, arbeitet im Stall. Am Tag davor ist sie ohne Hilfsmittel über den Hof gelaufen.</p>
+          <p>Was danach kam, steht in diesem Buch. Und was wir dabei über eine Welt gelernt haben, die wir vorher nicht kannten.</p>
+        </div>
+        <div class="book-price-row">
+          <span class="book-price">7,99 €</span>
+          <span class="book-price-note">E-Book · Buchpreisbindung</span>
+        </div>
+        <div class="book-actions">
+          <a class="btn btn-secondary" href="Leseprobe_Kaempfen-nie-aufgeben.pdf">Leseprobe lesen (PDF, 13 Seiten) <span class="btn-arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-primary" href="#" hidden data-cfg-optional="bookLinkCopecart" data-cfg-href="bookLinkCopecart" target="_blank" rel="noopener noreferrer">Bei CopeCart kaufen <span class="btn-arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-primary" href="#" hidden data-cfg-optional="bookLinkAmazon" data-cfg-href="bookLinkAmazon" target="_blank" rel="noopener noreferrer">Bei Amazon kaufen <span class="btn-arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-primary" href="#" hidden data-cfg-optional="bookLinkThalia" data-cfg-href="bookLinkThalia" target="_blank" rel="noopener noreferrer">Bei Thalia / Tolino kaufen <span class="btn-arrow" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head section-head--tight reveal">
+        <span class="eyebrow">Worum es geht</span>
+      </div>
+      <div class="story-copy reveal">
+        <p>Im November 2022 ruft der Rettungsdienst an.</p>
+        <p>Sarah ist in der Ausbildung zur Physiotherapeutin, sie reitet Turniere und arbeitet im Stall. Am Tag davor ist sie ohne Hilfsmittel über den Hof gelaufen.</p>
+        <p>Was folgt, sind zwei Jahre in Kliniken. Blutvergiftungen, multiresistente Keime, Quarantäne, ein Antibiotikum, das deutschlandweit zusammengesucht werden muss. Mehrmals steht es auf der Kippe. Geblieben sind eine Halbseitenlähmung, eine Orthese, ein Rollstuhl für lange Wege – und ein Pferd, das die Familie selbst auf die Welt geholt hat: My Milou.</p>
+        <p>Dieses Buch erzählt Sarahs Weg zurück in den Sattel. Bis zum ersten Turnier nach der Erkrankung. Bis zur Bayerischen Meisterschaft. Bis zum dritten Platz im Finale des Para-Deux-Cups. Und bis zu dem Tag, an dem sie wieder über einen Sprung geht.</p>
+        <p>Es erzählt aber noch etwas. Sarah hat diesen Weg öffentlich gezeigt, auf TikTok und Instagram, vor Hunderttausenden. Ihr Vater kam später dazu – ohne Fachwissen, ohne Regelwerk, ohne eigenen Account. Der zweite Teil des Buches ist das, was er dabei gelernt hat: wie Sichtbarkeit entsteht, wie man Zahlen liest, ohne ihnen zu glauben, was Werbekennzeichnung wirklich verlangt, woran man erkennt, dass jemand Reichweite verkauft – und wo Begleitung aufhört und Kontrolle anfängt.</p>
+        <p>In jedem Kapitel kommen Sarah und ihre Mutter Carmen selbst zu Wort. Am Ende stehen neun Vorlagen zum Ausfüllen, für Familien, die vor denselben Fragen stehen.</p>
+        <p>Eine wahre Geschichte. Kein Ratgeber von jemandem, der es immer schon wusste.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="container">
+      <div class="section-head section-head--tight reveal">
+        <span class="eyebrow">Was drin steht</span>
+      </div>
+      <div class="grid">
+        <div class="card reveal">
+          <span class="num">01</span>
+          <h3>Teil I — Sarahs Weg</h3>
+          <p>Vierzehn Kapitel von dem Anruf aus der Schule bis zum dritten Platz im Finale des Para-Deux-Cups. Mit Antworten von Sarah und ihrer Mutter Carmen in jedem Kapitel.</p>
+        </div>
+        <div class="card reveal">
+          <span class="num">02</span>
+          <h3>Teil II — Was ich gelernt habe</h3>
+          <p>Acht Kapitel für Eltern, deren Kind öffentlich erzählt: Wie Sichtbarkeit entsteht. Wie man Zahlen liest, ohne ihnen zu glauben. Was Werbekennzeichnung verlangt. Woran man erkennt, dass jemand Reichweite verkauft.</p>
+        </div>
+        <div class="card reveal">
+          <span class="num">03</span>
+          <h3>Anhang — neun Vorlagen zum Ausfüllen</h3>
+          <p>Wochenplan, Media-Kit, Warnzeichen-Checkliste, Familienvereinbarung und mehr. Auch einzeln als PDF zum Ausdrucken.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Über den Autor</span>
+        <h2>Michael Koch</h2>
+      </div>
+      <div class="story-copy reveal">
+        <p>Michael Koch, Jahrgang 1978, lebt mit seiner Familie in Oberbayern. Er ist kein Autor, sondern Vater. Dieses Buch ist entstanden, weil er etwas nicht konnte – und es trotzdem lernen musste.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Angaben zum Buch</span>
+        <h2>Buchangaben</h2>
+      </div>
+      <!-- Der Preis steht bewusst NICHT hier - er steht bereits einmal
+           im Kopfbereich, und die Aufgabe verlangte ausdruecklich, dass
+           er nicht zweimal im Text erscheint (Buchpreisbindung). -->
+      <dl class="book-facts reveal">
+        <div><dt>Titel</dt><dd>Kämpfen, nie aufgeben</dd></div>
+        <div><dt>Autor</dt><dd>Michael Koch</dd></div>
+        <div><dt>Format</dt><dd>E-Book (EPUB), ohne Kopierschutz</dd></div>
+        <div><dt>Umfang</dt><dd>123 Seiten, rund 24.800 Wörter, 13 Fotos</dd></div>
+        <div><dt>Sprache</dt><dd>Deutsch</dd></div>
+        <div><dt>Erschienen</dt><dd>2026</dd></div>
+        <div><dt>Herausgeber und Verlag</dt><dd>Michael Koch</dd></div>
+        <div><dt>ISBN</dt><dd>978-3-9829464-0-5</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <p class="book-closing reveal">Das Taschenbuch erscheint später. Wer benachrichtigt werden möchte, findet Sarah auf <a href="#" data-cfg-href="instagramUrl" target="_blank" rel="noopener noreferrer">Instagram</a> und <a href="#" data-cfg-href="tiktokUrl" target="_blank" rel="noopener noreferrer">TikTok</a> unter @_sarah.philine_</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <img class="brand-mark" src="assets/spk-logo-nav.jpg" alt="SPK – Sarah Philine Koch">
+                    <span class="brand-text">
+                      <span class="brand-name">Sarah Philine Koch</span>
+                      <span class="brand-role">Para-Reitsportlerin</span>
+                    </span>
+        </a>
+        <p>Para-Reitsport, Stallalltag und Turniersport — ehrlich erzählt. Kooperationen mit Marken aus dem Pferdesport.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Start</a></li>
+          <li><a href="ueber-uns.html">Über uns</a></li>
+          <li><a href="kooperationen.html">Kooperationen</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Rechtliches</h4>
+        <ul>
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutzerklärung</a></li>
+          <li><a href="privacy.html">Privacy Policy (App)</a></li>
+          <li><a href="terms.html">Terms of Service (App)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> SPK — Sarah Philine Koch</span>
+      <span>Pferdesport · Social Media · Kooperationen</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/site-config.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

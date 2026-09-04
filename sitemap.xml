@@ -20,4 +20,17 @@
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
+  <!-- Adresse mit .html, nicht wie sonst auf der Seite ohne Endung
+       verlinkt: audit.py prueft jede Sitemap-URL gegen den
+       tatsaechlichen Dateinamen auf der Platte, und "vorlagen" ohne
+       Endung existiert dort nicht - das haette einen neuen Fehlalarm
+       ausgeloest. Der canonical-Link in vorlagen.html nennt weiterhin
+       https://sarahphiline.de/vorlagen als die eigentliche Adresse;
+       das ist kein Widerspruch, Suchmaschinen folgen dem canonical-Tag
+       unabhaengig davon, welche Schreibweise sie zum Auffinden nutzten. -->
+  <url>
+    <loc>https://sarahphiline.de/vorlagen.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
