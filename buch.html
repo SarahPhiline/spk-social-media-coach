@@ -9,6 +9,17 @@
   versehen. Wer die Adresse sarahphiline.de/buch kennt, kommt hin -
   sonst niemand und keine Suchmaschine.
 
+  DER INHALT STEHT AN GENAU EINER STELLE, in dieser Datei. buch/index.html
+  ist seit 04.09.2026 keine zweite Fassung mehr, sondern eine reine
+  Weiterleitung ohne eigenen Text (siehe der Hinweis am Kopf jener Datei) -
+  sie beantwortet nur die Adresse mit abschliessendem Schraegstrich
+  (sarahphiline.de/buch/), die GitHub Pages sonst nicht faende. Kein Punkt
+  dieser Checkliste betrifft sie: Eine Weiterleitung ohne Inhalt hat nichts
+  freizuschalten. Ein frueherer Versuch legte dort eine vollstaendige
+  zweite Kopie ab - genau das war die Gefahr, die diese Checkliste
+  ausschliessen soll: /buch verkauft, die zweite Kopie zeigt noch die
+  gesperrte Fassung, und niemand merkt es, weil beide Adressen antworten.
+
   Michaels EINE Ansage, wenn es so weit ist: "Das Buch ist jetzt
   kaufbar, hier sind die Links." Alles Weitere ist diese Checkliste -
   in einem Auftrag abzuarbeiten, nicht von Hand an fuenf Stellen:
@@ -22,7 +33,9 @@
   3. In robots.txt die beiden Zeilen "Disallow: /buch" und
      "Disallow: /buch.html" entfernen.
   4. In vorlagen.html den auskommentierten Absatz "Verweis auf /buch"
-     einkommentieren (steht dort ebenfalls markiert).
+     einkommentieren (steht dort ebenfalls markiert). vorlagen/index.html
+     ist ebenfalls nur eine Weiterleitung und braucht keine eigene
+     Aenderung.
   5. In sitemap.xml einen Eintrag fuer /buch ergaenzen, nach demselben
      Muster wie der Eintrag fuer /vorlagen dort (URL mit der Endung
      .html, weil audit.py sitemap-URLs gegen den tatsaechlichen

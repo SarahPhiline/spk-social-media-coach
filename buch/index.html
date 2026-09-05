@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+  Reine Weiterleitung, kein Inhalt. Der Inhalt steht an genau einer
+  Stelle: buch.html im Wurzelverzeichnis - siehe die FREISCHALTUNG-
+  Checkliste am Kopf jener Datei, die gilt nur noch fuer eine einzige
+  Datei. Diese Datei existiert nur, weil eine Adresse mit
+  abschliessendem Schraegstrich (sarahphiline.de/buch/) auf GitHub
+  Pages einen echten Ordner mit einer index.html braucht.
+
+  Warum eine Weiterleitung und keine zweite Kopie, und warum das
+  wichtiger ist als bei vorlagen/ (04.09.2026): Bei einer verborgenen
+  Seite waere eine vergessene zweite Kopie der gefaehrlichste Fall
+  ueberhaupt - /buch verkauft, /buch/ zeigt noch die alte, gesperrte
+  Fassung, und niemand merkt es, weil beide Adressen antworten. Diese
+  Datei hat dazu keinen eigenen Zustand, der aus dem Takt geraten
+  koennte: Ob /buch selbst gerade verborgen oder freigeschaltet ist,
+  entscheidet sich ausschliesslich in buch.html, an der einen Stelle,
+  wo es gepflegt wird - diese Weiterleitung fragt danach gar nicht,
+  sie leitet in jedem Zustand gleich weiter.
+
+  Das <meta name="robots" content="noindex"> hier unten ist trotzdem
+  dauerhaft und bewusst UNABHAENGIG vom Zustand von buch.html gesetzt,
+  nicht Teil der FREISCHALTUNG-Checkliste dort: Eine reine
+  Weiterleitungsseite soll auch nach der Freischaltung nie selbst in
+  der Suche erscheinen, nur ihr Ziel - dafuer stehen canonical und
+  robots hier fest, unabhaengig vom Kaufbar-Zustand.
+
+  DAS ZIEL HEISST BEWUSST "../buch.html" MIT ENDUNG, NICHT "/buch"
+  OHNE: Ein lokaler Test mit vorlagen/index.html hat eine
+  Endlosschleife aufgedeckt, die hier auf demselben Weg entstanden
+  waere - ein einfacher Testserver haelt "/buch" wegen des
+  gleichnamigen Ordners fuer ein Verzeichnis und leitet intern auf
+  "/buch/" um, also zurueck auf diese Seite, die wieder auf "/buch"
+  weiterleitet. Mit der Endung ".html" ist die Zieladresse eindeutig
+  eine Datei. Ob GitHub Pages dieselbe Schleife bilden wuerde, ist
+  nicht abschliessend geprueft - bei einer verborgenen Seite ist das
+  Risiko einer Schleife oder eines Fehlers besonders unerwuenscht,
+  die eindeutige Zieladresse schliesst es aus.
+-->
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kämpfen, nie aufgeben — Das Buch von Michael Koch</title>
+<link rel="canonical" href="https://sarahphiline.de/buch">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="refresh" content="0; url=../buch.html">
+</head>
+<body>
+<p>Weiterleitung … falls sie nicht automatisch startet: <a href="../buch.html">Zum Buch</a>.</p>
+</body>
+</html>

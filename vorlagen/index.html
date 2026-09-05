@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+  Reine Weiterleitung, kein Inhalt. Der Inhalt steht an genau einer
+  Stelle: vorlagen.html im Wurzelverzeichnis. Diese Datei existiert nur,
+  weil eine Adresse mit abschliessendem Schraegstrich
+  (sarahphiline.de/vorlagen/) auf GitHub Pages einen echten Ordner mit
+  einer index.html braucht - die Adresse ohne Schraegstrich, die im Buch
+  gedruckt steht, findet vorlagen.html im Wurzelverzeichnis direkt,
+  ohne Weiterleitung und ohne diese Datei.
+
+  Warum eine Weiterleitung und keine zweite Kopie (04.09.2026): Ein
+  frueherer Versuch legte hier eine vollstaendige zweite Fassung des
+  Inhalts ab. Das war eine Parallel-Loesung - jede Aenderung haette
+  kuenftig an zwei Stellen gepflegt werden muessen, und am
+  Freischalttag von /buch waere leicht eine der beiden Fassungen
+  vergessen worden. Zudem zeigt ein dokumentierter Fall aus der
+  GitHub-Pages-Praxis (jekyll/jekyll Issue #4920, octref.github.io):
+  Existieren gleichzeitig eine Datei UND ein gleichnamiger Ordner,
+  leitet GitHub Pages die Adresse ohne Schraegstrich manchmal
+  ungefragt auf die Adresse MIT Schraegstrich um - genau das haette
+  die gedruckte Adresse ohne Schraegstrich unbrauchbar gemacht. Eine
+  reine Weiterleitung ohne eigenen Inhalt umgeht dieses Risiko: Diese
+  Datei behauptet nichts, sie zeigt nur hierher.
+
+  Das <meta name="robots" content="noindex"> hier unten gilt nur fuer
+  DIESE Weiterleitungsseite, nicht fuer /vorlagen selbst - die Seite
+  mit dem Inhalt bleibt indexierbar, nur ihre eigene Schrägstrich-
+  Kopie soll nie eigenstaendig in der Suche erscheinen; canonical
+  zeigt ohnehin schon auf das Ziel.
+
+  DAS ZIEL HEISST BEWUSST "../vorlagen.html" MIT ENDUNG, NICHT
+  "/vorlagen" OHNE: Ein lokaler Test hat gezeigt, warum. Ein einfacher
+  Testserver behandelt "/vorlagen" als Verzeichnisnamen, weil der
+  Ordner vorlagen/ existiert, und leitet intern auf "/vorlagen/" um -
+  genau auf DIESE Datei zurueck. Damit entsteht eine Endlosschleife:
+  diese Seite leitet auf "/vorlagen" weiter, der Server leitet das auf
+  "/vorlagen/" zurueck, das ist wieder diese Seite. Mit der Endung
+  ".html" ist die Zieladresse eindeutig eine Datei, nie ein
+  Verzeichnisname, und die Schleife kann nicht entstehen. Ob GitHub
+  Pages genau diese Schleife ebenso bilden wuerde, ist nicht
+  abschliessend geprueft - die eindeutige Zieladresse macht die Frage
+  aber gegenstandslos.
+-->
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Die Vorlagen zum Ausdrucken — Kämpfen, nie aufgeben</title>
+<link rel="canonical" href="https://sarahphiline.de/vorlagen">
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="refresh" content="0; url=../vorlagen.html">
+</head>
+<body>
+<p>Weiterleitung … falls sie nicht automatisch startet: <a href="../vorlagen.html">Zu den Vorlagen</a>.</p>
+</body>
+</html>
