@@ -117,7 +117,15 @@ window.SPK_CONFIG = {
   // bewusst NICHT hier, sondern fest im HTML von buch.html - Pflicht-
   // angaben duerfen nicht an diesem Skript haengen (siehe dortige
   // FREISCHALTUNG-Checkliste).
-  bookLinkCopecart: "",
+  //
+  // 06.09.2026 freigeschaltet: CopeCart ist live. Am selben Tag abgerufen
+  // und geprueft - HTTP 200 ohne Weiterleitung, Produkt 393197 "Kaempfen,
+  // nie aufgeben - E-Book (EPUB)", 7,99 Euro, ISBN 978-3-9829464-0-5.
+  // Preis und ISBN decken sich mit buch.html; ein abweichender Preis waere
+  // ein Verstoss gegen die Buchpreisbindung gewesen.
+  // Amazon und Thalia liefert Michael nach - sie bleiben leer, ihre
+  // Knoepfe erscheinen deshalb nicht.
+  bookLinkCopecart: "https://copecart.com/products/be97dda3/checkout",
   bookLinkAmazon: "",
   bookLinkThalia: "",
 

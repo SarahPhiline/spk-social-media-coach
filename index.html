@@ -110,7 +110,22 @@
       <div class="intro-teaser reveal">
         <p>Ich starte in der Para-Dressur im Grade III und arbeite mich Schritt für Schritt zurück in den Springsport. An meiner Seite: My Milou, meine Stute — die Konstante, als vieles andere wegbrach.</p>
         <p>Genau davon erzähle ich auf meinen Kanälen. Nicht von Perfektion, sondern von dem, was dazwischen passiert — vom Ausmisten bis zur Siegerehrung.</p>
-        <a class="btn btn-secondary" href="ueber-uns.html">Die ganze Geschichte <span class="btn-arrow" aria-hidden="true">→</span></a>
+        <!-- Zwei Knoepfe seit dem 06.09.2026, als das Buch kaufbar wurde.
+             Sie stehen in .hero-actions, der bestehenden Klasse fuer
+             Knopfgruppen (display:flex, gap:1rem, flex-wrap:wrap) - keine
+             neue Regel im Stilblatt noetig, und bei schmalen Bildschirmen
+             bricht die Zeile ordentlich um.
+             WARUM HIER UND NICHT IM MENUE: Dieser Abschnitt fragt bereits
+             nach der ganzen Geschichte, und das Buch IST sie. Das Menue
+             fuehrt dagegen in vier Punkten auf "Kooperation anfragen" zu -
+             ein fuenfter Punkt fuer ein Buch eines anderen Autors haette
+             mit genau der einen Handlung konkurriert, fuer die die Seite
+             gebaut ist, und haette in zehn Dateien gepflegt werden
+             muessen. Siehe auch den Kopf von buch.html. -->
+        <div class="hero-actions">
+          <a class="btn btn-secondary" href="ueber-uns.html">Die ganze Geschichte <span class="btn-arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-secondary" href="buch.html">Das Buch dazu <span class="btn-arrow" aria-hidden="true">→</span></a>
+        </div>
       </div>
     </div>
   </section>

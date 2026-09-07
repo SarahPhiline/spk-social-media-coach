@@ -33,4 +33,16 @@
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
+  <!-- /buch, aufgenommen am 06.09.2026 mit Punkt 5 der
+       FREISCHALTUNG-Checkliste. Dieselbe Schreibweise mit .html und aus
+       demselben Grund wie bei /vorlagen darueber; der canonical-Link in
+       buch.html nennt weiterhin https://sarahphiline.de/buch.
+       priority 0.8 wie die uebrigen Inhaltsseiten und hoeher als die
+       0.6 von /vorlagen: Diese Seite verkauft, jene liefert nur die
+       Arbeitsblaetter an Leser, die die Adresse schon kennen. -->
+  <url>
+    <loc>https://sarahphiline.de/buch.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

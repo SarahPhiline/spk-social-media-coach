@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <!--
   ══════════════════════════════════════════════════════════════════
-  FREISCHALTUNG — wenn das Buch kaufbar ist
+  FREISCHALTUNG — ABGESCHLOSSEN AM 06.09.2026
   ══════════════════════════════════════════════════════════════════
-  Diese Seite ist absichtlich VERBORGEN: kein Menüpunkt, kein Link von
+  Diese Seite WAR absichtlich verborgen: kein Menüpunkt, kein Link von
   irgendeiner bestehenden Seite, nicht in sitemap.xml, in robots.txt
   gesperrt und mit <meta name="robots" content="noindex, nofollow">
-  versehen. Wer die Adresse sarahphiline.de/buch kennt, kommt hin -
+  versehen. Wer die Adresse sarahphiline.de/buch kannte, kam hin -
   sonst niemand und keine Suchmaschine.
+
+  AM 06.09.2026 FREIGESCHALTET, alle sechs Punkte in einem Zug. Der
+  Auszeichnungspunkt der Checkliste war Michaels Ansage "Das Buch ist
+  jetzt kaufbar, hier sind die Links" - eingetroffen ist EIN Link,
+  CopeCart. Genau dafuer war die Seite gebaut: Amazon und Thalia
+  bleiben leer, ihre Knoepfe erscheinen nicht.
+
+  Der Stand jedes Punktes steht unten bei ihm. Die Liste bleibt
+  stehen, damit nachvollziehbar ist, was wann geschah - und weil
+  Punkt 1 noch nicht fertig ist: Amazon und Thalia fehlen.
 
   DER INHALT STEHT AN GENAU EINER STELLE, in dieser Datei. buch/index.html
   ist seit 04.09.2026 keine zweite Fassung mehr, sondern eine reine
@@ -24,27 +34,39 @@
   kaufbar, hier sind die Links." Alles Weitere ist diese Checkliste -
   in einem Auftrag abzuarbeiten, nicht von Hand an fuenf Stellen:
 
-  1. In js/site-config.js die drei Felder bookLinkCopecart,
-     bookLinkAmazon, bookLinkThalia mit den echten Adressen fuellen
-     (leer bleiben darf jedes einzelne - der Knopf erscheint dann
-     einfach nicht).
-  2. In DIESER Datei die Zeile <meta name="robots" ...> weiter unten
-     entfernen.
-  3. In robots.txt die beiden Zeilen "Disallow: /buch" und
-     "Disallow: /buch.html" entfernen.
-  4. In vorlagen.html den auskommentierten Absatz "Verweis auf /buch"
-     einkommentieren (steht dort ebenfalls markiert). vorlagen/index.html
-     ist ebenfalls nur eine Weiterleitung und braucht keine eigene
-     Aenderung.
-  5. In sitemap.xml einen Eintrag fuer /buch ergaenzen, nach demselben
-     Muster wie der Eintrag fuer /vorlagen dort (URL mit der Endung
-     .html, weil audit.py sitemap-URLs gegen den tatsaechlichen
-     Dateinamen prueft; der canonical-Link in dieser Datei nennt
-     weiterhin die sauberere Adresse ohne Endung).
-  6. Sobald der Verkaufsstart feststeht: datePublished im JSON-LD
-     weiter unten von "2026" auf das genaue Datum (JJJJ-MM-TT)
-     praezisieren - am 04.09.2026 bewusst nur auf das Jahr gesetzt,
-     weil der Tag noch nicht feststeht.
+  1. TEILWEISE ERLEDIGT 06.09.2026. In js/site-config.js die drei
+     Felder bookLinkCopecart, bookLinkAmazon, bookLinkThalia mit den
+     echten Adressen fuellen (leer bleiben darf jedes einzelne - der
+     Knopf erscheint dann einfach nicht).
+     -> bookLinkCopecart gefuellt und vor dem Eintragen abgerufen:
+        HTTP 200 ohne Weiterleitung, Produkt 393197 "Kaempfen, nie
+        aufgeben - E-Book (EPUB)", 7,99 Euro, ISBN 978-3-9829464-0-5 -
+        Preis und ISBN deckungsgleich mit dieser Datei.
+     -> OFFEN: bookLinkAmazon und bookLinkThalia. Wenn sie kommen,
+        genuegt das Eintragen in site-config.js; an dieser Datei ist
+        dann nichts mehr zu tun.
+  2. ERLEDIGT 06.09.2026. In DIESER Datei die Zeile
+     <meta name="robots" ...> weiter unten entfernen.
+  3. ERLEDIGT 06.09.2026. In robots.txt die beiden Zeilen
+     "Disallow: /buch" und "Disallow: /buch.html" entfernen.
+  4. ERLEDIGT 06.09.2026. In vorlagen.html den auskommentierten Absatz
+     "Verweis auf /buch" einkommentieren (steht dort ebenfalls
+     markiert). vorlagen/index.html ist ebenfalls nur eine
+     Weiterleitung und braucht keine eigene Aenderung.
+  5. ERLEDIGT 06.09.2026. In sitemap.xml einen Eintrag fuer /buch
+     ergaenzen, nach demselben Muster wie der Eintrag fuer /vorlagen
+     dort (URL mit der Endung .html, weil audit.py sitemap-URLs gegen
+     den tatsaechlichen Dateinamen prueft; der canonical-Link in dieser
+     Datei nennt weiterhin die sauberere Adresse ohne Endung).
+  6. ERLEDIGT 06.09.2026. Sobald der Verkaufsstart feststeht:
+     datePublished im JSON-LD weiter unten von "2026" auf das genaue
+     Datum (JJJJ-MM-TT) praezisieren - am 04.09.2026 bewusst nur auf
+     das Jahr gesetzt, weil der Tag noch nicht feststeht.
+     -> Michael hat den 06.09.2026 als Verkaufsstart genannt.
+
+  NICHT TEIL DIESER CHECKLISTE, aber am 06.09.2026 mitentschieden: Wo
+  /buch von der Website aus verlinkt wird. Siehe den Kommentar an der
+  Verlinkung selbst.
   ══════════════════════════════════════════════════════════════════
 -->
 <html lang="de">
@@ -55,15 +77,16 @@
 <meta name="description" content="„Kämpfen, nie aufgeben“ – wie Sarah nach schwerer Erkrankung zurück in den Sattel fand, erzählt von ihrem Vater Michael Koch. E-Book, 7,99 €.">
 <link rel="canonical" href="https://sarahphiline.de/buch">
 
-<!-- Solange diese Seite nicht freigeschaltet ist: nicht indexieren.
-     Siehe Punkt 2 der Checkliste oben. -->
-<meta name="robots" content="noindex, nofollow">
+<!-- Hier stand bis zum 06.09.2026 <meta name="robots" content="noindex,
+     nofollow">. Entfernt mit Punkt 2 der Checkliste, als das Buch kaufbar
+     wurde. Ohne eigene robots-Angabe gilt die Voreinstellung "index,
+     follow" - eine ausdrueckliche Zeile dafuer waere ueberfluessig. -->
 
-<!-- Strukturierte Daten (schema.org Book). datePublished traegt
-     bewusst nur das Jahr (siehe Checkliste Punkt 6) - der genaue Tag
-     steht noch nicht fest, und ISO 8601 laesst ein reines Jahr als
-     gueltiges Datum zu. Eine erfundene Tagesangabe waere falscher als
-     die geringere Genauigkeit. -->
+<!-- Strukturierte Daten (schema.org Book). datePublished stand bis zum
+     06.09.2026 bewusst nur auf dem Jahr, weil der Verkaufsstart noch
+     nicht feststand - eine erfundene Tagesangabe waere falscher gewesen
+     als die geringere Genauigkeit. Mit Punkt 6 der Checkliste auf den
+     von Michael genannten Verkaufsstart praezisiert. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -76,7 +99,7 @@
   "isbn": "978-3-9829464-0-5",
   "bookFormat": "https://schema.org/EBook",
   "numberOfPages": 123,
-  "datePublished": "2026",
+  "datePublished": "2026-09-06",
   "inLanguage": "de",
   "url": "https://sarahphiline.de/buch",
   "image": "https://sarahphiline.de/assets/photos/buch-cover-800.jpg",
