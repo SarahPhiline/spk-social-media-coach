@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>TikTok-Zugang – Sarah Philine</title>
+<style>
+  :root { color-scheme: light; }
+  body {
+    margin: 0; padding: 24px;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: #faf9f7; color: #1a1a1a; line-height: 1.55;
+  }
+  main { max-width: 640px; margin: 0 auto; }
+  h1 { font-size: 1.35rem; margin: 0 0 4px; }
+  .unter { color: #666; font-size: .95rem; margin: 0 0 28px; }
+  .kasten {
+    background: #fff; border: 1px solid #e2ddd6; border-radius: 10px;
+    padding: 20px; margin-bottom: 20px;
+  }
+  .beschriftung {
+    font-size: .8rem; text-transform: uppercase; letter-spacing: .06em;
+    color: #777; margin-bottom: 10px;
+  }
+  #code {
+    font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+    font-size: 1.05rem; word-break: break-all; user-select: all;
+    background: #f4f1ec; border: 1px solid #e2ddd6; border-radius: 8px;
+    padding: 14px; margin: 0;
+  }
+  button {
+    margin-top: 14px; width: 100%; padding: 13px 18px;
+    font-size: 1rem; font-family: inherit; cursor: pointer;
+    background: #1a1a1a; color: #fff; border: 0; border-radius: 8px;
+  }
+  button:active { background: #444; }
+  .frist {
+    background: #fff8e6; border: 1px solid #f0dfae; border-radius: 8px;
+    padding: 14px; font-size: .95rem;
+  }
+  .fehler {
+    background: #fdf0ee; border: 1px solid #eccbc5; border-radius: 8px;
+    padding: 16px;
+  }
+  .fehler p { margin: 0 0 8px; }
+  .fehler p:last-child { margin: 0; }
+  ol { margin: 0; padding-left: 20px; }
+  li { margin-bottom: 6px; }
+  .fuss { color: #888; font-size: .85rem; margin-top: 28px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>TikTok-Zugang</h1>
+  <p class="unter">Diese Seite zeigt nur den Code an. Sie sendet nichts und speichert nichts.</p>
+  <div id="inhalt"></div>
+  <p class="fuss">sarahphiline.de</p>
+</main>
+
+<script>
+(function () {
+  var p = new URLSearchParams(window.location.search);
+  var code = p.get("auth_code");
+  var fehler = p.get("error");
+  var grund = p.get("error_description") || p.get("description") || "";
+  var ziel = document.getElementById("inhalt");
+
+  function text(s) { return document.createTextNode(s); }
+
+  if (code) {
+    var k = document.createElement("div");
+    k.className = "kasten";
+    var b = document.createElement("div");
+    b.className = "beschriftung";
+    b.appendChild(text("Code für Creator OS"));
+    var pre = document.createElement("pre");
+    pre.id = "code";
+    pre.appendChild(text(code));
+    var knopf = document.createElement("button");
+    knopf.appendChild(text("Code kopieren"));
+    knopf.onclick = function () {
+      navigator.clipboard.writeText(code).then(function () {
+        knopf.textContent = "Kopiert";
+        setTimeout(function () { knopf.textContent = "Code kopieren"; }, 2000);
+      }, function () {
+        knopf.textContent = "Bitte von Hand markieren";
+      });
+    };
+    k.appendChild(b); k.appendChild(pre); k.appendChild(knopf);
+
+    var f = document.createElement("div");
+    f.className = "frist";
+    f.appendChild(text("Der Code ist zehn Minuten gültig und nur einmal verwendbar. "
+      + "Trag ihn in Creator OS unter System → Verbindungen ein, "
+      + "im Feld „Code von der Rücksprungseite\u201C."));
+
+    ziel.appendChild(k); ziel.appendChild(f);
+
+  } else if (fehler) {
+    var e = document.createElement("div");
+    e.className = "fehler";
+    var z1 = document.createElement("p");
+    z1.appendChild(text("TikTok hat keinen Code ausgegeben."));
+    var z2 = document.createElement("p");
+    z2.appendChild(text("Meldung: " + fehler + (grund ? " – " + grund : "")));
+    var z3 = document.createElement("p");
+    z3.appendChild(text("Bitte den Vorgang in Creator OS neu starten."));
+    e.appendChild(z1); e.appendChild(z2); e.appendChild(z3);
+    ziel.appendChild(e);
+
+  } else {
+    var h = document.createElement("div");
+    h.className = "kasten";
+    var t = document.createElement("p");
+    t.appendChild(text("Diese Seite wird von TikTok aufgerufen, nachdem der Zugang bestätigt wurde. "
+      + "Sie direkt zu öffnen zeigt nichts an."));
+    var ol = document.createElement("ol");
+    ["Creator OS öffnen, System → Verbindungen",
+     "In der TikTok-Karte auf „Autorisierungsseite öffnen\u201C",
+     "Bei TikTok bestätigen – danach erscheint hier der Code"
+    ].forEach(function (s) {
+      var li = document.createElement("li");
+      li.appendChild(text(s));
+      ol.appendChild(li);
+    });
+    h.appendChild(t); h.appendChild(ol);
+    ziel.appendChild(h);
+  }
+})();
+</script>
+</body>
+</html>
