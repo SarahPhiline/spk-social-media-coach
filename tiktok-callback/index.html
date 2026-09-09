@@ -61,7 +61,7 @@
 <script>
 (function () {
   var p = new URLSearchParams(window.location.search);
-  var code = p.get("auth_code");
+  var code = p.get("auth_code") || p.get("code");
   var fehler = p.get("error");
   var grund = p.get("error_description") || p.get("description") || "";
   var ziel = document.getElementById("inhalt");
