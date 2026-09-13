@@ -253,8 +253,13 @@ button { font-family: inherit; }
    pruefungen/test_kontrast_menue.py. */
 .nav-links a.btn-primary,
 .nav-links a.btn-primary:hover { color: #17120d; }
+/* Umschaltgrenze Kopfzeile/Mobilmenue: 960 px (drei Stellen hier). Bis
+   13.09.2026 stand hier 860. Mit dem fuenften Menuepunkt "Buch" brach
+   "Über uns" zwischen 860 und rund 950 px zweizeilig um, und "Start"
+   rueckte an den Namen; gemessen passt die Zeile ab 960 px. Darunter
+   greift das aufklappbare Menue. */
 .nav-cta { display: none; }
-@media (min-width: 860px) { .nav-cta:not(.mobile) { display: inline-flex; } }
+@media (min-width: 960px) { .nav-cta:not(.mobile) { display: inline-flex; } }
 
 .nav-toggle {
   display: inline-flex;
@@ -267,8 +272,8 @@ button { font-family: inherit; }
   flex-shrink: 0;
   color: var(--text);
 }
-@media (min-width: 860px) { .nav-toggle { display: none; } }
-@media (max-width: 859px) {
+@media (min-width: 960px) { .nav-toggle { display: none; } }
+@media (max-width: 959px) {
   .nav-links {
     position: fixed;
     inset: 64px 0 auto 0;

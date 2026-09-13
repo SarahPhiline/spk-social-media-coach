@@ -42,9 +42,13 @@
         HTTP 200 ohne Weiterleitung, Produkt 393197 "Kaempfen, nie
         aufgeben - E-Book (EPUB)", 7,99 Euro, ISBN 978-3-9829464-0-5 -
         Preis und ISBN deckungsgleich mit dieser Datei.
-     -> OFFEN: bookLinkAmazon und bookLinkThalia. Wenn sie kommen,
-        genuegt das Eintragen in site-config.js; an dieser Datei ist
-        dann nichts mehr zu tun.
+     -> 13.09.2026: bookLinkAmazon gefuellt, volle Adresse
+        https://www.amazon.de/dp/B0HJ6XJSL4 (bewusst nicht der Kurzlink,
+        siehe site-config.js). An dieser Datei dafuer nichts geaendert -
+        der Knopf stand schon da. Am selben Tag im Browser geprueft:
+        7,99 Euro, Kindle-E-Book, siehe site-config.js.
+     -> OFFEN: bookLinkThalia. Wenn er kommt, genuegt das Eintragen in
+        site-config.js; an dieser Datei ist dann nichts mehr zu tun.
   2. ERLEDIGT 06.09.2026. In DIESER Datei die Zeile
      <meta name="robots" ...> weiter unten entfernen.
   3. ERLEDIGT 06.09.2026. In robots.txt die beiden Zeilen
@@ -63,10 +67,15 @@
      Datum (JJJJ-MM-TT) praezisieren - am 04.09.2026 bewusst nur auf
      das Jahr gesetzt, weil der Tag noch nicht feststeht.
      -> Michael hat den 06.09.2026 als Verkaufsstart genannt.
+     -> 13.09.2026 ZURUECKGENOMMEN, Entscheidung Michael: wieder nur
+        "2026". CopeCart und Amazon haben verschiedene Starttage; ein
+        Tagesdatum waere an einer Stelle immer falsch.
 
   NICHT TEIL DIESER CHECKLISTE, aber am 06.09.2026 mitentschieden: Wo
-  /buch von der Website aus verlinkt wird. Siehe den Kommentar an der
-  Verlinkung selbst.
+  /buch von der Website aus verlinkt wird. Am 13.09.2026 geaendert: Der
+  Menuepunkt "Buch" steht jetzt in Kopfzeile und Fussbereich aller zehn
+  Seiten, und die Startseite hat einen eigenen Buchabschnitt. Siehe den Kommentar
+  an der Verlinkung in index.html.
   ══════════════════════════════════════════════════════════════════
 -->
 <html lang="de">
@@ -86,7 +95,15 @@
      06.09.2026 bewusst nur auf dem Jahr, weil der Verkaufsstart noch
      nicht feststand - eine erfundene Tagesangabe waere falscher gewesen
      als die geringere Genauigkeit. Mit Punkt 6 der Checkliste auf den
-     von Michael genannten Verkaufsstart praezisiert. -->
+     von Michael genannten Verkaufsstart praezisiert, am 13.09.2026
+     wieder auf das Jahr zurueckgesetzt: Die Kaufwege starteten an
+     verschiedenen Tagen. Dasselbe "2026" steht sichtbar unter
+     "Erschienen".
+     numberOfPages ist am 13.09.2026 ENTFERNT (nicht leer gesetzt),
+     Entscheidung Michael - Grund siehe Kommentar an der Zeile "Umfang"
+     in den Buchangaben. Kommt zurueck, wenn das Taschenbuch lieferbar
+     ist. -->
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -102,8 +119,7 @@
   },
   "isbn": "978-3-9829464-0-5",
   "bookFormat": "https://schema.org/EBook",
-  "numberOfPages": 151,
-  "datePublished": "2026-09-06",
+  "datePublished": "2026",
   "inLanguage": "de",
   "url": "https://sarahphiline.de/buch",
   "image": "https://sarahphiline.de/assets/photos/buch-cover-800.jpg",
@@ -148,6 +164,7 @@
     <ul class="nav-links" id="nav-links">
       <li><a href="index.html">Start</a></li>
       <li><a href="ueber-uns.html">Über uns</a></li>
+      <li><a href="buch.html" aria-current="page">Buch</a></li>
       <li><a href="kooperationen.html">Kooperationen</a></li>
       <li><a href="kontakt.html">Kontakt</a></li>
       <li class="nav-cta mobile"><a class="btn btn-primary" href="kontakt.html">Kooperation anfragen</a></li>
@@ -180,11 +197,15 @@
           <span class="book-price">7,99 €</span>
           <span class="book-price-note">E-Book · Buchpreisbindung</span>
         </div>
+        <!-- 13.09.2026: Kaufwege zuerst, Leseprobe danach. Vorher stand die
+             Leseprobe vorn; mit CopeCart UND Amazon brach der Amazon-Knopf
+             bei 1366 px allein in die zweite Zeile - die beiden Kaufwege
+             standen nicht gleichrangig nebeneinander. -->
         <div class="book-actions">
-          <a class="btn btn-secondary" href="Leseprobe_Kaempfen-nie-aufgeben.pdf">Leseprobe lesen (PDF, 13 Seiten) <span class="btn-arrow" aria-hidden="true">→</span></a>
           <a class="btn btn-primary" href="#" hidden data-cfg-optional="bookLinkCopecart" data-cfg-href="bookLinkCopecart" target="_blank" rel="noopener noreferrer">Bei CopeCart kaufen <span class="btn-arrow" aria-hidden="true">→</span></a>
           <a class="btn btn-primary" href="#" hidden data-cfg-optional="bookLinkAmazon" data-cfg-href="bookLinkAmazon" target="_blank" rel="noopener noreferrer">Bei Amazon kaufen <span class="btn-arrow" aria-hidden="true">→</span></a>
           <a class="btn btn-primary" href="#" hidden data-cfg-optional="bookLinkThalia" data-cfg-href="bookLinkThalia" target="_blank" rel="noopener noreferrer">Bei Thalia / Tolino kaufen <span class="btn-arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-secondary" href="Leseprobe_Kaempfen-nie-aufgeben.pdf">Leseprobe lesen (PDF, 13 Seiten) <span class="btn-arrow" aria-hidden="true">→</span></a>
         </div>
       </div>
     </div>
@@ -199,7 +220,7 @@
         <p>Im November 2022 ruft der Rettungsdienst an.</p>
         <p>Sarah ist in der Ausbildung zur Physiotherapeutin, sie reitet Turniere und arbeitet im Stall. Am Tag davor ist sie ohne Hilfsmittel über den Hof gelaufen.</p>
         <p>Was folgt, sind zwei Jahre in Kliniken. Blutvergiftungen, multiresistente Keime, Quarantäne, ein Antibiotikum, das deutschlandweit zusammengesucht werden muss. Mehrmals steht es auf der Kippe. Geblieben sind eine Halbseitenlähmung, eine Orthese, ein Rollstuhl für lange Wege – und ein Pferd, das die Familie selbst auf die Welt geholt hat: My Milou.</p>
-        <p>Dieses Buch erzählt Sarahs Weg zurück in den Sattel. Bis zum ersten Turnier nach der Erkrankung. Bis zur Bayerischen Meisterschaft. Bis zum dritten Platz im Finale des Para-Deux-Cups. Und bis zu dem Tag, an dem sie wieder über einen Sprung geht.</p>
+        <p>Dieses Buch erzählt Sarahs Weg zurück in den Sattel. Bis zum ersten Turnier nach der Erkrankung. Bis zum 3. Platz in der Einzelwertung Grade III bei der Bayerischen Meisterschaft 2026. Bis zum 3. Platz im Finale des Para-Deux-Cups. Und bis zu dem Tag, an dem sie wieder über einen Sprung geht.</p>
         <p>Es erzählt aber noch etwas. Sarah hat diesen Weg öffentlich gezeigt, auf TikTok und Instagram, vor Hunderttausenden. Ihr Vater kam später dazu – ohne Fachwissen, ohne Regelwerk, ohne eigenen Account. Der zweite Teil des Buches ist das, was er dabei gelernt hat: wie Sichtbarkeit entsteht, wie man Zahlen liest, ohne ihnen zu glauben, was Werbekennzeichnung wirklich verlangt, woran man erkennt, dass jemand Reichweite verkauft – und wo Begleitung aufhört und Kontrolle anfängt.</p>
         <p>In jedem Kapitel kommen Sarah und ihre Mutter Carmen selbst zu Wort. Am Ende stehen neun Vorlagen zum Ausfüllen, für Familien, die vor denselben Fragen stehen.</p>
         <p>Eine wahre Geschichte. Kein Ratgeber von jemandem, der es immer schon wusste.</p>
@@ -256,15 +277,31 @@
       <dl class="book-facts reveal">
         <div><dt>Titel</dt><dd>Kämpfen, nie aufgeben</dd></div>
         <div><dt>Autor</dt><dd>Michael Koch</dd></div>
-        <div><dt>Format</dt><dd>E-Book (EPUB), ohne Kopierschutz</dd></div>
-        <div><dt>Umfang</dt><dd>151 Seiten, rund 24.800 Wörter, 13 Fotos</dd></div>
+        <!-- 13.09.2026: Format nach Kaufweg getrennt. "EPUB, ohne
+             Kopierschutz" gilt nur fuer CopeCart (dort als Produktname
+             und Aufzaehlungspunkt gefuehrt); fuer Amazon steht nur, was
+             die Produktseite belegt - Kindle -, nichts zum Kopierschutz. -->
+        <div><dt>Format</dt><dd>E-Book – bei CopeCart als EPUB ohne Kopierschutz, bei Amazon als Kindle-E-Book</dd></div>
+        <!-- SEITENZAHL ENTFERNT am 13.09.2026, Entscheidung Michael, hier
+             und als numberOfPages in den strukturierten Daten oben. Hier
+             stand "151 Seiten (E-Book)". Es gab drei Zahlen fuer dasselbe
+             Buch: 151 auf dieser Seite (Herkunft nicht belegt), 152 im
+             bestellten Taschenbuch bei BoD, 140 als Amazons "Seitenzahl
+             der Print-Ausgabe". Ein E-Book hat keine feste Seitenzahl.
+             ZURUECK, wenn das Taschenbuch lieferbar ist - dann mit der
+             Seitenzahl der Druckausgabe und als solche gekennzeichnet. -->
+        <div><dt>Umfang</dt><dd>Rund 24.800 Wörter, 13 Fotos</dd></div>
         <div><dt>Sprache</dt><dd>Deutsch</dd></div>
         <div><dt>Erschienen</dt><dd>2026</dd></div>
         <!-- 07.09.2026 richtiggestellt: Hier stand Michael Koch. Er ist
              der Autor, nicht der Verlag - Verlag ist Sarah Philine Koch.
              Die Zeile "Autor" darueber bleibt deshalb unveraendert. -->
         <div><dt>Herausgeber und Verlag</dt><dd>Sarah Philine Koch</dd></div>
-        <div><dt>ISBN</dt><dd>978-3-9829464-0-5</dd></div>
+        <!-- 13.09.2026: Die ISBN steht belegt nur bei CopeCart ("EPUB-Datei
+             zum Download. ISBN 978-3-9829464-0-5"). Amazon fuehrt keine
+             ISBN, nur die eigene ASIN - die gehoert als Haendlerkennung
+             nicht hierher. Ueber die Amazon-Ausgabe wird nichts gesagt. -->
+        <div><dt>ISBN</dt><dd>978-3-9829464-0-5 – EPUB bei CopeCart</dd></div>
       </dl>
     </div>
   </section>
@@ -295,6 +332,7 @@
         <ul>
           <li><a href="index.html">Start</a></li>
           <li><a href="ueber-uns.html">Über uns</a></li>
+          <li><a href="buch.html">Buch</a></li>
           <li><a href="kooperationen.html">Kooperationen</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
         </ul>

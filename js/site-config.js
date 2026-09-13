@@ -123,10 +123,18 @@ window.SPK_CONFIG = {
   // nie aufgeben - E-Book (EPUB)", 7,99 Euro, ISBN 978-3-9829464-0-5.
   // Preis und ISBN decken sich mit buch.html; ein abweichender Preis waere
   // ein Verstoss gegen die Buchpreisbindung gewesen.
-  // Amazon und Thalia liefert Michael nach - sie bleiben leer, ihre
-  // Knoepfe erscheinen deshalb nicht.
+  // 13.09.2026: Amazon eingetragen, Adresse von Michael. Der Kurzlink
+  // leitet (HTTP 301) auf https://www.amazon.de/dp/B0HJ6XJSL4 weiter.
+  // Am selben Tag im Browser geprueft: Kindle-E-Book, Titel und
+  // Untertitel wie in buch.html, 7,99 Euro, Herausgeber Sarah Philine
+  // Koch. (Ohne Browser zeigt Amazon nur eine Captcha-Seite.)
+  // Eingetragen ist bewusst die volle Adresse, NICHT der Kurzlink:
+  // Kurzlinks koennen abgeschaltet oder umgeleitet werden, und man sieht
+  // ihnen ihr Ziel nicht an (Entscheidung Michael, 13.09.2026).
+  // Thalia liefert Michael nach - das Feld bleibt leer, der Knopf
+  // erscheint deshalb nicht.
   bookLinkCopecart: "https://copecart.com/products/be97dda3/checkout",
-  bookLinkAmazon: "",
+  bookLinkAmazon: "https://www.amazon.de/dp/B0HJ6XJSL4",
   bookLinkThalia: "",
 
   // Social-Media-Kennzahlen für die Kooperationen-Seite ("Vertrauen &
