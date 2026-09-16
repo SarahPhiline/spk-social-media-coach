@@ -131,11 +131,15 @@ window.SPK_CONFIG = {
   // Eingetragen ist bewusst die volle Adresse, NICHT der Kurzlink:
   // Kurzlinks koennen abgeschaltet oder umgeleitet werden, und man sieht
   // ihnen ihr Ziel nicht an (Entscheidung Michael, 13.09.2026).
-  // Thalia liefert Michael nach - das Feld bleibt leer, der Knopf
-  // erscheint deshalb nicht.
+  // 16.09.2026: Thalia eingetragen, Adresse von Michael (tolino media hat
+  // die Pruefung abgeschlossen, das Buch ist ausgeliefert). Volle Adresse,
+  // kein Kurzlink. Am selben Tag abgerufen: HTTP 200, "Kaempfen, nie
+  // aufgeben", Michael Koch, eBook, Format ePUB, Kopierschutz "Nein",
+  // 7,99 Euro, EAN 9783982946405 (= ISBN 978-3-9829464-0-5), Verlag
+  // Sarah Philine Koch. Titel, Preis und ISBN decken sich mit buch.html.
   bookLinkCopecart: "https://copecart.com/products/be97dda3/checkout",
   bookLinkAmazon: "https://www.amazon.de/dp/B0HJ6XJSL4",
-  bookLinkThalia: "",
+  bookLinkThalia: "https://www.thalia.de/shop/home/artikeldetails/A1081693725",
 
   // Social-Media-Kennzahlen für die Kooperationen-Seite ("Vertrauen &
   // Nachweise" → Social-Media-Kennzahlen). Leer lassen = die Seite zeigt

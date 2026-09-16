@@ -16,8 +16,10 @@
   bleiben leer, ihre Knoepfe erscheinen nicht.
 
   Der Stand jedes Punktes steht unten bei ihm. Die Liste bleibt
-  stehen, damit nachvollziehbar ist, was wann geschah - und weil
-  Punkt 1 noch nicht fertig ist: Amazon und Thalia fehlen.
+  stehen, damit nachvollziehbar ist, was wann geschah. (Bis zum
+  16.09.2026 stand hier: "und weil Punkt 1 noch nicht fertig ist: Amazon
+  und Thalia fehlen." Seit dem 16.09.2026 sind alle drei Kaufwege
+  eingetragen.)
 
   DER INHALT STEHT AN GENAU EINER STELLE, in dieser Datei. buch/index.html
   ist seit 04.09.2026 keine zweite Fassung mehr, sondern eine reine
@@ -34,7 +36,8 @@
   kaufbar, hier sind die Links." Alles Weitere ist diese Checkliste -
   in einem Auftrag abzuarbeiten, nicht von Hand an fuenf Stellen:
 
-  1. TEILWEISE ERLEDIGT 06.09.2026. In js/site-config.js die drei
+  1. ERLEDIGT 16.09.2026 (begonnen 06.09.2026, bis dahin "TEILWEISE
+     ERLEDIGT"). In js/site-config.js die drei
      Felder bookLinkCopecart, bookLinkAmazon, bookLinkThalia mit den
      echten Adressen fuellen (leer bleiben darf jedes einzelne - der
      Knopf erscheint dann einfach nicht).
@@ -47,8 +50,12 @@
         siehe site-config.js). An dieser Datei dafuer nichts geaendert -
         der Knopf stand schon da. Am selben Tag im Browser geprueft:
         7,99 Euro, Kindle-E-Book, siehe site-config.js.
-     -> OFFEN: bookLinkThalia. Wenn er kommt, genuegt das Eintragen in
-        site-config.js; an dieser Datei ist dann nichts mehr zu tun.
+     -> 16.09.2026: bookLinkThalia gefuellt, volle Adresse
+        https://www.thalia.de/shop/home/artikeldetails/A1081693725.
+        Der Knopf stand schon da. Am selben Tag abgerufen: ePUB,
+        Kopierschutz "Nein", 7,99 Euro, EAN = ISBN dieser Datei. Damit
+        sind alle drei Felder gefuellt; in dieser Datei nachgezogen
+        wurden nur die Zeilen "Format" und "ISBN" der Buchangaben.
   2. ERLEDIGT 06.09.2026. In DIESER Datei die Zeile
      <meta name="robots" ...> weiter unten entfernen.
   3. ERLEDIGT 06.09.2026. In robots.txt die beiden Zeilen
@@ -205,6 +212,15 @@
           <a class="btn btn-primary" href="#" hidden data-cfg-optional="bookLinkCopecart" data-cfg-href="bookLinkCopecart" target="_blank" rel="noopener noreferrer">Bei CopeCart kaufen <span class="btn-arrow" aria-hidden="true">→</span></a>
           <a class="btn btn-primary" href="#" hidden data-cfg-optional="bookLinkAmazon" data-cfg-href="bookLinkAmazon" target="_blank" rel="noopener noreferrer">Bei Amazon kaufen <span class="btn-arrow" aria-hidden="true">→</span></a>
           <a class="btn btn-primary" href="#" hidden data-cfg-optional="bookLinkThalia" data-cfg-href="bookLinkThalia" target="_blank" rel="noopener noreferrer">Bei Thalia / Tolino kaufen <span class="btn-arrow" aria-hidden="true">→</span></a>
+        </div>
+        <!-- 16.09.2026: Die Leseprobe steht in einem eigenen Block (dieselbe
+             Klasse book-actions, keine neue Stilregel) und damit auf jeder
+             Breite in einer eigenen Reihe. Vorher stand sie im selben Block
+             wie die Kaufknoepfe; mit drei Kaufwegen (752 px) passte die
+             Reihe nicht in die Spalte (709 px bei 1366 px), und Thalia
+             rutschte neben die Leseprobe. Entscheidung Michael: Kaufwege
+             und Leseprobe sind zweierlei. -->
+        <div class="book-actions">
           <!-- 13.09.2026: Leseprobe durch die zu Fassung 49 gehoerende ersetzt
                (16 Seiten, neu gesetzt mit der Buchschrift). Der Text ist Wort
                fuer Wort derselbe wie in der bisherigen (13 Seiten), nur der
@@ -295,8 +311,13 @@
         <!-- 13.09.2026: Format nach Kaufweg getrennt. "EPUB, ohne
              Kopierschutz" gilt nur fuer CopeCart (dort als Produktname
              und Aufzaehlungspunkt gefuehrt); fuer Amazon steht nur, was
-             die Produktseite belegt - Kindle -, nichts zum Kopierschutz. -->
-        <div><dt>Format</dt><dd>E-Book – bei CopeCart als EPUB ohne Kopierschutz, bei Amazon als Kindle-E-Book</dd></div>
+             die Produktseite belegt - Kindle -, nichts zum Kopierschutz.
+             16.09.2026 um Thalia ergaenzt: Die Thalia-Produktseite nennt
+             "Format ePUB" und "Kopierschutz Nein" - deshalb dort dieselbe
+             Angabe wie bei CopeCart. Hier stand bis dahin "E-Book – bei
+             CopeCart als EPUB ohne Kopierschutz, bei Amazon als
+             Kindle-E-Book". -->
+        <div><dt>Format</dt><dd>E-Book – bei CopeCart und Thalia als EPUB ohne Kopierschutz, bei Amazon als Kindle-E-Book</dd></div>
         <!-- SEITENZAHL ENTFERNT am 13.09.2026, Entscheidung Michael, hier
              und als numberOfPages in den strukturierten Daten oben. Hier
              stand "151 Seiten (E-Book)". Es gab drei Zahlen fuer dasselbe
@@ -326,8 +347,12 @@
         <!-- 13.09.2026: Die ISBN steht belegt nur bei CopeCart ("EPUB-Datei
              zum Download. ISBN 978-3-9829464-0-5"). Amazon fuehrt keine
              ISBN, nur die eigene ASIN - die gehoert als Haendlerkennung
-             nicht hierher. Ueber die Amazon-Ausgabe wird nichts gesagt. -->
-        <div><dt>ISBN</dt><dd>978-3-9829464-0-5 – EPUB bei CopeCart</dd></div>
+             nicht hierher. Ueber die Amazon-Ausgabe wird nichts gesagt.
+             16.09.2026: Thalia fuehrt dieselbe Nummer als EAN
+             9783982946405 fuer die ePUB-Ausgabe - Zusatz deshalb auf
+             "CopeCart und Thalia" erweitert. Hier stand bis dahin
+             "978-3-9829464-0-5 – EPUB bei CopeCart". -->
+        <div><dt>ISBN</dt><dd>978-3-9829464-0-5 – EPUB bei CopeCart und Thalia</dd></div>
       </dl>
     </div>
   </section>
