@@ -69,6 +69,12 @@
      dort (URL mit der Endung .html, weil audit.py sitemap-URLs gegen
      den tatsaechlichen Dateinamen prueft; der canonical-Link in dieser
      Datei nennt weiterhin die sauberere Adresse ohne Endung).
+     -> 20.09.2026 UEBERHOLT: sitemap.xml nennt jetzt https://sarahphiline.de/buch,
+        ohne Endung, wie der canonical-Link hier - die beiden weichen
+        seither nicht mehr voneinander ab. audit.py prueft seither
+        genau das (neue Pruefung, siehe dort). Grund und Beleg: Google
+        Search Console fand /vorlagen ueber die alte, abweichende
+        Sitemap-Adresse gar nicht; siehe sitemap.xml.
   6. ERLEDIGT 06.09.2026. Sobald der Verkaufsstart feststeht:
      datePublished im JSON-LD weiter unten von "2026" auf das genaue
      Datum (JJJJ-MM-TT) praezisieren - am 04.09.2026 bewusst nur auf
@@ -83,6 +89,18 @@
   Menuepunkt "Buch" steht jetzt in Kopfzeile und Fussbereich aller zehn
   Seiten, und die Startseite hat einen eigenen Buchabschnitt. Siehe den Kommentar
   an der Verlinkung in index.html.
+
+  20.09.2026: Alle internen Verweise auf diese Seite (Kopf- und
+  Fusszeile aller zehn Seiten, die beiden Knoepfe auf index.html, der
+  Knopf auf vorlagen.html - 23 Stellen) zeigten bis dahin auf
+  "buch.html". Umgestellt auf "buch" (ohne Endung), damit sie mit dem
+  canonical-Link oben uebereinstimmen. Grund und Beleg: sitemap.xml,
+  Kommentar am dortigen Eintrag fuer /buch. Diese Datei selbst behaelt
+  ihren Dateinamen buch.html - nur die Verweise DARAUF wurden
+  geaendert, keine Datei umbenannt. buch/index.html (die Weiterleitung
+  fuer die Adresse mit abschliessendem Schraegstrich) verweist bewusst
+  weiterhin auf "../buch.html" - eine echte Datei, kein Rueckverweis auf
+  eine weitere Weiterleitung.
   ══════════════════════════════════════════════════════════════════
 -->
 <html lang="de">
@@ -171,7 +189,7 @@
     <ul class="nav-links" id="nav-links">
       <li><a href="index.html">Start</a></li>
       <li><a href="ueber-uns.html">Über uns</a></li>
-      <li><a href="buch.html" aria-current="page">Buch</a></li>
+      <li><a href="buch" aria-current="page">Buch</a></li>
       <li><a href="kooperationen.html">Kooperationen</a></li>
       <li><a href="kontakt.html">Kontakt</a></li>
       <li class="nav-cta mobile"><a class="btn btn-primary" href="kontakt.html">Kooperation anfragen</a></li>
@@ -383,7 +401,7 @@
         <ul>
           <li><a href="index.html">Start</a></li>
           <li><a href="ueber-uns.html">Über uns</a></li>
-          <li><a href="buch.html">Buch</a></li>
+          <li><a href="buch">Buch</a></li>
           <li><a href="kooperationen.html">Kooperationen</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
         </ul>

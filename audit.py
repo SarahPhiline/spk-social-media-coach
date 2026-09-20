@@ -145,8 +145,51 @@ if os.path.exists("sitemap.xml"):
             path_part = loc.replace("https://sarahphiline.de/", "")
             if path_part == "":
                 path_part = "index.html"
-            if not os.path.exists(path_part):
+
+            # GEAENDERT 20.09.2026: Eine Sitemap-Adresse OHNE eigene
+            # Endung galt hier bis dahin nur, wenn genau dieser Pfad auf
+            # der Platte existiert (Datei ODER Ordner) - "buch" und
+            # "vorlagen" erfuellten das zufaellig schon durch die
+            # gleichnamigen Weiterleitungs-Ordner buch/ und vorlagen/,
+            # nicht weil dort wirklich Inhalt läge. Jetzt gilt eine
+            # Adresse ohne Endung nur, wenn es <name>.html ODER
+            # <name>/index.html gibt - in dieser Reihenfolge, weil
+            # GitHub Pages bei einer Anfrage ohne Endung die .html-Datei
+            # vor dem Ordner ausliefert (getestet 20.09.2026:
+            # https://sarahphiline.de/buch antwortet mit dem Inhalt von
+            # buch.html, nicht von buch/index.html). Grund fuer die
+            # Aenderung: sitemap.xml.
+            if os.path.isfile(path_part):
+                resolved = path_part
+            elif os.path.isfile(path_part + ".html"):
+                resolved = path_part + ".html"
+            elif os.path.isfile(os.path.join(path_part, "index.html")):
+                resolved = os.path.join(path_part, "index.html")
+            else:
+                resolved = None
+
+            if resolved is None:
                 report["issues"].append(f"sitemap.xml: URL zeigt auf nicht existierende Datei -> {loc}")
+                continue
+
+            # NEU 20.09.2026: Die Sitemap-Adresse muss mit dem
+            # canonical-Link der Seite uebereinstimmen, die unter ihr
+            # ausgeliefert wird - sonst schickt die Sitemap
+            # Suchmaschinen auf eine Adresse, die die Seite selbst gar
+            # nicht als ihre eigentliche nennt. Genau das hatte
+            # https://sarahphiline.de/vorlagen bis zum 20.09.2026 aus
+            # dem Google-Index gehalten (Sitemap nannte .../vorlagen.html,
+            # canonical in vorlagen.html nennt .../vorlagen) - diese
+            # Pruefung waere damals angeschlagen. Siehe sitemap.xml.
+            content = open(resolved, encoding="utf-8").read()
+            m = re.search(r'<link rel="canonical" href="(.*?)"', content)
+            if not m:
+                report["issues"].append(f"sitemap.xml: {resolved} (aus Sitemap-URL {loc}) hat keinen canonical-Link")
+            elif m.group(1) != loc:
+                report["issues"].append(
+                    f"sitemap.xml: URL {loc} liefert {resolved} aus, das aber "
+                    f"canonical={m.group(1)!r} nennt - Sitemap und canonical weichen ab"
+                )
     except Exception as e:
         report["sitemap_wellformed"] = False
         report["issues"].append(f"sitemap.xml: nicht wohlgeformt ({e})")

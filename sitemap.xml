@@ -20,28 +20,43 @@
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-  <!-- Adresse mit .html, nicht wie sonst auf der Seite ohne Endung
-       verlinkt: audit.py prueft jede Sitemap-URL gegen den
-       tatsaechlichen Dateinamen auf der Platte, und "vorlagen" ohne
-       Endung existiert dort nicht - das haette einen neuen Fehlalarm
-       ausgeloest. Der canonical-Link in vorlagen.html nennt weiterhin
-       https://sarahphiline.de/vorlagen als die eigentliche Adresse;
-       das ist kein Widerspruch, Suchmaschinen folgen dem canonical-Tag
-       unabhaengig davon, welche Schreibweise sie zum Auffinden nutzten. -->
+  <!-- Bis zum 20.09.2026 stand hier https://sarahphiline.de/vorlagen.html
+       (mit Endung), aus einem Grund, der so nicht mehr zutraf: audit.py
+       pruefte jede Sitemap-URL nur gegen den tatsaechlichen Dateinamen auf
+       der Platte, und "vorlagen" ohne Endung existierte damals dort nicht.
+       Inzwischen gibt es den Ordner vorlagen/ mit einer index.html (reine
+       Weiterleitung, siehe dort) - seither erfuellte "vorlagen" die alte
+       Pruefung zufaellig mit, nur eben als Ordner statt als Datei. Der
+       eigentliche Schaden: Diese Adresse mit .html widersprach dem
+       canonical-Link in vorlagen.html (der weiterhin
+       https://sarahphiline.de/vorlagen nennt), und weil auch sonst keine
+       Seite mit dieser Schreibweise ohne Endung verlinkte, fand Google die
+       kanonische Adresse nirgends - Befund Michael, Search Console,
+       20.09.2026: "URL ist Google nicht bekannt". Am 20.09.2026 auf die
+       kanonische Adresse umgestellt und audit.py um eine echte Pruefung
+       ergaenzt (siehe dort: <name>.html ODER <name>/index.html gilt als
+       vorhanden, UND die Sitemap-Adresse muss mit dem canonical-Link der
+       ausgelieferten Seite uebereinstimmen). -->
   <url>
-    <loc>https://sarahphiline.de/vorlagen.html</loc>
+    <loc>https://sarahphiline.de/vorlagen</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <!-- /buch, aufgenommen am 06.09.2026 mit Punkt 5 der
-       FREISCHALTUNG-Checkliste. Dieselbe Schreibweise mit .html und aus
-       demselben Grund wie bei /vorlagen darueber; der canonical-Link in
-       buch.html nennt weiterhin https://sarahphiline.de/buch.
+       FREISCHALTUNG-Checkliste. Bis zum 20.09.2026 stand hier dieselbe
+       Schreibweise mit .html und aus demselben (inzwischen ueberholten)
+       Grund wie bei /vorlagen darueber - siehe den Kommentar dort. /buch
+       war davon in der Praxis nicht betroffen, weil praktisch jede Seite
+       im Menue auf buch.html verlinkte und Google die Seite darueber
+       ohnehin fand (Search Console 20.09.2026: /buch selbst INDEXIERT,
+       /buch.html nur als "Alternative Seite mit richtigem kanonischen
+       Tag"). Trotzdem am 20.09.2026 aus Konsistenz auf die kanonische
+       Adresse umgestellt, aus demselben Grund wie bei /vorlagen.
        priority 0.8 wie die uebrigen Inhaltsseiten und hoeher als die
        0.6 von /vorlagen: Diese Seite verkauft, jene liefert nur die
        Arbeitsblaetter an Leser, die die Adresse schon kennen. -->
   <url>
-    <loc>https://sarahphiline.de/buch.html</loc>
+    <loc>https://sarahphiline.de/buch</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
