@@ -20,6 +20,14 @@
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
+  <!-- Media Kit, aufgenommen am 25.10.2026. Adresse wie der canonical-Link
+       in media-kit.html (mit Endung, wie bei den uebrigen Seiten ausser
+       /buch und /vorlagen); audit.py prueft die Uebereinstimmung. -->
+  <url>
+    <loc>https://sarahphiline.de/media-kit.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
   <!-- Bis zum 20.09.2026 stand hier https://sarahphiline.de/vorlagen.html
        (mit Endung), aus einem Grund, der so nicht mehr zutraf: audit.py
        pruefte jede Sitemap-URL nur gegen den tatsaechlichen Dateinamen auf
