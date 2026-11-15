@@ -1,22 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- lastmod seit 15.11.2026: Datum der letzten inhaltlichen Aenderung
+       der jeweiligen Seite, abgelesen aus der Git-Historie (letzter
+       Commit, der die Datei geaendert hat). Google wertet lastmod aus,
+       wenn es stimmt; changefreq und priority ignoriert Google laut
+       eigener Doku. WER EINE SEITE AENDERT, SETZT HIER IHR DATUM NEU -
+       ein lastmod, das nicht stimmt, bringt Google dazu, die Angabe fuer
+       die ganze Website zu ignorieren. Anlass: Taschenbuch auf /buch
+       (15.11.2026), Google soll die Seite neu einlesen. -->
   <url>
     <loc>https://sarahphiline.de/</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://sarahphiline.de/ueber-uns.html</loc>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sarahphiline.de/kooperationen.html</loc>
+    <lastmod>2026-10-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://sarahphiline.de/kontakt.html</loc>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -25,6 +37,7 @@
        /buch und /vorlagen); audit.py prueft die Uebereinstimmung. -->
   <url>
     <loc>https://sarahphiline.de/media-kit.html</loc>
+    <lastmod>2026-10-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -47,6 +60,7 @@
        ausgelieferten Seite uebereinstimmen). -->
   <url>
     <loc>https://sarahphiline.de/vorlagen</loc>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -65,6 +79,7 @@
        Arbeitsblaetter an Leser, die die Adresse schon kennen. -->
   <url>
     <loc>https://sarahphiline.de/buch</loc>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
