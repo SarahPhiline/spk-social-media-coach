@@ -101,6 +101,13 @@
   fuer die Adresse mit abschliessendem Schraegstrich) verweist bewusst
   weiterhin auf "../buch.html" - eine echte Datei, kein Rueckverweis auf
   eine weitere Weiterleitung.
+  15.11.2026: TASCHENBUCH LIEFERBAR (BoD, erschienen 12.11.2026). Michaels
+  Ansage: "Das Taschenbuch ist jetzt zu kaufen", mit der BoD-Adresse.
+  Eingebaut: Feld bookLinkBod in js/site-config.js (Beleg dort), eigener
+  Preis- und Kaufblock im Kopfbereich, Buchangaben Format/Umfang/ISBN/
+  Erschienen nach Ausgabe getrennt, Seitenzahl der Druckausgabe (152) wie
+  am 13.09.2026 vorgesehen zurueck, strukturierte Daten mit zwei Ausgaben,
+  Schlusssatz "Das Taschenbuch erscheint spaeter" ersetzt.
   ══════════════════════════════════════════════════════════════════
 -->
 <html lang="de">
@@ -108,7 +115,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kämpfen, nie aufgeben — Das Buch von Michael Koch</title>
-<meta name="description" content="„Kämpfen, nie aufgeben“ – wie Sarah nach schwerer Erkrankung zurück in den Sattel fand, erzählt von ihrem Vater Michael Koch. E-Book, 7,99 €.">
+<meta name="description" content="„Kämpfen, nie aufgeben“ – wie Sarah nach schwerer Erkrankung zurück in den Sattel fand, erzählt von ihrem Vater. Taschenbuch 14,90 €, E-Book 7,99 €.">
 <link rel="canonical" href="https://sarahphiline.de/buch">
 
 <!-- Hier stand bis zum 06.09.2026 <meta name="robots" content="noindex,
@@ -127,7 +134,13 @@
      numberOfPages ist am 13.09.2026 ENTFERNT (nicht leer gesetzt),
      Entscheidung Michael - Grund siehe Kommentar an der Zeile "Umfang"
      in den Buchangaben. Kommt zurueck, wenn das Taschenbuch lieferbar
-     ist. -->
+     ist.
+     15.11.2026: Taschenbuch lieferbar. Seither beschreibt der Block das
+     Werk einmal und die beiden Ausgaben als workExample - jede mit eigener
+     ISBN, eigenem Format und eigenem Preis. numberOfPages steht nur beim
+     Taschenbuch (152, laut BoD-Shop). datePublished des Taschenbuchs ist
+     das Erscheinungsdatum, das BoD nennt (12.11.2026); beim E-Book bleibt
+     es bei "2026" (siehe oben). -->
 
 <script type="application/ld+json">
 {
@@ -142,24 +155,45 @@
     "@type": "Person",
     "name": "Sarah Philine Koch"
   },
-  "isbn": "978-3-9829464-0-5",
-  "bookFormat": "https://schema.org/EBook",
-  "datePublished": "2026",
   "inLanguage": "de",
   "url": "https://sarahphiline.de/buch",
   "image": "https://sarahphiline.de/assets/photos/buch-cover-800.jpg",
-  "offers": {
-    "@type": "Offer",
-    "price": "7.99",
-    "priceCurrency": "EUR"
-  }
+  "workExample": [
+    {
+      "@type": "Book",
+      "bookFormat": "https://schema.org/Paperback",
+      "isbn": "978-3-9829464-1-2",
+      "numberOfPages": 152,
+      "datePublished": "2026-11-12",
+      "inLanguage": "de",
+      "offers": {
+        "@type": "Offer",
+        "price": "14.90",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://buchshop.bod.de/kaempfen-nie-aufgeben-michael-koch-9783982946412"
+      }
+    },
+    {
+      "@type": "Book",
+      "bookFormat": "https://schema.org/EBook",
+      "isbn": "978-3-9829464-0-5",
+      "datePublished": "2026",
+      "inLanguage": "de",
+      "offers": {
+        "@type": "Offer",
+        "price": "7.99",
+        "priceCurrency": "EUR"
+      }
+    }
+  ]
 }
 </script>
 
 <meta property="og:type" content="book">
 <meta property="og:site_name" content="SPK">
 <meta property="og:title" content="Kämpfen, nie aufgeben — Das Buch von Michael Koch">
-<meta property="og:description" content="„Kämpfen, nie aufgeben“ – wie Sarah nach schwerer Erkrankung zurück in den Sattel fand, erzählt von ihrem Vater Michael Koch. E-Book, 7,99 €.">
+<meta property="og:description" content="„Kämpfen, nie aufgeben“ – wie Sarah nach schwerer Erkrankung zurück in den Sattel fand, erzählt von ihrem Vater. Taschenbuch 14,90 €, E-Book 7,99 €.">
 <meta property="og:image" content="https://sarahphiline.de/assets/photos/buch-cover-800.jpg">
 <meta property="og:image:width" content="800">
 <meta property="og:image:height" content="1280">
@@ -211,12 +245,23 @@
         </picture>
       </div>
       <div>
-        <span class="eyebrow">E-Book · Michael Koch</span>
+        <span class="eyebrow">Taschenbuch &amp; E-Book · Michael Koch</span>
         <h1>Kämpfen, nie aufgeben</h1>
         <p class="lead">Wie meine Tochter zurück in den Sattel fand – und ich lernte, sie in der digitalen Welt zu begleiten</p>
         <div class="intro-teaser">
           <p>Im November 2022 ruft der Rettungsdienst an. Sarah reitet Turniere, macht eine Ausbildung, arbeitet im Stall. Am Tag davor ist sie ohne Hilfsmittel über den Hof gelaufen.</p>
           <p>Was danach kam, steht in diesem Buch. Und was wir dabei über eine Welt gelernt haben, die wir vorher nicht kannten.</p>
+        </div>
+        <!-- 15.11.2026: Taschenbuch dazugekommen. Jede Ausgabe hat ihren
+             eigenen Preis und ihre eigenen Knoepfe, damit nie ein Preis neben
+             dem falschen Kaufweg steht. Taschenbuch zuerst, weil es neu ist.
+             Keine neue Stilregel - dieselben Klassen wie bisher. -->
+        <div class="book-price-row">
+          <span class="book-price">14,90 €</span>
+          <span class="book-price-note">Taschenbuch · 152 Seiten · Buchpreisbindung</span>
+        </div>
+        <div class="book-actions">
+          <a class="btn btn-primary" href="#" hidden data-cfg-optional="bookLinkBod" data-cfg-href="bookLinkBod" target="_blank" rel="noopener noreferrer">Taschenbuch bei BoD kaufen <span class="btn-arrow" aria-hidden="true">→</span></a>
         </div>
         <div class="book-price-row">
           <span class="book-price">7,99 €</span>
@@ -335,7 +380,8 @@
              Angabe wie bei CopeCart. Hier stand bis dahin "E-Book – bei
              CopeCart als EPUB ohne Kopierschutz, bei Amazon als
              Kindle-E-Book". -->
-        <div><dt>Format</dt><dd>E-Book – bei CopeCart und Thalia als EPUB ohne Kopierschutz, bei Amazon als Kindle-E-Book</dd></div>
+        <!-- 15.11.2026: Taschenbuch vorangestellt ("Paperback" laut BoD). -->
+        <div><dt>Format</dt><dd>Taschenbuch bei BoD<br>E-Book – bei CopeCart und Thalia als EPUB ohne Kopierschutz, bei Amazon als Kindle-E-Book</dd></div>
         <!-- SEITENZAHL ENTFERNT am 13.09.2026, Entscheidung Michael, hier
              und als numberOfPages in den strukturierten Daten oben. Hier
              stand "151 Seiten (E-Book)". Es gab drei Zahlen fuer dasselbe
@@ -355,9 +401,14 @@
              Hier stand bis dahin "Rund 24.800 Woerter" - nirgends belegt,
              vermutlich aus einer frueheren Fassung. 13 Fotos am selben EPUB
              gezaehlt. -->
-        <div><dt>Umfang</dt><dd>Rund 24.700 Wörter, 13 Fotos</dd></div>
+        <!-- 15.11.2026: Seitenzahl wie oben vorgesehen zurueck - nur fuer die
+             Druckausgabe und als solche gekennzeichnet. 152 laut BoD-Shop am
+             15.11.2026, deckt sich mit dem bestellten Exemplar (siehe oben). -->
+        <div><dt>Umfang</dt><dd>Taschenbuch: 152 Seiten<br>Rund 24.700 Wörter, 13 Fotos</dd></div>
         <div><dt>Sprache</dt><dd>Deutsch</dd></div>
-        <div><dt>Erschienen</dt><dd>2026</dd></div>
+        <!-- 15.11.2026: Taschenbuch mit Tag laut BoD-Shop; das E-Book bleibt
+             beim Jahr (Entscheidung 13.09.2026, siehe Kopf). -->
+        <div><dt>Erschienen</dt><dd>Taschenbuch: 12.11.2026<br>E-Book: 2026</dd></div>
         <!-- 07.09.2026 richtiggestellt: Hier stand Michael Koch. Er ist
              der Autor, nicht der Verlag - Verlag ist Sarah Philine Koch.
              Die Zeile "Autor" darueber bleibt deshalb unveraendert. -->
@@ -370,14 +421,19 @@
              9783982946405 fuer die ePUB-Ausgabe - Zusatz deshalb auf
              "CopeCart und Thalia" erweitert. Hier stand bis dahin
              "978-3-9829464-0-5 – EPUB bei CopeCart". -->
-        <div><dt>ISBN</dt><dd>978-3-9829464-0-5 – EPUB bei CopeCart und Thalia</dd></div>
+        <!-- 15.11.2026: zweite ISBN fuer das Taschenbuch, laut BoD-Shop
+             (ISBN-13 9783982946412). -->
+        <div><dt>ISBN</dt><dd>978-3-9829464-1-2 – Taschenbuch<br>978-3-9829464-0-5 – EPUB bei CopeCart und Thalia</dd></div>
       </dl>
     </div>
   </section>
 
   <section>
     <div class="container">
-      <p class="book-closing reveal">Das Taschenbuch erscheint später. Wer benachrichtigt werden möchte, findet Sarah auf <a href="#" data-cfg-href="instagramUrl" target="_blank" rel="noopener noreferrer">Instagram</a> und <a href="#" data-cfg-href="tiktokUrl" target="_blank" rel="noopener noreferrer">TikTok</a> unter @_sarah.philine_</p>
+      <!-- 15.11.2026: Hier stand "Das Taschenbuch erscheint später. Wer
+           benachrichtigt werden möchte, findet Sarah auf ..." - seit
+           12.11.2026 ueberholt. Die Verweise auf die Kanaele bleiben. -->
+      <p class="book-closing reveal">Wie es mit Sarah und My Milou weitergeht, zeigt Sarah auf <a href="#" data-cfg-href="instagramUrl" target="_blank" rel="noopener noreferrer">Instagram</a> und <a href="#" data-cfg-href="tiktokUrl" target="_blank" rel="noopener noreferrer">TikTok</a> unter @_sarah.philine_</p>
     </div>
   </section>
 

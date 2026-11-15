@@ -141,6 +141,15 @@ window.SPK_CONFIG = {
   bookLinkAmazon: "https://www.amazon.de/dp/B0HJ6XJSL4",
   bookLinkThalia: "https://www.thalia.de/shop/home/artikeldetails/A1081693725",
 
+  // 15.11.2026: Taschenbuch bei BoD eingetragen, Adresse von Michael. Am
+  // selben Tag abgerufen: HTTP 200 ohne Weiterleitung, "Kaempfen, nie
+  // aufgeben", Michael Koch, Paperback, 152 Seiten, ISBN-13 9783982946412
+  // (= 978-3-9829464-1-2), Verlag Sarah Philine Koch, Erscheinungsdatum
+  // 12.11.2026, 14,90 Euro, "sofort verfuegbar". Preis und ISBN stehen
+  // wie beim E-Book fest im HTML von buch.html, nicht hier. Leer = der
+  // Taschenbuch-Knopf erscheint nicht; der Preis daneben bliebe stehen.
+  bookLinkBod: "https://buchshop.bod.de/kaempfen-nie-aufgeben-michael-koch-9783982946412",
+
   // Social-Media-Kennzahlen für die Kooperationen-Seite ("Vertrauen &
   // Nachweise" → Social-Media-Kennzahlen). Leer lassen = die Seite zeigt
   // automatisch "—" statt einer erfundenen Zahl.
