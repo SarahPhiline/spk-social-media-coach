@@ -1,6 +1,12 @@
+# 19.11.2026: Die Zeilen "Disallow: /impressum.html" und
+# "Disallow: /datenschutz.html" (seit 06.08.2026) entfernt.
+# Grund: Beide Seiten tragen selbst <meta name="robots" content="noindex,
+# follow"> und sollen so aus den Suchergebnissen bleiben. Eine Sperre hier
+# verhindert aber, dass Google die Seite abruft - dann sieht Google das
+# noindex nie und kann die Adresse trotzdem (ohne Inhalt) aufnehmen.
+# Search Console meldete am 19.11.2026 "Durch robots.txt-Datei blockiert".
+# Seiten, die nicht in Google erscheinen sollen: noindex im HTML, NICHT hier.
 User-agent: *
 Allow: /
-Disallow: /impressum.html
-Disallow: /datenschutz.html
 
 Sitemap: https://sarahphiline.de/sitemap.xml
